@@ -1,76 +1,44 @@
 Excluir estação
 Ator: Administrador.
-Pré: Caso de Uso Detalhar Estação.
-Administrador seleciona opção para excluir estação.
-Sistema pede confirmação.
-Administrador confirma exclusão da estação.
-Sistema exclui estação.
-Sistema direciona Administrador para tela inicial.
+Pré: Administrador tem que estar conectada ao sistema e a estação a ser apagada deve existir.
 Pós: Estação excluída é apagada do sistema.
+Elimina uma estação já existente do sistema.
 
 Alterar/Editar estação
 Ator: Administrador.
-Pré: Caso de Uso Detalhar Estação.
-Administrador seleciona opção de alterar/editar estação.
-Sistema direciona administrador para tela de alteração/edição de estação.
-Administrador altera os dados da estação conforme necessário.
-Administrador pressiona o botão para termina a edição.
-Sistema pede confirmação da edição dos dados.
-Administrador confirma a edição.
-Sistema salva as alterações.
-Sistema direciona administrador para a tela inicial. 
+Pré: Administrador tem que estar identificado pelo sistema e a estação a ser alterada deve existir.
 Pós: Novos dados da estação foram salvos pelo sistema.
+Altera os dados de uma estação já existente.
 
 Consultar estação
 Ator: Administrador, Operador, Usuário.
-Pré: Caso de Uso Autenticar Pessoa.
-Pessoa seleciona opção de consultar estações.
-Sistema direciona pessoa para a tela de consulta de estações.
-Pessoa define os parâmetros da consulta.
-Pessoa aperta botão para iniciar consulta.
-Sistema procura estações de acordo com os parâmetros.
-Sistema gera uma lista com estações encontradas.
-Sistema direciona pessoa para uma tela com a lista gerada.
+Pré: Sistema deve estar inicializado.
 Pós: Tela com a lista de estações consultada.
+Gera uma lista de estações de acordo com parâmetros passados pelo utilizador.
 
 Detalhar estação
 Ator: Administrador, Operador, Usuário. 
-Pré: Caso de Uso Consulta Estação.
-Administrador seleciona estação da lista gerada pela consulta.
-Administrador seleciona opção para detalhar estação.
-Sistema gera tela de detalhes da estação selecionada.
-Sistema direciona administrador para tela de detalhes criada.
+Pré: Estação deve ter sido localizada por consulta.
 Pós: Tela com detalhes da Estação.
+Mostra os detalhes da estação selecionada para o utilizador.
 
 Autenticar pessoa
 Ator: Administrador, Operador, Usuário.
 Pré: Pessoa está na página de autenticação.
-Pessoa preenche os campos de identificação de Pessoa e senha.
-Pessoa aperta o botão para autenticar.
-Sistema confirma a validade dos dados recebidos.
-Sistema transfere Pessoa para a tela inicial.
 Pós: A Pessoa encontra-se conectada ao sistema na tela inicial.
+Estabelece a conexão ao sistema.
 
 Desautenticar pessoa
 Ator: Administrador, Operador, Usuário. 
-Pré: Caso de Uso 'Autenticar Pessoa'
-Pessoa aperta o botão para desautenticar.
-Sistema pede confirmação.
-Pessoa confirma a intenção de desautenticar.
-Sistema corta conexão com Pessoa.
-Sistema envia pessoa para a tela de autenticação.
+Pré: O utilizador deve estar conectado ao sistema.
 Pós: A Pessoa encontra-se desconectada do sistema na tela de autenticação.
+Termina a conexão ao sistema.
 
 Gerar relatório
 Ator: Administrador.
-Pré: Caso de Uso Autenticar Pessoa.
-Administrador seleciona a opção de gerar relatório.
-Sistema leva Administrador para a tela de geração de relatório.
-Administrador ajusta os parâmetros para a geração do relatório.
-Administrador aperta botão para gerar relatório.
-Sistema gera relatório.
-Sistema dispõe relatório para Administrador.
+Pré: O Administrador deve estar conectado ao sistema.
 Pós: Tela com o relatório gerado.
+Gera um relatório de acordo com parâmetros definidos pelo administrador.
 
 Excluir usuário
 Ator: Administrado, Operador
