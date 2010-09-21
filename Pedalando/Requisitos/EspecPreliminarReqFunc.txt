@@ -41,83 +41,52 @@ Pós: Tela com o relatório gerado.
 Gera um relatório de acordo com parâmetros definidos pelo administrador.
 
 Excluir usuário
-Ator: Administrado, Operador
+Ator: Administrado, Operador, Usuário
 Pré: O usuário a ser excluido deve existir.
-Administrador/Operador consulta pessoas.
-Administrador/Operador seleciona o usuário.
-Administrador/Operador clica no botão excluir.
-Administrador/Operador confirma a exclusão.
-Administrador/Operador é redirecionado para a tela de consultar pessoas.
-Sistema exibe mensagem de sucesso na tela.
 Pós: O usuário deixa de existir no sistema.
+Descrição: O caso de uso se inicia quando um ator tem a intenção de excluir um usuário. Desta forma, o usuário 
+excluído passa a não existir no sistema.
+
 
 Excluir operador
 Ator: Administrador
 Pré: O operador deve existir no sistema.
-Administrador consulta pessoas.
-Administrador seleciona o operador.
-Administrador clica no botão excluir.
-Administrador confirma a exclusão.
-Administrador é redirecionado para a tela de consultar pessoas.
-Sistema exibe mensagem de sucesso na tela.
 Pós: O operador deixa de existir no sistema
+Descrição: O caso de uso se inicia quando um ator tem a intenção de excluir um operador. Desta forma, o operador 
+excluído passa a não existir no sistema.
 
 Excluir administrador
 Ator: Administrador
 Pré: O administrador deve existir no sistema.
-Administrador consulta pessoas.
-Administrador seleciona o operador.
-Administrador clica no botão excluir.
-Administrador confirma a exclusão.
-Administrador é redirecionado para a tela de consultar pessoas.
 Sistema exibe mensagem de sucesso na tela.
 Pós: O operador deixa de existir no sistema
+Descrição: O caso de uso se inicia quando um ator tem a intenção de excluir um administrador. Desta forma, o administrador 
+excluído passa a não existir no sistema.
 
 Alterar/Editar usuário
 Ator: Administrador/Operador/Usuário
 Pré: O usuário deve existir no sistema.
-Administrador/Operador consulta pessoas.
-Administrador/Operador seleciona usuário.
-Administrador/Operador/Usuário clica no botão de alterar dados.
-Administrador/Operador/Usuário entra com os novos dados.
-Administrador/Operador/Usuário clica no botão salvar.
-Administrador/Operador/Usuário confirma a alteração.
-Administrador/Operador/Usuário é direcionado para a tela principal.
-Sistema exibe mensagem de sucesso.
 Pós: Os dados do usuário foram alterados e salvos no sistema.
+Descrição: O caso de uso se inicia quando o ator tem a intenção de alterar as informações do usuário, inserido-as  e 
+salvando-as no sistema.
 
 Alterar/Editar operador
 Ator: Administrador/Operador
 Pré: O operador deve existir no sistema.
-Administrador consulta pessoas.
-Administrador seleciona operador.
-Administrador/Operador clica no botão de alterar dados.
-Administrador/Operador entra com os novos dados.
-Administrador/Operador clica no botão salvar.
-Administrador/Operador confirma a alteração.
-Administrador/Operador é direcionado para a tela principal.
-Sistema exibe mensagem de sucesso.
 Pós: Os dados do operador foram alterados e salvos no sistema.
+Descrição: O caso de uso se inicia quando o ator tem a intenção de alterar as informações do operador, inserido-as  e 
+salvando-as no sistema.
 
 Alterar/Editar administrador
 Ator: Administrador
 Pré: O administrador deve existir no sistema.
-Administrador consulta pessoas.
-Administrador seleciona administrador.
-Administrador clica no botão de alterar dados.
-Administrador entra com os novos dados.
-Administrador clica no botão salvar.
-Administrador confirma a alteração.
-Administrador é direcionado para a tela principal.
-Sistema exibe mensagem de sucesso.
 Pós: Os dados do administrador foram alterados e salvos no sistema.
+Descrição: O caso de uso se inicia quando o ator tem a intenção de alterar as informações do administrador, 
+inserido-as  e salvando-as no sistema.
 
 Registrar/Cadastrar estação
 Ator: Administrador
-Pré: Caso de uso consultar estação.
-Administrador clica no botão para adicionar nova estação.
-Administrador entra com os dados da nova estação.
-Administrador clica no botão salvar.
-Administrador é redirecionado para a tela de consultar estação.
-O sistema exibe uma mensagem de sucesso.
+Pré: O ator deve possuir permissão para executar a ação.
 Pós: Uma nova estação existe no sistema.
+Descrição: O caso de uso se inicia quando o ator tem a intenção de inserir uma nova estação. Ele fornece os dados e 
+salva-os no sistema.
