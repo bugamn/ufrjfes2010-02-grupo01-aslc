@@ -44,52 +44,43 @@ Excluir usuário
 Ator: Administrado, Operador, Usuário
 Pré: O usuário a ser excluido deve existir.
 Pós: O usuário deixa de existir no sistema.
-Descrição: O caso de uso se inicia quando um ator tem a intenção de excluir um usuário. Desta forma, o usuário 
-excluído passa a não existir no sistema.
-
+Descrição: O caso de uso se inicia quando um ator tem a intenção de excluir um usuário. Desta forma, o usuário excluído passa a não existir no sistema.
 
 Excluir operador
 Ator: Administrador
 Pré: O operador deve existir no sistema.
 Pós: O operador deixa de existir no sistema
-Descrição: O caso de uso se inicia quando um ator tem a intenção de excluir um operador. Desta forma, o operador 
-excluído passa a não existir no sistema.
+Descrição: O caso de uso se inicia quando um ator tem a intenção de excluir um operador. Desta forma, o operador excluído passa a não existir no sistema.
 
 Excluir administrador
 Ator: Administrador
 Pré: O administrador deve existir no sistema.
-Sistema exibe mensagem de sucesso na tela.
 Pós: O operador deixa de existir no sistema
-Descrição: O caso de uso se inicia quando um ator tem a intenção de excluir um administrador. Desta forma, o administrador 
-excluído passa a não existir no sistema.
+Descrição: O caso de uso se inicia quando um ator tem a intenção de excluir um administrador. Desta forma, o administrador excluído passa a não existir no sistema.
 
 Alterar/Editar usuário
 Ator: Administrador/Operador/Usuário
 Pré: O usuário deve existir no sistema.
 Pós: Os dados do usuário foram alterados e salvos no sistema.
-Descrição: O caso de uso se inicia quando o ator tem a intenção de alterar as informações do usuário, inserido-as  e 
-salvando-as no sistema.
+Descrição: O caso de uso se inicia quando o ator tem a intenção de alterar as informações do usuário, inserido-as e salvando-as no sistema.
 
 Alterar/Editar operador
 Ator: Administrador/Operador
 Pré: O operador deve existir no sistema.
-Pós: Os dados do operador foram alterados e salvos no sistema.
-Descrição: O caso de uso se inicia quando o ator tem a intenção de alterar as informações do operador, inserido-as  e 
-salvando-as no sistema.
+Pós: Os dados do operador foram alterados e salvos no sistema. 
+Descrição: O caso de uso se inicia quando o ator tem a intenção de alterar as informações do operador, inserido-as e salvando-as no sistema.
 
 Alterar/Editar administrador
 Ator: Administrador
 Pré: O administrador deve existir no sistema.
 Pós: Os dados do administrador foram alterados e salvos no sistema.
-Descrição: O caso de uso se inicia quando o ator tem a intenção de alterar as informações do administrador, 
-inserido-as  e salvando-as no sistema.
+Descrição: O caso de uso se inicia quando o ator tem a intenção de alterar as informações do administrador, inserido-as e salvando-as no sistema.
 
 Registrar/Cadastrar estação
 Ator: Administrador
 Pré: O ator deve possuir permissão para executar a ação.
 Pós: Uma nova estação existe no sistema.
-Descrição: O caso de uso se inicia quando o ator tem a intenção de inserir uma nova estação. Ele fornece os dados e 
-salva-os no sistema.
+Descrição: O caso de uso se inicia quando o ator tem a intenção de inserir uma nova estação. Ele fornece os dados e salva-os no sistema.
 
 Cancelar reserva de bicicleta
 Ator: Administrador, Operador ou Usuário.
@@ -114,3 +105,21 @@ Pré: Administrador
 Pré: Deve estar conectado como Administrador e possuir os dados do Administrador a cadastrar.
 Pós: É criado um novo Administrador no sistema.
 Cria um novo Administrador para poder acessar o sistema.
+
+Consultar reserva de bicicleta
+Ator: Administrador/Operador
+Pré: O ator deve possuir permissão para executar a ação.
+Pós: Uma ou mais reservas são retornadas pela consulta.
+Descrição: Permite que o ator consulte as reservas mediante a aplicação de algum critério (filtro).
+
+Detalhar pessoa
+Ator: Administrador/Operador/Usuário
+Pré: A pessoa deve existir no sistema.
+Pós: As informações da pessoa são exibidas na tela.
+Descrição: O caso de uso exibe as informações da pessoa na tela.
+
+Consultar pessoa
+Ator: Administrador/Operador
+Pré: O ator deve possuir permissão para executar a ação.
+Pós: Uma ou mais pessoas são retornadas pela consulta.
+Descrição: O caso de uso permite que o ator consulte as pessoas mediante aplicação de algum critério (filtro).
