@@ -90,3 +90,27 @@ Pré: O ator deve possuir permissão para executar a ação.
 Pós: Uma nova estação existe no sistema.
 Descrição: O caso de uso se inicia quando o ator tem a intenção de inserir uma nova estação. Ele fornece os dados e 
 salva-os no sistema.
+
+Cancelar reserva de bicicleta
+Ator: Administrador, Operador ou Usuário.
+Pré: Utilizador tem que estar conectado e poder acessar o registro da reserva.
+Pós: O registro da reserva deixa de existir.
+Cancela um pedido de reserva que não é mais necessário.
+
+Registrar/Cadastrar Usuário
+Pré: Administrador, Operador ou Usuário.
+Pré: Utilizador tem os dados do Usuário a cadastrar.
+Pós: É criado um novo Usuário no sistema.
+Cria um novo Usuário para poder acessar o sistema.
+
+Registrar/Cadastrar Operador
+Pré: Administrador
+Pré: Deve estar conectado como Administrador e possuir os dados do Operador a cadastrar.
+Pós: É criado um novo Operador no sistema.
+Cria um novo Operador para poder acessar o sistema.
+
+Registrar/Cadastrar Administrador
+Pré: Administrador
+Pré: Deve estar conectado como Administrador e possuir os dados do Administrador a cadastrar.
+Pós: É criado um novo Administrador no sistema.
+Cria um novo Administrador para poder acessar o sistema.
