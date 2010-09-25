@@ -1,0 +1,80 @@
+Consultar alocação
+Atores: Administrador ou Operador.
+Pré-condição: O ator deve estar autenticado.
+Pós-condição: Exibe uma lista com as bicicletas alocadas e dados de alocação.
+Curso Normal:
+1. 
+Curso Alternativo:
+Exceções:
+
+Devolver bicicleta
+Atores: Administrador ou Operador.
+Pré-condição: O ator deve estar autenticado. A bicicleta deve existir no sistema.
+Pós-condição: O estado da bicicleta no sistema é atualizado.
+Curso Normal:
+Curso Alternativo:
+Exceções:
+
+Retirar bicicleta
+Atores: Administrador ou Operador.
+Pré-condição: O ator deve estar autenticado. A bicicleta deve existir no sistema.
+Pós-condição: O estado da bicicleta no sistema é atualizado para alugada.
+Curso Normal:
+Curso Alternativo:
+Exceções:
+
+Reservar bicicleta
+Atores: Administrador ou Operador ou Usuário.
+Pré-condição: O ator deve estar autenticado. A bicicleta deve existir no sistema.
+Pós-condição: Nova reserva criada no sistema.
+Curso Normal:
+Curso Alternativo:
+Exceções:
+
+Consultar reserva
+Atores: Administrador ou Operador.
+Pré-condição: O ator deve estar autenticado.
+Pós-condição: Exibe uma lista com as reservas.
+Curso Normal:
+Curso Alternativo:
+Exceções:
+
+Cancela reserva
+Atores: Administrador, Operador ou Usuário.
+Pré-condição: O ator tem que estar autenticado. O ator pode acessar o registro da reserva.
+Pós-condição: O registro da reserva deixa de existir.
+Curso Normal:
+Curso Alternativo:
+Exceções:
+
+Cadastrar usuário
+Atores: Administrador, Operador ou Usuário.
+Pré-condição: O ator tem os dados do Usuário a cadastrar.
+Pós-condição: É criado um novo Usuário no sistema.
+Curso Normal:
+Curso Alternativo:
+Exceções:
+
+Consulta bicicleta
+Atores: Administrador, Operador ou Usuário.
+Pré-condição: Estar autenticado no sistema.
+Pós-condição: Exibe uma lista de bicicletas retornada pela consulta.
+Curso Normal:
+Curso Alternativo:
+Exceções:
+
+Consulta estação
+Atores: Administrador, Operador ou Usuário.
+Pré-condição: O ator deve estar autenticado no sistema.
+Pós-condição: Exibe a lista de estações consultadas.
+Curso Normal:
+Curso Alternativo:
+Exceções:
+
+Gera relatório
+Atores: Administrador.
+Pré-condição: O ator deve estar autenticado no sistema.
+Pós-condição: É gerado o relatório.
+Curso Normal:
+Curso Alternativo:
+Exceções:
