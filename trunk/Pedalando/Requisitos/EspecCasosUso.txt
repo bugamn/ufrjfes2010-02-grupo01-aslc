@@ -3,8 +3,13 @@ Atores: Administrador ou Operador.
 Pré-condição: O ator deve estar autenticado.
 Pós-condição: Exibe uma lista com as bicicletas alocadas e dados de alocação.
 Curso Normal:
-1. 
-Curso Alternativo:
+1. O administrador/operador seleciona a opção de realizar consultas.
+2. O administrador/operador seleciona a opção de consulta de alocação.
+3. O administrador/operador requisita a consulta.
+4. O sistema pesquisa os dados da consulta.
+5. O sistema gera uma lista com os dados consultados.
+6. O sistema envia o administrador/operador para uma tela com a lista gerada.
+Curso Alternativo: 
 Exceções:
 
 Devolver bicicleta
