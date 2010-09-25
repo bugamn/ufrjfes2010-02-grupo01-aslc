@@ -9,24 +9,43 @@ Curso Normal:
 4. O sistema pesquisa os dados da consulta.
 5. O sistema gera uma lista com os dados consultados.
 6. O sistema envia o administrador/operador para uma tela com a lista gerada.
-Curso Alternativo: 
-Exceções:
-
-Devolver bicicleta
-Atores: Administrador ou Operador.
-Pré-condição: O ator deve estar autenticado. A bicicleta deve existir no sistema.
-Pós-condição: O estado da bicicleta no sistema é atualizado.
-Curso Normal:
 Curso Alternativo:
 Exceções:
 
 Retirar bicicleta
 Atores: Administrador ou Operador.
-Pré-condição: O ator deve estar autenticado. A bicicleta deve existir no sistema.
+Pré-condição: O ator deve estar autenticado.
 Pós-condição: O estado da bicicleta no sistema é atualizado para alugada.
 Curso Normal:
+1. O administrador/operador seleciona a opção de registrar retirada.
+2. O administrador/operador fornece ao sistema a identificação da bicicleta.
+3. O administrador/operador fornece ao sistema a identificação do usuário que realiza a retirada.
+4. O sistema registra a saída da bicicleta da estação e a data do registro assim como o usuário.
 Curso Alternativo:
 Exceções:
+* Identificação de bicicleta inválida, após passo 3
+1. Sistema não encontra bicicleta identificada nos bancos de dados.
+2. Sistema avisa administrador/operador de que a identificação da bicicleta não é válida.
+3. Sistema cancela a operação.
+* Identificação de usuário inválida, após passo 3
+1. Sistema não encontra usuário identificado nos bancos de dados.
+2. Sistema avisa administrador/operador de que a identificação do usuário não é válida.
+3. Sistema cancela a operação.
+
+Devolver bicicleta
+Atores: Administrador ou Operador.
+Pré-condição: O ator deve estar autenticado.
+Pós-condição: O estado da bicicleta no sistema é atualizado.
+Curso Normal:
+1. O administrador/operador seleciona a opção de registrar devolução.
+2. O administrador/operador fornece ao sistema a identificação da bicicleta.
+3. O sistema registra a devolução da bicicleta na estação e a data do registro.
+Curso Alternativo:
+Exceções:
+* Identificação de bicicleta inválida, após passo 2
+1. Sistema não encontra bicicleta identificada nos bancos de dados.
+2. Sistema avisa administrador/operador de que a identificação da bicicleta não é válida.
+3. Sistema cancela a operação.
 
 Reservar bicicleta
 Atores: Administrador ou Operador ou Usuário.
