@@ -56,19 +56,19 @@ Curso Normal:
 	2. O operador/administrador insere a identificação do usuário.
 	3. O operador/administrador insere a data e hora da reserva.
 	4. O sistema registra a reserva.
-Curso Alternativo:
+Curso Alternativo <Reserva por usuário>:
 	1. O usuário seleciona a opção de reserva.
 	3. O usuário insere a data e hora da reserva.
-	4. O sistema registra a reserva.
+	4. O sistema registra a reserva em nome do usuário.
 Exceções:
 	* Identificação do usuário inválida, após o passo 2 do curso normal
 	1. O sistema não encontra o usuário.
 	2. O sistema avisa ao operador/administrador de que o usuário não foi encontrado.
 	3. O sistema cancela operação.
 
-	** Data e/ou hora inválida, após o passo 3 curso normal ou passo 2 do cuso alternativo
+	** Data e/ou hora inválida, após o passo 3 curso normal ou passo 2 do curso alternativo
 	1. O sistema não encontra uma bicicleta disponível neste horário.
-	2. O sistema informa ao operador/administrador de que não há bicicleta disponível para reserva neste horário.
+	2. O sistema informa ao operador/administrador/usuário de que não há bicicleta disponível para reserva neste horário.
 	3. O sistema cancela a operação.
 
 Consultar reserva
@@ -76,27 +76,31 @@ Atores: Administrador ou Operador.
 Pré-condição: O ator deve estar autenticado.
 Pós-condição: Exibe uma lista com as reservas.
 Curso Normal:
-	1. O usuario/operador/administrador seleciona a opção de consultar reserva.
-	2. O usuario/operador/administrador insere a identificação do usuário.
+	1. O operador/administrador seleciona a opção de consultar reserva.
+	2. O operador/administrador insere a identificação do usuário.
 	3. O sistema retornar uma lista contendo as reservas do usuario especificado.
-Curso Alternativo:
+Curso Alternativo <Consulta por Usuário>:
+	1. O usuário seleciona a opção de consultar reserva.
+	2. O sistema retornar uma lista contendo as reservas do usuário.
+Curso Alternativo <Visão geral das reservas>:
 	1. O operador/administrador seleciona a opção de consultar reserva.
 	3. O sistema retornar uma lista contendo todas as reservas.
 Exceções:
-	* Identificação do usuário inválida, após o passo 2
+	* Identificação do usuário inválida, após o passo 2 (Seria realmente necessária? Não seria caso apenas de retornar uma lista vazia?)
 	1. O sistema não encontra o usuário.
 	2. O sistema avisa ao operador/administrador de que o usuário não foi encontrado.
 	3. O sistema cancela operação.
 
 Cancela reserva
 Atores: Administrador, Operador ou Usuário.
-Pré-condição: O ator tem que estar autenticado. O ator pode acessar o registro da reserva.
+Pré-condição: O ator tem que estar autenticado. O ator acessou o registro da reserva.
 Pós-condição: O registro da reserva deixa de existir.
 Curso Normal:
-	1. O operador/administrador seleciona a opção de cancelamento de reserva.
-	3. O sistema cancela a reserva.
+	1. O operador/administrador/usuário seleciona a opção de cancelamento de reserva.
+	2. O sistema cancela a reserva.
 Curso Alternativo:
 Exceções:
+
 Cadastrar usuário
 Atores: Administrador, Operador ou Usuário.
 Pré-condição: O ator tem os dados do Usuário a cadastrar.
