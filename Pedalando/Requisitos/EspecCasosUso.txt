@@ -23,7 +23,7 @@ Curso Normal:
 4. O sistema registra a saída da bicicleta da estação e a data do registro assim como o usuário.
 Curso Alternativo:
 Exceções:
-* Identificação de bicicleta inválida, após passo 3
+* Identificação de bicicleta inválida, após passo 2
 1. Sistema não encontra bicicleta identificada nos bancos de dados.
 2. Sistema avisa administrador/operador de que a identificação da bicicleta não é válida.
 3. Sistema cancela a operação.
@@ -134,11 +134,14 @@ Curso Normal:
 Curso Alternativo:
 Exceções:	
 
-Consulta estação
+Consultar estações
 Atores: Administrador, Operador ou Usuário.
 Pré-condição: O ator deve estar autenticado no sistema.
 Pós-condição: Exibe a lista de estações consultadas.
 Curso Normal:
+	1. O ator seleciona a opção de consultar as estações.
+	4. O sistema busca os dados das estações.
+	5. O sistema exibe uma lista de estações com seus dados.
 Curso Alternativo:
 Exceções:
 
@@ -147,5 +150,11 @@ Atores: Administrador.
 Pré-condição: O ator deve estar autenticado no sistema.
 Pós-condição: É gerado o relatório.
 Curso Normal:
+	1. O ator seleciona a opção de gerar um relatório.
+	2. O ator seleciona qual o tipo de relatório a ser gerado.
+	3. O ator confirma a requisição do relatório.
+	4. O sistema busca as informações necessárias para gerar o relatório.
+	5. O sistema gera o relatório.
+	6. O relatório é exibido para o ator.
 Curso Alternativo:
 Exceções:
