@@ -106,16 +106,33 @@ Atores: Administrador, Operador ou Usuário.
 Pré-condição: O ator tem os dados do Usuário a cadastrar.
 Pós-condição: É criado um novo Usuário no sistema.
 Curso Normal:
+	1. Administrador/Operador seleciona a opção de cadastrar um novo usuário.
+	2. Administrador/Operador entra com os dados do usuário.
+	3. Administrador/Operador seleciona opção salvar.
+	4. O sistema registra no novo usuário.
 Curso Alternativo:
+	1. Usuário seleciona opção cadastrar novo usuário.
+	2. Usuário entra com seus dados.
+	3. Usuário seleciona opção salvar.
+	4. Sistema registra o novo usuário.
 Exceções:
+	* Usuário já existe, após o passo 2 do curso normal e alternativo.
+	1. O usuário a ser registrado já existe no sistema.
+	2. O sistema avisa ao ator que o usuário já existe.
+	3. O sistema cancela a operação.
 
 Consulta bicicleta
 Atores: Administrador, Operador ou Usuário.
 Pré-condição: Estar autenticado no sistema.
 Pós-condição: Exibe uma lista de bicicletas retornada pela consulta.
 Curso Normal:
+	1. O ator seleciona a opção de consulta de bicicleta.
+	2. O ator entra com as informações sobre a bicicleta.
+	3. O ator requisita a consulta.
+	4. O sistema pesquisa os dados da consulta.
+	5. O sistema gera uma lista com os dados consultados que é mostrada ao ator.	
 Curso Alternativo:
-Exceções:
+Exceções:	
 
 Consulta estação
 Atores: Administrador, Operador ou Usuário.
