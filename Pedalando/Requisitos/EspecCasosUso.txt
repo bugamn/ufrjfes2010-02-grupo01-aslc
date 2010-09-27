@@ -116,7 +116,7 @@ Curso Alternativo:
 	3. Usuário seleciona opção salvar.
 	4. Sistema registra o novo usuário.
 Exceções:
-	* Usuário já existe, após o passo 2 do curso normal e alternativo.
+	* Usuário já existe, após o passo 3 do curso normal e alternativo.
 	1. O usuário a ser registrado já existe no sistema.
 	2. O sistema avisa ao ator que o usuário já existe.
 	3. O sistema cancela a operação.
