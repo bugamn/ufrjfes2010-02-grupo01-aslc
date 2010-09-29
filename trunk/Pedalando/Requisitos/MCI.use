@@ -1,0 +1,55 @@
+model Pedalando
+
+class Cliente
+	attributes
+	id : Integer
+	nome : String
+	endereco : String
+	tel : String
+	senha : String
+end
+
+class Bicicleta
+	attributes
+	id : Integer
+	tipo : String
+	disponivel : Boolean
+end
+
+class Estacao
+	attributes
+	id : Integer
+	nome : String
+	capacidade : Integer
+end
+
+association Guardada between
+	Estacao[1]
+	Bicicleta[0..*]
+end
+
+associationclass Retirada
+	between
+		Cliente[1] role locador
+		Bicicleta[1] role locado
+	attributes
+		data_retirada : String
+end
+
+associationclass Reserva
+	between
+		Cliente[1]
+		Bicicleta[1]
+	attributes
+		data_prevista : String
+		data_reserva : String
+end
+
+associationclass Devolucao
+	between
+		Cliente[1] role restituinte
+		Bicicleta[1] role restituida
+		Estacao[1] role terminal_de_entrega
+	attributes
+		data_entrega : String
+end
