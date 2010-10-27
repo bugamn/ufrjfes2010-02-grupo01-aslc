@@ -22,16 +22,8 @@ class Estacao
 	capacidade : Integer
 end
 
-/*
-associationclass Guardada between
-	Estacao[1] role garagem
-	Bicicleta[*] role guardada
-end
-*/
-
 association Devolucao between
-	Cliente[1] role restituinte
-	Bicicleta[1] role restituida
+	Retirada[1] role bicicleta_retirada
 	Estacao[1] role destino
 end
 
@@ -54,13 +46,3 @@ associationclass Reserva
 		data_prevista : String
 		data_reserva : String
 end
-
-/*
-associationclass Recepcao
-	between
-		Bicicleta[*] role retornada
-		Estacao[1] role receptora
-	attributes
-		data_recepcao : String
-end
-*/
