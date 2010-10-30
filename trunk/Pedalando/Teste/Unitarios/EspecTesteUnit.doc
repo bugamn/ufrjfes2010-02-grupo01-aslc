@@ -1,0 +1,19 @@
+Módulo EstacoesController
+(criar, [nome, capacidade], cria Estação[id, nome, capacidade])
+(remover, [id], nao existe mais Estação identificada por id)
+(listar, void, lista de estações)
+(encontrar, id, Estação identificada por id)
+(editar, [id, nome, capacidade], modifica Estação identificada por id para ter nome e capacidade fornecidos)
+(listarBicicletas, id, lista de bicicletas associadas a estação id)
+Módulo BicicletasController
+criar
+remover
+listar
+encontrar
+editar
+Módulo UsuariosController
+criar
+remover
+listar
+encontrar
+editar
