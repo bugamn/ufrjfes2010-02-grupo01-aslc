@@ -2,23 +2,23 @@ Módulo Controllers
 EstacoesController
 (criar, [nome, capacidade], cria Estação[id, nome, capacidade])
 (remover, [id], nao existe mais Estação identificada por id)
-(listar, void, lista de estações)
-(encontrar, id, Estação identificada por id)
+(consulta, [nomeBusca (regex), capacidadeBusca (regex)], lista de estações que tenham seja qualificadas pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão)
+(detalha, id, Estação identificada por id)
 (editar, [id, nome, capacidade], modifica Estação identificada por id para ter nome e capacidade fornecidos)
 (listarBicicletas, id, lista de bicicletas associadas a estação id)
 
 BicicletasController
 (criar, [placa, tipo, estacao], cria Bicicleta[id, placa, tipo] na Estacao estacao)
 (remover, [id], não existe mais Bicicleta identificada por id)
-(listar, void, lista de bicicletas)
-(encontrar, id, Bicicleta identificada por id)
+(consulta, [placaBusca (regex), tipoBusca (regex), estacaoBusca (regex)], lista de bicicletas que tenham seja qualificados pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão))))
+(detalha, id, Bicicleta identificada por id)
 (editar, [id, placa, tipo], modifica Bicicleta identificada por id para ter placa e tipo fornecidos)
 
 UsuariosController
 (criar, [nome, cpf, endereço], cria Usuario[id, nome, cpf, endereço])
 (remover, [id], não existe mais Usuario identificado por id)
-(listar, void, lista de usuários)
-(encontrar, id Usuário identificado por id)
+(consulta, [nomeBusca (regex), cpfBusca (regex), endereçoBusca (regex)], lista de usuários que tenham seja qualificados pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão))
+(detalha, id Usuário identificado por id)
 (editar, [id, nome, cpf, endereço], modifica Usuario identificado por id para ter nome, cpf e endereço fornecidos)
 
 
@@ -26,7 +26,7 @@ Módulo Modelo
 EstacaoDao
 (criar, [nome, capacidade], cria Estação[id, nome, capacidade])
 (remover, [id], nao existe mais Estação identificada por id)
-(listar, void, lista de estações)
+(listar, [nomeBusca (regex), capacidadeBusca (regex)], lista de estações que tenham seja qualificados pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão)))
 (encontrar, id, Estação identificada por id)
 (editar, [id, nome, capacidade], modifica Estação identificada por id para ter nome e capacidade fornecidos)
 (listarBicicletas, id, lista de bicicletas associadas a estação id)
@@ -34,14 +34,14 @@ EstacaoDao
 BicicletaDao
 (criar, [placa, tipo, estacao], cria Bicicleta[id, placa, tipo] na Estacao estacao)
 (remover, [id], não existe mais Bicicleta identificada por id)
-(listar, void, lista de bicicletas)
+(listar, [placaBusca (regex), tipoBusca (regex), estacaoBusca (regex)], lista de bicicletas que tenham seja qualificados pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão))))
 (encontrar, id, Bicicleta identificada por id)
 (editar, [id, placa, tipo], modifica Bicicleta identificada por id para ter placa e tipo fornecidos)
 
 UsuarioDao
 (criar, [nome, cpf, endereço], cria Usuario[id, nome, cpf, endereço])
 (remover, [id], não existe mais Usuario identificado por id)
-(listar, void, lista de usuários)
+(listar, [nomeBusca (regex), cpfBusca (regex), endereçoBusca (regex)], lista de usuários que tenham seja qualificados pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão))
 (encontrar, id Usuário identificado por id)
 (editar, [id, nome, cpf, endereço], modifica Usuario identificado por id para ter nome, cpf e endereço fornecidos)
 
@@ -76,3 +76,5 @@ Usuario
 (setCpf, cpf, muda o valor do atributo cpf para cpf)
 (getEndereco, void, endereco)
 (setEndereco, endereco, muda o valor do atributo endereco para endereco)
+
+Stubs: Classes terminadas em Dao serão para acesso do banco de dados. Podemos criar stubs delas que usem uma fila temporária para poder testar as outras classes.
