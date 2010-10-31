@@ -8,50 +8,71 @@ EstacoesController
 (listarBicicletas, id, lista de bicicletas associadas a estação id)
 
 BicicletasController
-criar
-remover
-listar
-encontrar
-editar
+(criar, [placa, tipo, estacao], cria Bicicleta[id, placa, tipo] na Estacao estacao)
+(remover, [id], não existe mais Bicicleta identificada por id)
+(listar, void, lista de bicicletas)
+(encontrar, id, Bicicleta identificada por id)
+(editar, [id, placa, tipo], modifica Bicicleta identificada por id para ter placa e tipo fornecidos)
 
 UsuariosController
-criar
-remover
-listar
-encontrar
-editar
+(criar, [nome, cpf, endereço], cria Usuario[id, nome, cpf, endereço])
+(remover, [id], não existe mais Usuario identificado por id)
+(listar, void, lista de usuários)
+(encontrar, id Usuário identificado por id)
+(editar, [id, nome, cpf, endereço], modifica Usuario identificado por id para ter nome, cpf e endereço fornecidos)
 
 
 Módulo Modelo
 EstacaoDao
-criar
-remover
-listar
-editar
-encontrar
+(criar, [nome, capacidade], cria Estação[id, nome, capacidade])
+(remover, [id], nao existe mais Estação identificada por id)
+(listar, void, lista de estações)
+(encontrar, id, Estação identificada por id)
+(editar, [id, nome, capacidade], modifica Estação identificada por id para ter nome e capacidade fornecidos)
+(listarBicicletas, id, lista de bicicletas associadas a estação id)
 
 BicicletaDao
-criar
-remover
-listar
-editar
-encontrar
+(criar, [placa, tipo, estacao], cria Bicicleta[id, placa, tipo] na Estacao estacao)
+(remover, [id], não existe mais Bicicleta identificada por id)
+(listar, void, lista de bicicletas)
+(encontrar, id, Bicicleta identificada por id)
+(editar, [id, placa, tipo], modifica Bicicleta identificada por id para ter placa e tipo fornecidos)
 
 UsuarioDao
-criar
-remover
-listar
-editar
-encontrar
+(criar, [nome, cpf, endereço], cria Usuario[id, nome, cpf, endereço])
+(remover, [id], não existe mais Usuario identificado por id)
+(listar, void, lista de usuários)
+(encontrar, id Usuário identificado por id)
+(editar, [id, nome, cpf, endereço], modifica Usuario identificado por id para ter nome, cpf e endereço fornecidos)
 
 Estacao
 construtor
-Getters and Setters
+(construtor, [nome, capacidade], retorna Estação[id, nome, capacidade])
+(getId, void, id)
+(setId, id, muda o valor do atributo id para id)
+(getNome, void, nome)
+(setNome, nome, muda o valor do atributo nome para nome)
+(get capacidade, void, capacidade)
+(setcapacidade, capacidade, muda o valor do atributo capacidade para capacidade)
 
 Bicicleta
-construtor
-Getters and Setters
+(construtor, [placa, tipo, estacao], cria Bicicleta[id, placa, tipo] na Estacao estacao)
+(getId, void, id)
+(setId, id, muda o valor do atributo id para id)
+(getPlaca, void, placa)
+(setPlaca, placa, muda o valor do atributo placa para placa)
+(getTipo, void, tipo)
+(setTipo, tipo, muda o valor do atributo tipo para tipo)
+(getEstacao, void, estacao)
+(setEstacao, estacao, muda o valor do atributo estacao para estacao)
 
 Usuario
-construtor
-Getters and Setters
+(construtor, [nome, cpf, endereço], cria Usuario[id, nome, cpf, endereço])
+(getId, void, id)
+(setId, id, muda o valor do atributo id para id)
+(getNome, void, nome)
+(setNome, nome, muda o valor do atributo nome para nome)
+(getCpf, void, cpf)
+(setCpf, cpf, muda o valor do atributo cpf para cpf)
+(getEndereco, void, endereco)
+(setEndereco, endereco, muda o valor do atributo endereco para endereco)
