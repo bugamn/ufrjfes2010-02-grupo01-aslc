@@ -1,536 +1,540 @@
 Módulo Controllers
 EstacoesController
-F: cria, [nome, capacidade], cria Estação[id
-Ei: nome
-Si: capacidade]
+F.: cria
+Ei.: [nome, capacidade]
+Si.: cria Estação[id, nome, capacidade]
 
 
-F: remove
-Ei: [id]
-Si: nao existe mais Estação identificada por id
+F.: remove
+Ei.: [id]
+Si.: nao existe mais Estação identificada por id
 
 
-F: consulta, [nomeBusca (regex)
-Ei: capacidadeBusca (regex)]
-Si: lista de estações que sejam qualificadas pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão
+F.: consulta
+Ei.: [nomeBusca (regex), capacidadeBusca (regex)]
+Si.: lista de estações que sejam qualificadas pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão
 
 
-F: detalha
-Ei: id
-Si: Estação identificada por id
+F.: detalha
+Ei.: [id]
+Si.: Estação identificada por id
 
 
-F: edita, [id, nome
-Ei: capacidade]
-Si: modifica Estação identificada por id para ter nome e capacidade fornecidos
+F.: edita
+Ei.: [id, nome, capacidade]
+Si.: modifica Estação identificada por id para ter [nome e capacidade] fornecidos
 
 
-F: listaBicicletas, [id, placaBusca (regex), tipoBusca (regex)
-Ei: estacaoBusca (regex)]
-Si: lista de bicicletas associadas a estação id que sejam qualificados pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão
+F.: listaBicicletas
+Ei.: [id, placaBusca (regex), tipoBusca (regex), estacaoBusca (regex)]
+Si.: lista de bicicletas associadas a estação id que sejam qualificados pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão
 
 
 
 BicicletasController
-F: criar, [placa, tipo, estacao], cria Bicicleta[id
-Ei: placa
-Si: tipo] na Estacao estacao
+F.: criar
+Ei.: [placa, tipo, estacao]
+Si.: cria Bicicleta[id, placa, tipo] na Estacao estacao
 
 
-F: remove
-Ei: [id]
-Si: não existe mais Bicicleta identificada por id
+F.: remove
+Ei.: [id]
+Si.: não existe mais Bicicleta identificada por id
 
 
-F: consulta, [placaBusca (regex), tipoBusca (regex)
-Ei: estacaoBusca (regex)]
-Si: lista de bicicletas que sejam qualificados pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão
+F.: consulta
+Ei.: [placaBusca (regex), tipoBusca (regex), estacaoBusca (regex)]
+Si.: lista de bicicletas que sejam qualificados pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão
 
 
-F: detalha
-Ei: id
-Si: Bicicleta identificada por id
+F.: detalha
+Ei.: [id]
+Si.: Bicicleta identificada por id
 
 
-F: editar, [id, placa
-Ei: tipo]
-Si: modifica Bicicleta identificada por id para ter placa e tipo fornecidos
+F.: editar
+Ei.: [id, placa, tipo]
+Si.: modifica Bicicleta identificada por id para ter [placa e tipo] fornecidos
 
 
 
 UsuariosController
-F: cria, [nome, cpf, endereço, permissao], cria Usuario[id, nome, cpf
-Ei: endereço
-Si: permissao]
+F.: cria
+Ei.: [nome, cpf, endereço, permissao]
+Si.: cria Usuario[id, nome, cpf, endereço, permissao]
 
 
-F: remove
-Ei: [id]
-Si: não existe mais Usuario identificado por id
+F.: remove
+Ei.: [id]
+Si.: não existe mais Usuario identificado por id
 
 
-F: consulta, [nomeBusca (regex), cpfBusca (regex), endereçoBusca (regex)
-Ei: permissaoBusca (regex)]
-Si: lista de usuários que sejam qualificados pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão
+F.: consulta
+Ei.: [nomeBusca (regex), cpfBusca (regex), endereçoBusca (regex), permissaoBusca (regex)]
+Si.: lista de usuários que sejam qualificados pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão
 
 
-F: detalha
-Ei: id
-Si: Usuário identificado por id
+F.: detalha
+Ei.: [id]
+Si.: Usuário identificado por id
 
 
-F: edita, [id, nome, cpf, endereço, permissao], modifica Usuario identificado por id para ter nome
-Ei: cpf
-Si: endereço e permissao fornecidos
+F.: edita
+Ei.: [id, nome, cpf, endereço, permissao]
+Si.: modifica Usuario identificado por id para ter [nome, cpf, endereço e permissao] fornecidos
 
 
 
 ReservasController
-F: cria, [estacao, usuario, destino, dataHora], cria Reserva[id, estacao, bicicleta, usuario
-Ei: destino
-Si: dataHora]
+F.: cria
+Ei.: [estacao, usuario, destino, dataHora]
+Si.: cria Reserva[id, estacao, bicicleta, usuario, destino, dataHora]
 
 
-F: remove
-Ei: [id]
-Si: nao existe mais Locacao identificada por id
+F.: remove
+Ei.: [id]
+Si.: nao existe mais Locacao identificada por id
 
 
-F: consulta, [estacaoBusca (regex), bicicletaBusca (regex), usuarioBusca (regex), destinoBusca (regex)
-Ei: dataHoraBusca (regex)]
-Si: lista de locacoes que sejam qualificados pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão
+F.: consulta
+Ei.: [estacaoBusca (regex), bicicletaBusca (regex), usuarioBusca (regex), destinoBusca (regex), dataHoraBusca (regex)]
+Si.: lista de locacoes que sejam qualificados pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão
 
 
-F: detalha
-Ei: id
-Si: Locao identificada por id
+F.: detalha
+Ei.: [id]
+Si.: Locao identificada por id
 
 
-F: edita, [id, estacao, bicicleta, usuario, destino, dataHora], modifica Locacao identificada por id para ter estacao, bicicleta
-Ei: usuario
-Si: destino e dataHora fornecidos]
+F.: edita
+Ei.: [id, estacao, bicicleta, usuario, destino, dataHora]
+Si.: modifica Locacao identificada por id para ter [estacao, bicicleta, usuario, destino e dataHora] fornecidos
 
 
 
 LocacoesController
-F: cria, [estacao, bicicleta, usuario, destino], cria Locacao[id, estacao, bicicleta
-Ei: usuario
-Si: destino]
+F.: cria
+Ei.: [estacao, bicicleta, usuario, destino]
+Si.: cria Locacao[id, estacao, bicicleta, usuario, destino]
 
 
-F: remove
-Ei: [id]
-Si: nao existe mais Locacao identificada por id
+F.: remove
+Ei.: [id]
+Si.: nao existe mais Locacao identificada por id
 
 
-F: consulta, [estacaoBusca (regex), bicicletaBusca (regex), usuarioBusca (regex)
-Ei: destinoBusca (regex)]
-Si: lista de locacoes que sejam qualificados pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão
+F.: consulta
+Ei.: [estacaoBusca (regex), bicicletaBusca (regex), usuarioBusca (regex), destinoBusca (regex)]
+Si.: lista de locacoes que sejam qualificados pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão
 
 
-F: detalha
-Ei: id
-Si: Locao identificada por id
+F.: detalha
+Ei.: [id]
+Si.: Locao identificada por id
 
 
-F: edita, [id, estacao, bicicleta, usuario, destino], modifica Locacao identificada por id para ter estacao
-Ei: bicicleta
-Si: usuario e destino fornecidos]
+F.: edita
+Ei.: [id, estacao, bicicleta, usuario, destino]
+Si.: modifica Locacao identificada por id para ter [estacao, bicicleta, usuario e destino] fornecidos
 
 
 
 
 Módulo Modelo
 EstacaoDao
-F: criar, [nome, capacidade], cria Estação[id
-Ei: nome
-Si: capacidade]
+F.: criar
+Ei.: [nome, capacidade]
+Si.: cria Estação[id, nome, capacidade]
 
 
-F: remover
-Ei: [id]
-Si: nao existe mais Estação identificada por id
+F.: remover
+Ei.: [id]
+Si.: nao existe mais Estação identificada por id
 
 
-F: listar, [nomeBusca (regex)
-Ei: capacidadeBusca (regex)]
-Si: lista de estações que sejam qualificados pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão
+F.: listar
+Ei.: [nomeBusca (regex), capacidadeBusca (regex)]
+Si.: lista de estações que sejam qualificados pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão
 
 
-F: encontrar
-Ei: id
-Si: Estação identificada por id
+F.: encontrar
+Ei.: [id]
+Si.: Estação identificada por id
 
 
-F: editar, [id, nome
-Ei: capacidade]
-Si: modifica Estação identificada por id para ter nome e capacidade fornecidos
+F.: editar
+Ei.: [id, nome, capacidade]
+Si.: modifica Estação identificada por id para ter [nome e capacidade] fornecidos
 
 
-F: listarBicicletas, [id, placaBusca (regex), tipoBusca (regex)
-Ei: estacaoBusca (regex)]
-Si: lista de bicicletas associadas a estação id que sejam qualificados pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão
+F.: listarBicicletas
+Ei.: [id, placaBusca (regex), tipoBusca (regex), estacaoBusca (regex)]
+Si.: lista de bicicletas associadas a estação id que sejam qualificados pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão
 
 
 
 BicicletaDao
-F: criar, [placa, tipo, estacao], cria Bicicleta[id
-Ei: placa
-Si: tipo] na Estacao estacao
+F.: criar
+Ei.: [placa, tipo, estacao]
+Si.: cria Bicicleta[id, placa, tipo] na Estacao estacao
 
 
-F: remover
-Ei: [id]
-Si: não existe mais Bicicleta identificada por id
+F.: remover
+Ei.: [id]
+Si.: não existe mais Bicicleta identificada por id
 
 
-F: listar, [placaBusca (regex), tipoBusca (regex)
-Ei: estacaoBusca (regex)]
-Si: lista de bicicletas que sejam qualificados pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão
+F.: listar
+Ei.: [placaBusca (regex), tipoBusca (regex), estacaoBusca (regex)]
+Si.: lista de bicicletas que sejam qualificados pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão
 
 
-F: encontrar
-Ei: id
-Si: Bicicleta identificada por id
+F.: encontrar
+Ei.: [id]
+Si.: Bicicleta identificada por id
 
 
-F: editar, [id, placa
-Ei: tipo]
-Si: modifica Bicicleta identificada por id para ter placa e tipo fornecidos
+F.: editar
+Ei.: [id, placa, tipo]
+Si.: modifica Bicicleta identificada por id para ter [placa e tipo] fornecidos
 
 
 
 UsuarioDao
-F: criar, [nome, cpf, endereço, permissao], cria Usuario[id, nome, cpf
-Ei: endereço
-Si: permissao]
+F.: criar
+Ei.: [nome, cpf, endereço, permissao]
+Si.: cria Usuario[id, nome, cpf, endereço, permissao]
 
 
-F: remover
-Ei: [id]
-Si: não existe mais Usuario identificado por id
+F.: remover
+Ei.: [id]
+Si.: não existe mais Usuario identificado por id
 
 
-F: listar, [nomeBusca (regex), cpfBusca (regex), endereçoBusca (regex)
-Ei: permissaoBusca (regex)]
-Si: lista de usuários que sejam qualificados pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão
+F.: listar
+Ei.: [nomeBusca (regex), cpfBusca (regex), endereçoBusca (regex), permissaoBusca (regex)]
+Si.: lista de usuários que sejam qualificados pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão
 
 
-(encontrar, id Usuário identificado por id)
-F: editar, [id, nome, cpf, endereço, permissao], modifica Usuario identificado por id para ter nome
-Ei: cpf
-Si: endereço e permissao fornecidos
+F.: encontrar
+Ei.: [id]
+Si.: Usuário identificado por id
+
+
+F.: editar
+Ei.: [id, nome, cpf, endereço, permissao]
+Si.: modifica Usuario identificado por id para ter [nome, cpf, endereço e permissao] fornecidos
 
 
 
 ReservaDao
-F: criar, [estacao, usuario, destino, dataHora], cria Reserva[id, estacao, bicicleta, usuario
-Ei: destino
-Si: dataHora]
+F.: criar
+Ei.: [estacao, usuario, destino, dataHora]
+Si.: cria Reserva[id, estacao, bicicleta, usuario, destino, dataHora]
 
 
-F: remover
-Ei: [id]
-Si: nao existe mais Locacao identificada por id
+F.: remover
+Ei.: [id]
+Si.: nao existe mais Locacao identificada por id
 
 
-F: listar, [estacaoBusca (regex), bicicletaBusca (regex), usuarioBusca (regex), destinoBusca (regex)
-Ei: dataHoraBusca (regex)]
-Si: lista de locacoes que sejam qualificados pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão
+F.: listar
+Ei.: [estacaoBusca (regex), bicicletaBusca (regex), usuarioBusca (regex), destinoBusca (regex), dataHoraBusca (regex)]
+Si.: lista de locacoes que sejam qualificados pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão
 
 
-F: encontrar
-Ei: id
-Si: Locao identificada por id
+F.: encontrar
+Ei.: [id]
+Si.: Locao identificada por id
 
 
-F: editar, [id, estacao, bicicleta, usuario, destino, dataHora], modifica Locacao identificada por id para ter estacao, bicicleta
-Ei: usuario
-Si: destino e dataHora fornecidos]
+F.: editar
+Ei.: [id, estacao, bicicleta, usuario, destino, dataHora]
+Si.: modifica Locacao identificada por id para ter [estacao, bicicleta, usuario, destino e dataHora] fornecidos
 
 
 
 LocacaoDao
-F: criar, [estacao, bicicleta, usuario, destino, dataHora], cria Locacao[id, estacao, bicicleta, usuario
-Ei: destino
-Si: dataHora]
+F.: criar
+Ei.: [estacao, bicicleta, usuario, destino, dataHora]
+Si.: cria Locacao[id, estacao, bicicleta, usuario, destino, dataHora]
 
 
-F: remover
-Ei: [id]
-Si: nao existe mais Locacao identificada por id
+F.: remover
+Ei.: [id]
+Si.: nao existe mais Locacao identificada por id
 
 
-F: listar, [estacaoBusca (regex), bicicletaBusca (regex), usuarioBusca (regex), destinoBusca (regex)
-Ei: dataHoraBusca (regex)]
-Si: lista de locacoes que sejam qualificados pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão
+F.: listar
+Ei.: [estacaoBusca (regex), bicicletaBusca (regex), usuarioBusca (regex), destinoBusca (regex), dataHoraBusca (regex)]
+Si.: lista de locacoes que sejam qualificados pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão
 
 
-F: encontrar
-Ei: id
-Si: Locao identificada por id
+F.: encontrar
+Ei.: [id]
+Si.: Locao identificada por id
 
 
-F: editar, [id, estacao, bicicleta, usuario, destino, dataHora], modifica Locacao identificada por id para ter estacao, bicicleta
-Ei: usuario
-Si: destino e dataHora fornecidos]
+F.: editar
+Ei.: [id, estacao, bicicleta, usuario, destino, dataHora]
+Si.: modifica Locacao identificada por id para ter [estacao, bicicleta, usuario, destino e dataHora] fornecidos
 
 
 
 
 Estacao
 construtor
-F: construtor, [nome, capacidade], retorna Estação[id
-Ei: nome
-Si: capacidade]
+F.: construtor
+Ei.: [nome, capacidade]
+Si.: retorna Estação[id, nome, capacidade]
 
 
-F: getId
-Ei: void
-Si: id
+F.: getId
+Ei.: [void]
+Si.: id
 
 
-F: setId
-Ei: i
-Si: muda o valor do atributo id para i
+F.: setId
+Ei.: [i]
+Si.: muda o valor do atributo id para i
 
 
-F: getNome
-Ei: void
-Si: nome
+F.: getNome
+Ei.: [void]
+Si.: nome
 
 
-F: setNome
-Ei: n
-Si: muda o valor do atributo nome para n
+F.: setNome
+Ei.: [n]
+Si.: muda o valor do atributo nome para n
 
 
-F: getCapacidade
-Ei: void
-Si: capacidade
+F.: getCapacidade
+Ei.: [void]
+Si.: capacidade
 
 
-F: setCapacidade
-Ei: c
-Si: muda o valor do atributo capacidade para c
+F.: setCapacidade
+Ei.: [c]
+Si.: muda o valor do atributo capacidade para c
 
 
 
 Bicicleta
-F: construtor, [placa, tipo, estacao], cria Bicicleta[id
-Ei: placa
-Si: tipo] na Estacao estacao
+F.: construtor
+Ei.: [placa, tipo, estacao]
+Si.: cria Bicicleta[id, placa, tipo] na Estacao estacao
 
 
-F: getId
-Ei: void
-Si: id
+F.: getId
+Ei.: [void]
+Si.: id
 
 
-F: setId
-Ei: i
-Si: muda o valor do atributo id para i
+F.: setId
+Ei.: [i]
+Si.: muda o valor do atributo id para i
 
 
-F: getPlaca
-Ei: void
-Si: placa
+F.: getPlaca
+Ei.: [void]
+Si.: placa
 
 
-F: setPlaca
-Ei: p
-Si: muda o valor do atributo placa para p
+F.: setPlaca
+Ei.: [p]
+Si.: muda o valor do atributo placa para p
 
 
-F: getTipo
-Ei: void
-Si: tipo
+F.: getTipo
+Ei.: [void]
+Si.: tipo
 
 
-F: setTipo
-Ei: t
-Si: muda o valor do atributo tipo para t
+F.: setTipo
+Ei.: [t]
+Si.: muda o valor do atributo tipo para t
 
 
-F: getEstacao
-Ei: void
-Si: estacao
+F.: getEstacao
+Ei.: [void]
+Si.: estacao
 
 
-F: setEstacao
-Ei: e
-Si: muda o valor do atributo estacao para e
+F.: setEstacao
+Ei.: [e]
+Si.: muda o valor do atributo estacao para e
 
 
 
 Usuario
-F: construtor, [nome, cpf, endereço], cria Usuario[id, nome
-Ei: cpf
-Si: endereço]
+F.: construtor
+Ei.: [nome, cpf, endereço]
+Si.: cria Usuario[id, nome, cpf, endereço]
 
 
-F: getId
-Ei: void
-Si: id
+F.: getId
+Ei.: [void]
+Si.: id
 
 
-F: setId
-Ei: i
-Si: muda o valor do atributo id para i
+F.: setId
+Ei.: [i]
+Si.: muda o valor do atributo id para i
 
 
-F: getNome
-Ei: void
-Si: nome
+F.: getNome
+Ei.: [void]
+Si.: nome
 
 
-F: setNome
-Ei: n
-Si: muda o valor do atributo nome para n
+F.: setNome
+Ei.: [n]
+Si.: muda o valor do atributo nome para n
 
 
-F: getCpf
-Ei: void
-Si: cpf
+F.: getCpf
+Ei.: [void]
+Si.: cpf
 
 
-F: setCpf
-Ei: c
-Si: muda o valor do atributo cpf para c
+F.: setCpf
+Ei.: [c]
+Si.: muda o valor do atributo cpf para c
 
 
-F: getEndereco
-Ei: void
-Si: endereco
+F.: getEndereco
+Ei.: [void]
+Si.: endereco
 
 
-F: setEndereco
-Ei: e
-Si: muda o valor do atributo endereco para e
+F.: setEndereco
+Ei.: [e]
+Si.: muda o valor do atributo endereco para e
 
 
-F: getPermissao
-Ei: void
-Si: permissao
+F.: getPermissao
+Ei.: [void]
+Si.: permissao
 
 
-F: setPermissao
-Ei: p
-Si: muda o valor do atributo permissao para p
+F.: setPermissao
+Ei.: [p]
+Si.: muda o valor do atributo permissao para p
 
 
 
 Reserva
-F: construtor, [estacao, usuario, destino, dataHora], cria Reserva[id, estacao, bicicleta, usuario
-Ei: destino
-Si: dataHora]
+F.: construtor
+Ei.: [estacao, usuario, destino, dataHora]
+Si.: cria Reserva[id, estacao, bicicleta, usuario, destino, dataHora]
 
 
-F: getId
-Ei: void
-Si: id
+F.: getId
+Ei.: [void]
+Si.: id
 
 
-F: setId
-Ei: i
-Si: muda o valor do atributo id para i
+F.: setId
+Ei.: [i]
+Si.: muda o valor do atributo id para i
 
 
-F: getEstacao
-Ei: void
-Si: estacao
+F.: getEstacao
+Ei.: [void]
+Si.: estacao
 
 
-F: setEstacao
-Ei: e
-Si: muda o valor do atributo estacao para e
+F.: setEstacao
+Ei.: [e]
+Si.: muda o valor do atributo estacao para e
 
 
-F: getUsuario
-Ei: void
-Si: usuario
+F.: getUsuario
+Ei.: [void]
+Si.: usuario
 
 
-F: setUsuario
-Ei: u
-Si: muda o valor do atributo usuario para u
+F.: setUsuario
+Ei.: [u]
+Si.: muda o valor do atributo usuario para u
 
 
-F: getDestino
-Ei: void
-Si: destino
+F.: getDestino
+Ei.: [void]
+Si.: destino
 
 
-F: setDestino
-Ei: d
-Si: muda o valor do atributo dataHora para d
+F.: setDestino
+Ei.: [d]
+Si.: muda o valor do atributo dataHora para d
 
 
-F: getDataHora
-Ei: void
-Si: DataHora
+F.: getDataHora
+Ei.: [void]
+Si.: DataHora
 
 
-F: setDataHora
-Ei: dh
-Si: muda o valor do atributo dataHora para dh
+F.: setDataHora
+Ei.: [dh]
+Si.: muda o valor do atributo dataHora para dh
 
 
 
 Locacao
-F: construtor, [estacao, usuario, destino, dataHora], cria Reserva[id, estacao, bicicleta, usuario
-Ei: destino
-Si: dataHora]
+F.: construtor
+Ei.: [estacao, usuario, destino, dataHora]
+Si.: cria Reserva[id, estacao, bicicleta, usuario, destino, dataHora]
 
 
-F: getId
-Ei: void
-Si: id
+F.: getId
+Ei.: [void]
+Si.: id
 
 
-F: setId
-Ei: i
-Si: muda o valor do atributo id para i
+F.: setId
+Ei.: [i]
+Si.: muda o valor do atributo id para i
 
 
-F: getEstacao
-Ei: void
-Si: estacao
+F.: getEstacao
+Ei.: [void]
+Si.: estacao
 
 
-F: setEstacao
-Ei: e
-Si: muda o valor do atributo estacao para e
+F.: setEstacao
+Ei.: [e]
+Si.: muda o valor do atributo estacao para e
 
 
-F: getUsuario
-Ei: void
-Si: usuario
+F.: getUsuario
+Ei.: [void]
+Si.: usuario
 
 
-F: setUsuario
-Ei: u
-Si: muda o valor do atributo usuario para u
+F.: setUsuario
+Ei.: [u]
+Si.: muda o valor do atributo usuario para u
 
 
-F: getDestino
-Ei: void
-Si: destino
+F.: getDestino
+Ei.: [void]
+Si.: destino
 
 
-F: setDestino
-Ei: d
-Si: muda o valor do atributo dataHora para d
+F.: setDestino
+Ei.: [d]
+Si.: muda o valor do atributo dataHora para d
 
 
-F: getDataHora
-Ei: void
-Si: DataHora
+F.: getDataHora
+Ei.: [void]
+Si.: DataHora
 
 
-F: setDataHora
-Ei: dh
-Si: muda o valor do atributo dataHora para dh
+F.: setDataHora
+Ei.: [dh]
+Si.: muda o valor do atributo dataHora para dh
 
 
 
