@@ -18,17 +18,23 @@ UsuariosController
 (cria, [nome, cpf, endereço, permissao], cria Usuario[id, nome, cpf, endereço, permissao])
 (remove, [id], não existe mais Usuario identificado por id)
 (consulta, [nomeBusca (regex), cpfBusca (regex), endereçoBusca (regex), permissaoBusca (regex)], lista de usuários que sejam qualificados pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão)
-(detalha, id Usuário identificado por id)
+(detalha, id, Usuário identificado por id)
 (edita, [id, nome, cpf, endereço, permissao], modifica Usuario identificado por id para ter nome, cpf, endereço e permissao fornecidos)
 
 ReservasController
-(cria, [estacao, usuario])
-remove
-consulta
-detalha
-edita
+(cria, [estacao, usuario, destino, dataHora], cria Reserva[id, estacao, bicicleta, usuario, destino, dataHora])
+(remove, [id], nao existe mais Locacao identificada por id)
+(consulta, [estacaoBusca (regex), bicicletaBusca (regex), usuarioBusca (regex), destinoBusca (regex), dataHoraBusca (regex)], lista de locacoes que sejam qualificados pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão)
+(detalha, id, Locao identificada por id)
+(edita, [id, estacao, bicicleta, usuario, destino, dataHora], modifica Locacao identificada por id para ter estacao, bicicleta, usuario, destino e dataHora fornecidos])
 
 LocacoesController
+(cria, [estacao, bicicleta, usuario, destino], cria Locacao[id, estacao, bicicleta, usuario, destino])
+(remove, [id], nao existe mais Locacao identificada por id)
+(consulta, [estacaoBusca (regex), bicicletaBusca (regex), usuarioBusca (regex), destinoBusca (regex)], lista de locacoes que sejam qualificados pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão)
+(detalha, id, Locao identificada por id)
+(edita, [id, estacao, bicicleta, usuario, destino], modifica Locacao identificada por id para ter estacao, bicicleta, usuario e destino fornecidos])
+
 
 Módulo Modelo
 EstacaoDao
@@ -52,6 +58,21 @@ UsuarioDao
 (listar, [nomeBusca (regex), cpfBusca (regex), endereçoBusca (regex), permissaoBusca (regex)], lista de usuários que sejam qualificados pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão)
 (encontrar, id Usuário identificado por id)
 (editar, [id, nome, cpf, endereço, permissao], modifica Usuario identificado por id para ter nome, cpf, endereço e permissao fornecidos)
+
+ReservaDao
+(criar, [estacao, usuario, destino, dataHora], cria Reserva[id, estacao, bicicleta, usuario, destino, dataHora])
+(remover, [id], nao existe mais Locacao identificada por id)
+(listar, [estacaoBusca (regex), bicicletaBusca (regex), usuarioBusca (regex), destinoBusca (regex), dataHoraBusca (regex)], lista de locacoes que sejam qualificados pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão)
+(encontrar, id, Locao identificada por id)
+(editar, [id, estacao, bicicleta, usuario, destino, dataHora], modifica Locacao identificada por id para ter estacao, bicicleta, usuario, destino e dataHora fornecidos])
+
+LocacaoDao
+(criar, [estacao, bicicleta, usuario, destino, dataHora], cria Locacao[id, estacao, bicicleta, usuario, destino, dataHora])
+(remover, [id], nao existe mais Locacao identificada por id)
+(listar, [estacaoBusca (regex), bicicletaBusca (regex), usuarioBusca (regex), destinoBusca (regex), dataHoraBusca (regex)], lista de locacoes que sejam qualificados pelas expressões regulares - as expressões regulares devem aceitar qualquer valor por padrão)
+(encontrar, id, Locao identificada por id)
+(editar, [id, estacao, bicicleta, usuario, destino, dataHora], modifica Locacao identificada por id para ter estacao, bicicleta, usuario, destino e dataHora fornecidos])
+
 
 Estacao
 construtor
@@ -86,5 +107,31 @@ Usuario
 (setEndereco, e, muda o valor do atributo endereco para e)
 (getPermissao, void, permissao)
 (setPermissao, p, muda o valor do atributo permissao para p)
+
+Reserva
+(construtor, [estacao, usuario, destino, dataHora], cria Reserva[id, estacao, bicicleta, usuario, destino, dataHora])
+(getId, void, id)
+(setId, i, muda o valor do atributo id para i)
+(getEstacao, void, estacao)
+(setEstacao, e, muda o valor do atributo estacao para e)
+(getUsuario, void, usuario)
+(setUsuario, u, muda o valor do atributo usuario para u)
+(getDestino, void, destino)
+(setDestino, d, muda o valor do atributo dataHora para d)
+(getDataHora, void, DataHora)
+(setDataHora, dh, muda o valor do atributo dataHora para dh)
+
+Locacao
+(construtor, [estacao, usuario, destino, dataHora], cria Reserva[id, estacao, bicicleta, usuario, destino, dataHora])
+(getId, void, id)
+(setId, i, muda o valor do atributo id para i)
+(getEstacao, void, estacao)
+(setEstacao, e, muda o valor do atributo estacao para e)
+(getUsuario, void, usuario)
+(setUsuario, u, muda o valor do atributo usuario para u)
+(getDestino, void, destino)
+(setDestino, d, muda o valor do atributo dataHora para d)
+(getDataHora, void, DataHora)
+(setDataHora, dh, muda o valor do atributo dataHora para dh)
 
 Stubs: Classes terminadas em Dao serão para acesso do banco de dados. Podemos criar stubs delas que usem uma fila temporária para poder testar as outras classes.
