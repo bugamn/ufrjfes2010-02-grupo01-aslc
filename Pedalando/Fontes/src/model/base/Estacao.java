@@ -3,6 +3,7 @@ package model.base;
 import javax.persistence.Id;
 
 public class Estacao {
+	// TODO adicionar tags do hibernate
 	
 	@Id
 	private int id;
