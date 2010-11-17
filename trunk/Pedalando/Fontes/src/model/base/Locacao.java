@@ -8,6 +8,7 @@ public class Locacao {
 	private Estacao estacao;
 	private Usuario usuario;
 	private Estacao destino;
+	private Bicicleta bicicleta;
 	private Date data;
 	public long getId() {
 		return id;
@@ -26,6 +27,12 @@ public class Locacao {
 	}
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+	public Bicicleta getBicicleta() {
+		return bicicleta;
+	}
+	public void setBicicleta(Bicicleta bicicleta) {
+		this.bicicleta = bicicleta;
 	}
 	public Estacao getDestino() {
 		return destino;
