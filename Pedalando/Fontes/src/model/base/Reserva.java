@@ -39,4 +39,13 @@ public class Reserva {
 	public void setData(Date data) {
 		this.data = data;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(getClass().equals(obj.getClass())) {
+			return id == ((Reserva) obj).getId();
+		}
+			
+		return false;
+	}
 }

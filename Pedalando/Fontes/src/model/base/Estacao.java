@@ -35,5 +35,14 @@ public class Estacao {
 	public void setCapacidade(int capacidade) {
 		this.capacidade = capacidade;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(getClass().equals(obj.getClass())) {
+			return id == ((Estacao) obj).getId();
+		}
+			
+		return false;
+	}
 
 }

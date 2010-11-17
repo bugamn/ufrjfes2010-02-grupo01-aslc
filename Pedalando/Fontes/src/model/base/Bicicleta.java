@@ -36,4 +36,12 @@ public class Bicicleta {
 		this.estacao = estacao;
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		if(getClass().equals(obj.getClass())) {
+			return placa.equals(((Bicicleta) obj).getPlaca());
+		}
+			
+		return false;
+	}
 }

@@ -46,4 +46,13 @@ public class Usuario {
 	public Enum<Permissao> getUserPermissao() {
 		return Permissao.USER;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(getClass().equals(obj.getClass())) {
+			return cpf.equals(((Usuario) obj).getCpf());
+		}
+			
+		return false;
+	}
 }
