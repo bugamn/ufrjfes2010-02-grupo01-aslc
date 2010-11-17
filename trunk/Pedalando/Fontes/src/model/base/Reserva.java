@@ -3,6 +3,7 @@ package model.base;
 import java.util.Date;
 
 public class Reserva {
+	// TODO adicionar tags do hibernate
 	private long id;
 	private Estacao estacao;
 	private Usuario usuario;

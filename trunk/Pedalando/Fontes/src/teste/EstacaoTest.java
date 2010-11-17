@@ -69,7 +69,7 @@ public class EstacaoTest {
 	public void testSetCapacidade() {
 		int nova_capacidade = 100;
 		estacao.setCapacidade(nova_capacidade);
-		Assert.assertEquals("Método setCapacidade não armazena corretamenta.", estacao.getCapacidade(), nova_capacidade);
+		Assert.assertEquals("Método setCapacidade não armazena corretamenta.", nova_capacidade, estacao.getCapacidade());
 	}
 
 }

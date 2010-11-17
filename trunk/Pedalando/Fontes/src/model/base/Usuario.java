@@ -1,6 +1,7 @@
 package model.base;
 
 public class Usuario {
+	// TODO adicionar tags do hibernate
 	private String cpf;
 	private String nome;
 	private String endereco;
@@ -10,6 +11,8 @@ public class Usuario {
 	public String getCpf() {
 		return cpf;
 	}
+	//seria bom adicionar algo aqui para verificar se cpf é válido
+	//ou adicionar no DAO
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
