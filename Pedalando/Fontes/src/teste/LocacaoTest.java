@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import java.util.Calendar;
 import java.util.Date;
 
+import model.base.Bicicleta;
 import model.base.Estacao;
 import model.base.Locacao;
 import model.base.Usuario;
@@ -18,6 +19,7 @@ public class LocacaoTest {
 	private static Estacao estacao;
 	private static Usuario usuario;
 	private static Estacao destino;
+	private static Bicicleta bicicleta;
 	private static Date data;
 	private static Locacao locacao;
 
@@ -34,6 +36,8 @@ public class LocacaoTest {
 		usuario.setCpf("12345678900");
 		destino = new Estacao();
 		estacao.setId(2);
+		bicicleta = new Bicicleta();
+		bicicleta.setPlaca("XKCD1");
 		data = new Date(calendar.getTimeInMillis());
 	}
 	
@@ -43,6 +47,7 @@ public class LocacaoTest {
 		locacao.setEstacao(estacao);
 		locacao.setDestino(destino);
 		locacao.setUsuario(usuario);
+		locacao.setBicicleta(bicicleta);
 		locacao.setData(data);
 	}
 
@@ -95,6 +100,19 @@ public class LocacaoTest {
 		novoDestino.setId(10);
 		locacao.setDestino(novoDestino);
 		assertEquals("setDestino não funciona.", novoDestino, locacao.getDestino());
+	}
+	
+	@Test
+	public void testGetBicicleta() {
+		assertEquals("getBicicleta não funciona.", bicicleta, locacao.getBicicleta());
+	}
+	
+	@Test
+	public void testSetBicicleta() {
+		Bicicleta novoBicicleta = new Bicicleta();
+		novoBicicleta.setPlaca("ABCD2");
+		locacao.setBicicleta(novoBicicleta);
+		assertEquals("setDestino não funciona.", novoBicicleta, locacao.getBicicleta());
 	}
 
 	@Test
