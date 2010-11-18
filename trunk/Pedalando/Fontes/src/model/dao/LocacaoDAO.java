@@ -3,35 +3,34 @@ package model.dao;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.TreeSet;
 import java.util.regex.Pattern;
+
+import br.com.caelum.vraptor.ioc.Component;
 
 import model.base.Locacao;
 
+@Component
 public class LocacaoDAO {
-private final TreeSet<Locacao> treeSet;
-	
-	public LocacaoDAO() {
-		treeSet = new TreeSet<Locacao>();
-	}
+	private static ArrayList<Locacao> arrayList = new ArrayList<Locacao>();
 
 	public void salva(Locacao locacao) {
-		treeSet.add(locacao);
+		locacao.setId(arrayList.size());
+		arrayList.add(locacao);
 	}
 	
 	public void atualiza(Locacao locacao) {
-		if (treeSet.contains(locacao)) {
-			treeSet.remove(locacao);
-			treeSet.add(locacao);
+		if (arrayList.contains(locacao)) {
+			arrayList.remove(locacao);
+			arrayList.add(locacao);
 		}
 	}
 	
 	public void remove(Locacao locacao) {
-		treeSet.remove(locacao);
+		arrayList.remove(locacao);
 	}
 	
 	public Locacao encontra(int id) {
-		for (Locacao locacao : treeSet) {
+		for (Locacao locacao : arrayList) {
 			if (locacao.getId() == id) {
 				return locacao;
 			}
@@ -56,7 +55,7 @@ private final TreeSet<Locacao> treeSet;
 		Pattern placaPattern = Pattern.compile(placaBusca);
 		Pattern destinoPattern = Pattern.compile(destinoBusca);
 		
-		for (Locacao locacao : treeSet) {
+		for (Locacao locacao : arrayList) {
 			if (estacaoPattern.matcher(locacao.getEstacao().getNome()).matches() &&
 					cpfPattern.matcher(locacao.getUsuario().getCpf()).matches() &&
 					destinoPattern.matcher(locacao.getDestino().getNome()).matches() &&
@@ -90,7 +89,7 @@ private final TreeSet<Locacao> treeSet;
 		Pattern placaPattern = Pattern.compile(placaBusca);
 		Pattern destinoPattern = Pattern.compile(destinoBusca);
 		
-		for (Locacao locacao : treeSet) {
+		for (Locacao locacao : arrayList) {
 			if (estacaoPattern.matcher(locacao.getEstacao().getNome()).matches() &&
 					cpfPattern.matcher(locacao.getUsuario().getCpf()).matches() &&
 					destinoPattern.matcher(locacao.getDestino().getNome()).matches() &&
