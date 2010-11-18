@@ -2,38 +2,37 @@ package model.dao;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.TreeSet;
 import java.util.regex.Pattern;
 
-import org.apache.jasper.tagplugins.jstl.core.Param;
+import br.com.caelum.vraptor.ioc.Component;
 
 import model.base.Bicicleta;
 import model.base.Estacao;
 
+@Component
 public class EstacaoDAO {
-	private final TreeSet<Estacao> treeSet;
+	private static ArrayList<Estacao> arrayList = new ArrayList<Estacao>();
 	
-	public EstacaoDAO() {
-		treeSet = new TreeSet<Estacao>();
-	}
+	
 
 	public void salva(Estacao estacao) {
-		treeSet.add(estacao);
+		estacao.setId(arrayList.size());
+		arrayList.add(estacao);
 	}
 	
 	public void atualiza(Estacao estacao) {
-		if (treeSet.contains(estacao)) {
-			treeSet.remove(estacao);
-			treeSet.add(estacao);
+		if (arrayList.contains(estacao)) {
+			arrayList.remove(estacao);
+			arrayList.add(estacao);
 		}
 	}
 	
 	public void remove(Estacao estacao) {
-		treeSet.remove(estacao);
+		arrayList.remove(estacao);
 	}
 	
 	public Estacao encontra(int id) {
-		for (Estacao estacao : treeSet) {
+		for (Estacao estacao : arrayList) {
 			if (estacao.getId() == id) {
 				return estacao;
 			}
@@ -51,7 +50,7 @@ public class EstacaoDAO {
 		ArrayList<Estacao> list = new ArrayList<Estacao>();
 		Pattern nomePattern = Pattern.compile(nomeBusca);
 		
-		for (Estacao estacao : treeSet) {
+		for (Estacao estacao : arrayList) {
 			if (nomePattern.matcher(estacao.getNome()).matches()) {
 				list.add(estacao);
 			}

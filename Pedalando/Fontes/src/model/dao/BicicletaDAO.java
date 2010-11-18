@@ -2,38 +2,39 @@ package model.dao;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.TreeSet;
 import java.util.regex.Pattern;
 
-import model.base.Bicicleta;
+import br.com.caelum.vraptor.ioc.Component;
+
 import model.base.Bicicleta;
 
+@Component
 public class BicicletaDAO {
-	private static TreeSet<Bicicleta> treeSet = new TreeSet<Bicicleta>();
+	private static ArrayList<Bicicleta> arrayList = new ArrayList<Bicicleta>();
 	
 	public BicicletaDAO() {
-		if (treeSet == null) {
-			treeSet = new TreeSet<Bicicleta>();
+		if (arrayList == null) {
+			arrayList = new ArrayList<Bicicleta>();
 		}
 	}
 
 	public void salva(Bicicleta bicicleta) {
-		treeSet.add(bicicleta);
+		arrayList.add(bicicleta);
 	}
 	
 	public void atualiza(Bicicleta bicicleta) {
-		if (treeSet.contains(bicicleta)) {
-			treeSet.remove(bicicleta);
-			treeSet.add(bicicleta);
+		if (arrayList.contains(bicicleta)) {
+			arrayList.remove(bicicleta);
+			arrayList.add(bicicleta);
 		}
 	}
 	
 	public void remove(Bicicleta bicicleta) {
-		treeSet.remove(bicicleta);
+		arrayList.remove(bicicleta);
 	}
 	
 	public Bicicleta encontra(String placa) {
-		for (Bicicleta bicicleta : treeSet) {
+		for (Bicicleta bicicleta : arrayList) {
 			if (bicicleta.getPlaca().equals(placa)) {
 				return bicicleta;
 			}
@@ -57,7 +58,7 @@ public class BicicletaDAO {
 		Pattern tipoPattern = Pattern.compile(tipoBusca);
 		Pattern estacaoPattern = Pattern.compile(estacaoBusca);
 		
-		for (Bicicleta bicicleta : treeSet) {
+		for (Bicicleta bicicleta : arrayList) {
 			if (placaPattern.matcher(bicicleta.getPlaca()).matches() && 
 					tipoPattern.matcher(bicicleta.getTipo()).matches() &&
 					estacaoPattern.matcher(bicicleta.getEstacao().getNome()).matches()) {
@@ -82,7 +83,7 @@ public class BicicletaDAO {
 		Pattern placaPattern = Pattern.compile(placaBusca);
 		Pattern tipoPattern = Pattern.compile(tipoBusca);
 		
-		for (Bicicleta bicicleta : treeSet) {
+		for (Bicicleta bicicleta : arrayList) {
 			if (placaPattern.matcher(bicicleta.getPlaca()).matches() && 
 					tipoPattern.matcher(bicicleta.getTipo()).matches() &&
 					estacaoBusca == bicicleta.getEstacao().getId()) {

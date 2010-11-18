@@ -2,35 +2,33 @@ package model.dao;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.TreeSet;
 import java.util.regex.Pattern;
+
+import br.com.caelum.vraptor.ioc.Component;
 
 import model.base.Usuario;
 
+@Component
 public class UsuarioDAO {
-	private final TreeSet<Usuario> treeSet;
-	
-	public UsuarioDAO() {
-		treeSet = new TreeSet<Usuario>();
-	}
+	private static ArrayList<Usuario> arrayList = new ArrayList<Usuario>();
 
 	public void salva(Usuario usuario) {
-		treeSet.add(usuario);
+		arrayList.add(usuario);
 	}
 	
 	public void atualiza(Usuario usuario) {
-		if (treeSet.contains(usuario)) {
-			treeSet.remove(usuario);
-			treeSet.add(usuario);
+		if (arrayList.contains(usuario)) {
+			arrayList.remove(usuario);
+			arrayList.add(usuario);
 		}
 	}
 	
 	public void remove(Usuario usuario) {
-		treeSet.remove(usuario);
+		arrayList.remove(usuario);
 	}
 	
 	public Usuario encontra(String cpf) {
-		for (Usuario usuario : treeSet) {
+		for (Usuario usuario : arrayList) {
 			if (usuario.getCpf().equals(cpf)) {
 				return usuario;
 			}
@@ -54,7 +52,7 @@ public class UsuarioDAO {
 		Pattern nomePattern = Pattern.compile(nomeBusca);
 		Pattern enderecoPattern = Pattern.compile(enderecoBusca);
 		
-		for (Usuario usuario : treeSet) {
+		for (Usuario usuario : arrayList) {
 			if (cpfPattern.matcher(usuario.getCpf()).matches() &&
 					nomePattern.matcher(usuario.getNome()).matches() &&
 					enderecoPattern.matcher(usuario.getEndereco()).matches()) {
@@ -82,7 +80,7 @@ public class UsuarioDAO {
 		Pattern nomePattern = Pattern.compile(nomeBusca);
 		Pattern enderecoPattern = Pattern.compile(enderecoBusca);
 		
-		for (Usuario usuario : treeSet) {
+		for (Usuario usuario : arrayList) {
 			if (cpfPattern.matcher(usuario.getCpf()).matches() &&
 					nomePattern.matcher(usuario.getNome()).matches() &&
 					enderecoPattern.matcher(usuario.getEndereco()).matches() &&
