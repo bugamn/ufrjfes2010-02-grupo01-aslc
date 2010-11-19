@@ -20,12 +20,17 @@ public class EstacoesController {
 	public void adiciona(final Estacao estacao) {
 		
 		estacaoDAO.salva(estacao);
-		result.redirectTo(this).lista();
+		result.redirectTo(this).lista(".*");
 	}
 	
 	public void formulario() {}
 	
-	public List<Estacao> lista() {
-		return estacaoDAO.lista(".*");
+	public void busca() {}
+	
+	public List<Estacao> lista(String nomeBusca) {
+		if (nomeBusca == null) {
+			nomeBusca = ".*";
+		}
+		return estacaoDAO.lista(nomeBusca);
 	}
 }
