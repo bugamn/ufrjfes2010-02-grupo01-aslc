@@ -48,6 +48,21 @@ public class UsuarioDAO {
 	 */
 	public List<Usuario> lista(String cpfBusca, String nomeBusca, String enderecoBusca) {
 		ArrayList<Usuario> list = new ArrayList<Usuario>();
+		
+		if (cpfBusca == null) {
+			cpfBusca = "";
+		}
+		if (nomeBusca == null) {
+			nomeBusca = "";
+		}
+		if (enderecoBusca == null) {
+			enderecoBusca = "";
+		}
+		
+		cpfBusca = ".*" + cpfBusca + ".*";
+		nomeBusca = ".*" + nomeBusca + ".*";
+		enderecoBusca = ".*" + enderecoBusca + ".*";
+		
 		Pattern cpfPattern = Pattern.compile(cpfBusca);
 		Pattern nomePattern = Pattern.compile(nomeBusca);
 		Pattern enderecoPattern = Pattern.compile(enderecoBusca);
@@ -76,6 +91,21 @@ public class UsuarioDAO {
 	 */
 	public List<Usuario> lista(String cpfBusca, String nomeBusca, String enderecoBusca, Enum<Usuario.Permissao> permissao) {
 		ArrayList<Usuario> list = new ArrayList<Usuario>();
+		
+		if (cpfBusca == null) {
+			cpfBusca = "";
+		}
+		if (nomeBusca == null) {
+			nomeBusca = "";
+		}
+		if (enderecoBusca == null) {
+			enderecoBusca = "";
+		}
+		
+		cpfBusca = ".*" + cpfBusca + ".*";
+		nomeBusca = ".*" + nomeBusca + ".*";
+		enderecoBusca = ".*" + enderecoBusca + ".*";
+		
 		Pattern cpfPattern = Pattern.compile(cpfBusca);
 		Pattern nomePattern = Pattern.compile(nomeBusca);
 		Pattern enderecoPattern = Pattern.compile(enderecoBusca);

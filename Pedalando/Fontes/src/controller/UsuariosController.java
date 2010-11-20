@@ -18,12 +18,58 @@ public class UsuariosController {
 		this.result = result;
 	}
 	
-	public void adiciona(Usuario usuario) {
-		usuarioDAO.salva(usuario);
-		result.redirectTo(this).lista(".*", ".*", ".*", null);
+	private Usuario.Permissao conversao(int permissao) {
+		
+		switch (permissao) {			
+		case 1:
+			return Usuario.Permissao.ADMIN;
+			
+		case 2:
+			return Usuario.Permissao.OPERATOR;
+			
+		case 3:
+			return Usuario.Permissao.USER;
+		}
+		return null;
 	}
 	
-	public List<Usuario> lista(String cpfBusca, String nomeBusca, String enderecoBusca, Enum<Permissao> permissao) {
+	/**
+	 * Adiciona um novo usuário ao sistema
+	 * @param usuario
+	 * Uma instância de usuário
+	 * @param permissao
+	 * Um código de permissão: 1 é para administrador, 2 para operador, 3 para usuário
+	 */
+	public void adiciona(Usuario usuario, int permissao) {
+		Enum<Permissao> p = null;
+		
+		p = conversao(permissao);
+		usuario.setPermissao(p);
+		
+		usuarioDAO.salva(usuario);
+		result.redirectTo(this).lista(".*", ".*", ".*", 0);
+	}
+	
+	public void formulario() {}
+	
+	public void busca() {}
+	
+	/**
+	 * Busca por usuários
+	 * @param cpfBusca
+	 * Expressão regular para o CPF
+	 * @param nomeBusca
+	 * Expressão regular para o Nome
+	 * @param enderecoBusca
+	 * Expressão regular para o Endereço
+	 * @param permissao
+	 * Permissão do Usuário: 0 significa que qualquer permissão serve, 1 é para administradores, 2 para operadores e 3 para usuários
+	 * @return
+	 * Lista de Usuários que atendem às condições da busca
+	 */
+	public List<Usuario> lista(String cpfBusca, String nomeBusca, String enderecoBusca, int permissao) {
+		Enum<Permissao> p;
+		
 		if (cpfBusca == null) {
 			cpfBusca = ".*";
 		}
@@ -33,9 +79,12 @@ public class UsuariosController {
 		if (enderecoBusca == null) {
 			enderecoBusca = ".*";
 		}
-		if (permissao == null) {
+		p = conversao(permissao);
+		
+		if (p == null) {
 			return usuarioDAO.lista(cpfBusca, nomeBusca, enderecoBusca);
 		}
-		return usuarioDAO.lista(cpfBusca, nomeBusca, enderecoBusca, permissao);
+		
+		return usuarioDAO.lista(cpfBusca, nomeBusca, enderecoBusca, p);
 	}
 }
