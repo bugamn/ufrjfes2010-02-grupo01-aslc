@@ -1,25 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-<form id="buscaForm" action="lista">"
+
+<form id="buscaForm" action="lista">
     <fieldset>
-      <legend>Adicionar Produto</legend>
+      <legend>Buscar Bicicletas</legend>
       
       <label for="placa">Placa:</label>
       <input id="placa" type="text" name="placaBusca"/>
       <label for="tipo">Tipo:</label>
       <input id="tipo" type="text" name="tipoBusca"/>
-      <label for="estacao">Tipo:</label>
-      <input id="estacao" type="text" name="estacaoBusca"/>
+      <label for="estacao">Estacao:</label>
+      <select id="estacao" name="estacaoBusca">
+      <option value=".*"></option>
+      <c:forEach items="${ estacaoList }" var="estacao">
+      <option value="${ estacao.nome }">${ estacao.nome }</option>
+      </c:forEach>
+      </select>
       
-      <button type="submit">Enviar</button>
+      <button type="submit">Buscar</button>
     </fieldset>
   </form>
-</body>
-</html>
