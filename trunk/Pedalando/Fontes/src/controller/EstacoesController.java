@@ -29,8 +29,9 @@ public class EstacoesController {
 	
 	public List<Estacao> lista(String nomeBusca) {
 		if (nomeBusca == null) {
-			nomeBusca = ".*";
+			nomeBusca = "";
 		}
+		nomeBusca = ".*" + nomeBusca + ".*";
 		return estacaoDAO.lista(nomeBusca);
 	}
 }

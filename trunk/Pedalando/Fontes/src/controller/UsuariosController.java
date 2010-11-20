@@ -2,11 +2,13 @@ package controller;
 
 import java.util.List;
 
+import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import model.base.Usuario;
 import model.base.Usuario.Permissao;
 import model.dao.UsuarioDAO;
 
+@Resource
 public class UsuariosController {
 	private final UsuarioDAO usuarioDAO;
 	private final Result result;

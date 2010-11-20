@@ -4,10 +4,12 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import model.base.Locacao;
 import model.dao.LocacaoDAO;
 
+@Resource
 public class LocacoesController {
 	private final LocacaoDAO locacaoDAO;
 	private final Result result;
