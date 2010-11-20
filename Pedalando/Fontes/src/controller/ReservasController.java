@@ -3,10 +3,12 @@ package controller;
 import java.util.Date;
 import java.util.List;
 
+import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import model.base.Reserva;
 import model.dao.ReservaDAO;
 
+@Resource
 public class ReservasController {
 	private final ReservaDAO reservaDAO;
 	private final Result result;
