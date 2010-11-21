@@ -1,19 +1,19 @@
 	<table>
 		<thead>
 			<tr>
-				<th>Nome</th>
-				<th>CPF</th>
-				<th>Endereço</th>
-				<th>Permissão</th>
+				<th>Bicicleta</th>
+				<th>Destino</th>
+				<th>Usuário</th>
+				<th>Partida</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${ usuarioList }" var="usuario">
+			<c:forEach items="${ locacaoList }" var="usuario">
 				<tr>
-					<td>${ usuario.nome }</td>
-					<td>${ usuario.cpf }</td>
-					<td>${ usuario.endereco }</td>
-					<td>${ usuario.permissao }</td>
+					<td>${ locacao.bicicleta.placa }</td>
+					<td>${ locacao.destino.nome }</td>
+					<td>${ locacao.usuario.nome }</td>
+					<td>${ locacao.data }</td>
 					<!-- <td><a href="<c:url value="/produtos/${ produto.id }"/>">Editar</a></td>
 					<td>
 						<form action="<c:url value="/produtos/${ produto.id }"/>" method="POST">

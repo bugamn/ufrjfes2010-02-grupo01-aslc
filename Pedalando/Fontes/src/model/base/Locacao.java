@@ -6,6 +6,7 @@ public class Locacao {
 	// TODO adicionar tags do hibernate
 	private long id;
 	private Usuario usuario;
+	private Estacao estacao;
 	private Estacao destino;
 	private Bicicleta bicicleta;
 	private Date data;
@@ -38,6 +39,12 @@ public class Locacao {
 	}
 	public void setData(Date data) {
 		this.data = data;
+	}
+	public Estacao getEstacao() {
+		return estacao;
+	}
+	public void setEstacao(Estacao estacao) {
+		this.estacao = estacao;
 	}
 	
 	@Override

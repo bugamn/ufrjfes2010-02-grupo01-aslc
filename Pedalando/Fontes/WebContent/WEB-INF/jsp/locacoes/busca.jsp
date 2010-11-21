@@ -4,6 +4,11 @@
       <legend>Buscar Locações</legend>
       
       <label for="origem">Origem:</label>
+      <input id="origem" type="text" name="estacaoBusca"/>
+      
+      <label for="destino">Destino:</label>
+      <input id="destino" type="text" name="destinoBusca"/>
+      <!-- 
       <select id="origem" name="origem">
       <option value=".*"></option>
       <c:forEach items="${ estacaoList }" var="estacao">
@@ -18,12 +23,13 @@
       <option value="${ estacao.id }">${ estacao.nome }</option>
       </c:forEach>
       </select>
+       -->
       
       <label for="cpf">CPF:</label>
-      <input id="cpf" type="text" name="cpf"/>
+      <input id="cpf" type="text" name="cpfBusca"/>
       
       <label for="placa">Placa:</label>
-      <input id="placa" type="text" name="placa"/>
+      <input id="placa" type="text" name="placaBusca"/>
       
       <label for="antes">Data mínima:</label>
       <input id="antes" type="text" name="diaAntes" maxlength="2" size="2"/>

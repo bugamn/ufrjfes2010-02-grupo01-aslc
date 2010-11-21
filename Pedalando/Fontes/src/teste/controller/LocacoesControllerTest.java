@@ -221,20 +221,9 @@ public class LocacoesControllerTest {
 	}
 	
 	@Test
-	public void testLista() {
-		List<Locacao> lista = locacaoDAO.lista(".*", ".*", ".*");
-		List<Locacao> lista2 = locacoesController.lista("", "", "", 0, 0, 0, 0, 0, 0);
-		
-		for (Locacao locacao : lista) {
-			System.out.println(locacao.getId() + " " + locacao.getBicicleta().getPlaca() + " " + locacao.getDestino().getNome() + " " + locacao.getData());
-		}
-		
-		for (Locacao locacao : lista2) {
-			System.out.println(locacao.getId() + " " + locacao.getBicicleta().getPlaca() + " " + locacao.getDestino().getNome() + " " + locacao.getData());
-		}
-		
+	public void testLista() {		
 		assertEquals("O método lista não funciona.", 
-				locacaoDAO.lista(".*", ".*", ".*").size(), locacoesController.lista("", "", "", 0, 0, 0, 0, 0, 0).size());
+				locacaoDAO.lista(".*", ".*", ".*").size(), locacoesController.lista("", "", "", "", 0, 0, 0, 0, 0, 0).size());
 		
 	}
 	

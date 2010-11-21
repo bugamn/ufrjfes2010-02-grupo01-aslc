@@ -34,11 +34,12 @@ public class LocacoesController {
 
 		locacao.setDestino(estacaoDAO.encontra(destino));
 		locacao.setBicicleta(bicicletaDAO.encontra(placa));
+		locacao.setEstacao(locacao.getBicicleta().getEstacao());
 		locacao.setUsuario(usuarioDAO.encontra(cpf));
 		locacao.setData(new Date(System.currentTimeMillis()));
 		
 		locacaoDAO.salva(locacao);
-		result.redirectTo(this).lista("", "", "", 0, 0, 0, 0, 0, 0);
+		result.redirectTo(this).lista("", "", "", "", 0, 0, 0, 0, 0, 0);
 	}
 	
 	public List<Estacao> formulario() {
@@ -49,7 +50,7 @@ public class LocacoesController {
 		return estacaoDAO.lista(".*");
 	}
 	
-	public List<Locacao> lista(String placaBusca, String cpfBusca, String destinoBusca,
+	public List<Locacao> lista(String estacaoBusca, String placaBusca, String cpfBusca, String destinoBusca,
 			int diaAntes, int mesAntes, int anoAntes, int diaDepois, int mesDepois, int anoDepois) {
 		Date before, after;
 		GregorianCalendar calendar = new GregorianCalendar();
@@ -65,7 +66,11 @@ public class LocacoesController {
 		if (destinoBusca == null) {
 			destinoBusca = "";
 		}
+		if (estacaoBusca == null) {
+			estacaoBusca = "";
+		}
 		
+		estacaoBusca = ".*" + estacaoBusca + ".*";
 		placaBusca = ".*" + placaBusca + ".*";
 		cpfBusca = ".*" + cpfBusca + ".*";
 		destinoBusca = ".*" + destinoBusca + ".*";
@@ -90,6 +95,6 @@ public class LocacoesController {
 			calendar.set(anoDepois, mesDepois, diaDepois);
 			after.setTime(calendar.getTimeInMillis());
 		}
-		return locacaoDAO.lista(placaBusca, cpfBusca, destinoBusca, before, after);
+		return locacaoDAO.lista(estacaoBusca, placaBusca, cpfBusca, destinoBusca, before, after);
 	}
 }
