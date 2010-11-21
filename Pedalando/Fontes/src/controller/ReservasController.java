@@ -4,13 +4,13 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-import br.com.caelum.vraptor.Resource;
-import br.com.caelum.vraptor.Result;
+import model.base.Estacao;
 import model.base.Reserva;
-import model.dao.BicicletaDAO;
 import model.dao.EstacaoDAO;
 import model.dao.ReservaDAO;
 import model.dao.UsuarioDAO;
+import br.com.caelum.vraptor.Resource;
+import br.com.caelum.vraptor.Result;
 
 @Resource
 public class ReservasController {
@@ -39,6 +39,7 @@ public class ReservasController {
 	}
 	
 	
+	//é necessário melhorar isso!
 	public List<Reserva> lista(String estacaoBusca, String cpfBusca, String destinoBusca, 
 			int diaAntes, int mesAntes, int anoAntes, int diaDepois, int mesDepois, int anoDepois) {
 		Date antes, depois;
@@ -50,6 +51,25 @@ public class ReservasController {
 		destinoBusca = ".*" + destinoBusca + ".*";
 		
 		return reservaDAO.lista(estacaoBusca, cpfBusca, destinoBusca, antes, depois);
+	}
+	
+	public Reserva edita(int id) {
+		return reservaDAO.encontra(id);
+	}
+	
+	public void altera(Reserva reserva) {
+		reservaDAO.atualiza(reserva);
+		result.redirectTo(this).lista(reserva.getEstacao().getNome(), reserva.getUsuario().getCpf(), ".*", 0, 0, 0, 0, 0, 0);
+	}
+	
+	public void remove(int id) {
+		Reserva reserva = reservaDAO.encontra(id);
+		reservaDAO.remove(reserva);
+		result.redirectTo(this).lista(".*", ".*", ".*", 0, 0, 0, 0, 0, 0);
+	}
+	
+	public List<Estacao> formulario() {
+		return estacaoDAO.lista(".*");
 	}
 
 }

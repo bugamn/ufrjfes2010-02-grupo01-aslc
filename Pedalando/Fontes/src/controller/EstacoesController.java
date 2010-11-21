@@ -2,12 +2,11 @@ package controller;
 
 import java.util.List;
 
-import br.com.caelum.vraptor.Resource;
-import br.com.caelum.vraptor.Result;
-import model.base.Bicicleta;
 import model.base.Estacao;
 import model.dao.BicicletaDAO;
 import model.dao.EstacaoDAO;
+import br.com.caelum.vraptor.Resource;
+import br.com.caelum.vraptor.Result;
 
 @Resource
 public class EstacoesController {
