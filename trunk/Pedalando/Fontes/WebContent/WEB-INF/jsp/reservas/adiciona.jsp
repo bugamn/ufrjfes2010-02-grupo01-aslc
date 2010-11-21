@@ -1,2 +1,2 @@
 
-Usuário adicionado com sucesso.
+Reserva adicionada com sucesso.

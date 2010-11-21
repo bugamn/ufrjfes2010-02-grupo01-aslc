@@ -1,2 +1,2 @@
 
-Usuário adicionado com sucesso.
+Locação adicionada com sucesso.
