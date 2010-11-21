@@ -39,7 +39,7 @@ public class LocacoesController {
 		locacao.setData(new Date(System.currentTimeMillis()));
 		
 		locacaoDAO.salva(locacao);
-		//result.redirectTo(this).lista(".*", ".*", ".*", ".*", null, null);
+		result.redirectTo(this).lista(".*", ".*", ".*", ".*", 0, 0, 0, 0, 0, 0);
 	}
 	
 	public List<Estacao> formulario() {
@@ -58,17 +58,31 @@ public class LocacoesController {
 		before = new Date();
 		after = new Date();
 		
-		calendar.set(anoAntes, mesAntes, diaAntes);
-		before.setTime(calendar.getTimeInMillis());
-		
-		calendar.set(anoDepois, mesDepois, diaDepois);
-		after.setTime(calendar.getTimeInMillis());
-		
 		estacaoBusca = ".*" + estacaoBusca + ".*";
 		placaBusca = ".*" + placaBusca + ".*";
 		cpfBusca = ".*" + cpfBusca + ".*";
 		destinoBusca = ".*" + destinoBusca + ".*";
 		
+		//System.out.println(diaAntes + "/" + mesAntes + "/" + anoAntes + ";" + diaDepois + "/" + mesDepois + "/" + anoDepois);
+		
+		if (diaAntes == 0) {
+			diaAntes = 1;
+		}
+		if (mesAntes == 0) {
+			mesAntes = 1;
+		}
+		if (anoAntes == 0) {
+			anoAntes = 2010;
+		}
+		
+		calendar.set(anoAntes, mesAntes, diaAntes);
+		before.setTime(calendar.getTimeInMillis());
+		if (diaDepois == 0 && mesDepois == 0 && anoDepois == 0) {
+			after.setTime(System.currentTimeMillis());
+		} else {
+			calendar.set(anoDepois, mesDepois, diaDepois);
+			after.setTime(calendar.getTimeInMillis());
+		}
 		return locacaoDAO.lista(estacaoBusca, placaBusca, cpfBusca, destinoBusca, before, after);
 	}
 }
