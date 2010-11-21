@@ -48,16 +48,14 @@ public class LocacaoDAO {
 	 * @param enderecoBusca
 	 * Expressão regular para identificar o endereco do Locacao;
 	 */
-	public List<Locacao> lista(String estacaoBusca, String placaBusca, String cpfBusca, String destinoBusca) {
+	public List<Locacao> lista(String placaBusca, String cpfBusca, String destinoBusca) {
 		ArrayList<Locacao> list = new ArrayList<Locacao>();
-		Pattern estacaoPattern = Pattern.compile(estacaoBusca);
 		Pattern cpfPattern = Pattern.compile(cpfBusca);
 		Pattern placaPattern = Pattern.compile(placaBusca);
 		Pattern destinoPattern = Pattern.compile(destinoBusca);
 		
 		for (Locacao locacao : arrayList) {
-			if (estacaoPattern.matcher(locacao.getEstacao().getNome()).matches() &&
-					cpfPattern.matcher(locacao.getUsuario().getCpf()).matches() &&
+			if (cpfPattern.matcher(locacao.getUsuario().getCpf()).matches() &&
 					destinoPattern.matcher(locacao.getDestino().getNome()).matches() &&
 					placaPattern.matcher(locacao.getBicicleta().getPlaca()).matches()) {
 				list.add(locacao);
@@ -82,16 +80,14 @@ public class LocacaoDAO {
 	 * @param after
 	 * Limite máximo para as datas de locações;
 	 */
-	public List<Locacao> lista(String estacaoBusca, String placaBusca, String cpfBusca, String destinoBusca, Date before, Date after) {
+	public List<Locacao> lista(String placaBusca, String cpfBusca, String destinoBusca, Date before, Date after) {
 		ArrayList<Locacao> list = new ArrayList<Locacao>();
-		Pattern estacaoPattern = Pattern.compile(estacaoBusca);
 		Pattern cpfPattern = Pattern.compile(cpfBusca);
 		Pattern placaPattern = Pattern.compile(placaBusca);
 		Pattern destinoPattern = Pattern.compile(destinoBusca);
 		
 		for (Locacao locacao : arrayList) {
-			if (estacaoPattern.matcher(locacao.getEstacao().getNome()).matches() &&
-					cpfPattern.matcher(locacao.getUsuario().getCpf()).matches() &&
+			if (cpfPattern.matcher(locacao.getUsuario().getCpf()).matches() &&
 					destinoPattern.matcher(locacao.getDestino().getNome()).matches() &&
 					placaPattern.matcher(locacao.getBicicleta().getPlaca()).matches() &&
 					before.before(locacao.getData()) && after.after(locacao.getData())) {

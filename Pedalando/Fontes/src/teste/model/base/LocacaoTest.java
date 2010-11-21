@@ -44,7 +44,6 @@ public class LocacaoTest {
 	@Before
 	public void setUp() throws Exception {
 		locacao.setId(id);
-		locacao.setEstacao(estacao);
 		locacao.setDestino(destino);
 		locacao.setUsuario(usuario);
 		locacao.setBicicleta(bicicleta);
@@ -61,19 +60,6 @@ public class LocacaoTest {
 		long novaId = 10;
 		locacao.setId(novaId);
 		assertEquals("setId não funciona.", novaId, locacao.getId());
-	}
-
-	@Test
-	public void testGetEstacao() {
-		assertEquals("getEstacao não funciona.", estacao, locacao.getEstacao());
-	}
-
-	@Test
-	public void testSetEstacao() {
-		Estacao novaEstacao = new Estacao();
-		estacao.setId(10);
-		locacao.setEstacao(novaEstacao);
-		assertEquals("setEstacao não funciona.", novaEstacao, locacao.getEstacao());
 	}
 
 	@Test

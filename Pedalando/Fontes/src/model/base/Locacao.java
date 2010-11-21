@@ -5,7 +5,6 @@ import java.util.Date;
 public class Locacao {
 	// TODO adicionar tags do hibernate
 	private long id;
-	private Estacao estacao;
 	private Usuario usuario;
 	private Estacao destino;
 	private Bicicleta bicicleta;
@@ -15,12 +14,6 @@ public class Locacao {
 	}
 	public void setId(long id) {
 		this.id = id;
-	}
-	public Estacao getEstacao() {
-		return estacao;
-	}
-	public void setEstacao(Estacao estacao) {
-		this.estacao = estacao;
 	}
 	public Usuario getUsuario() {
 		return usuario;

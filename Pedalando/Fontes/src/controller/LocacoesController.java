@@ -31,8 +31,7 @@ public class LocacoesController {
 
 	public void adiciona(int origem, int destino, String cpf, String placa) {
 		Locacao locacao = new Locacao();
-		
-		locacao.setEstacao(estacaoDAO.encontra(origem));
+
 		locacao.setDestino(estacaoDAO.encontra(destino));
 		locacao.setBicicleta(bicicletaDAO.encontra(placa));
 		locacao.setUsuario(usuarioDAO.encontra(cpf));
@@ -97,6 +96,6 @@ public class LocacoesController {
 			calendar.set(anoDepois, mesDepois, diaDepois);
 			after.setTime(calendar.getTimeInMillis());
 		}
-		return locacaoDAO.lista(estacaoBusca, placaBusca, cpfBusca, destinoBusca, before, after);
+		return locacaoDAO.lista(placaBusca, cpfBusca, destinoBusca, before, after);
 	}
 }

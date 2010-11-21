@@ -174,7 +174,16 @@ public class UsuariosControllerTest {
 
 	@Test
 	public void testLista() {
-		fail("Not yet implemented");
+		assertEquals("O método lista não funciona.", 
+				usuarioDAO.lista(".*", ".*", ".*").size(), usuariosController.lista(".*", ".*", ".*", 0).size());
+		assertEquals("O método lista não funciona.", 
+				usuarioDAO.lista(cpf, ".*", ".*").size(), usuariosController.lista(cpf, ".*", ".*", 0).size());
+		assertEquals("O método lista não funciona.", 
+				usuarioDAO.lista(".*", nome, ".*").size(), usuariosController.lista(".*", nome, ".*", 0).size());
+		assertEquals("O método lista não funciona.", 
+				usuarioDAO.lista(".*", ".*", endereco).size(), usuariosController.lista(".*", ".*", endereco, 0).size());
+		assertEquals("O método lista não funciona.", 
+				usuarioDAO.lista(".*", ".*", ".*", Permissao.ADMIN).size(), usuariosController.lista(".*", ".*", ".*", 3).size());
 	}
 
 }
