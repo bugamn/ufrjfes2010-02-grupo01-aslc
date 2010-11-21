@@ -1,0 +1,9 @@
+Movendo a árvore
+--Esta linha, e as abaixo, serão ignoradas--
+
+D    bicicletas
+D    estacoes
+D    locacoes/adiciona.jsp
+M    locacoes/busca.jsp
+D    reservas
+D    usuarios
