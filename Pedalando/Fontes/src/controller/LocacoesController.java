@@ -39,7 +39,7 @@ public class LocacoesController {
 		locacao.setData(new Date(System.currentTimeMillis()));
 		
 		locacaoDAO.salva(locacao);
-		result.redirectTo(this).lista(".*", ".*", ".*", ".*", 0, 0, 0, 0, 0, 0);
+		result.redirectTo(this).lista("", "", "", "", 0, 0, 0, 0, 0, 0);
 	}
 	
 	public List<Estacao> formulario() {
@@ -58,12 +58,26 @@ public class LocacoesController {
 		before = new Date();
 		after = new Date();
 		
+		if (estacaoBusca == null) {
+			estacaoBusca = "";
+		}
+		if (placaBusca == null) {
+			placaBusca = "";
+		}
+		if (cpfBusca == null) {
+			cpfBusca = "";
+		}
+		if (destinoBusca == null) {
+			destinoBusca = "";
+		}
+		
 		estacaoBusca = ".*" + estacaoBusca + ".*";
 		placaBusca = ".*" + placaBusca + ".*";
 		cpfBusca = ".*" + cpfBusca + ".*";
 		destinoBusca = ".*" + destinoBusca + ".*";
 		
-		//System.out.println(diaAntes + "/" + mesAntes + "/" + anoAntes + ";" + diaDepois + "/" + mesDepois + "/" + anoDepois);
+		System.out.println(estacaoBusca + " " + placaBusca + " " + cpfBusca + " " + destinoBusca);
+		System.out.println(diaAntes + "/" + mesAntes + "/" + anoAntes + ";" + diaDepois + "/" + mesDepois + "/" + anoDepois);
 		
 		if (diaAntes == 0) {
 			diaAntes = 1;
