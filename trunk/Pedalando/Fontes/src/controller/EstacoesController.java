@@ -100,6 +100,6 @@ public class EstacoesController {
 	public void remove(int id) {
 		Estacao estacao = estacaoDAO.encontra(id);
 		estacaoDAO.remove(estacao);
-		result.redirectTo(EstacoesController.class).lista("");
+		result.redirectTo(EstacoesController.class).lista(".*");
 	}
 }
