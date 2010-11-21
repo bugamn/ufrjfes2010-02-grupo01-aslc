@@ -1,0 +1,39 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<html>
+<head>
+<title>Pedalando</title>
+
+
+</head>
+
+<body>
+<div id="header"></div>
+<div id="erros">
+<ul>
+</ul>
+</div>
+<div id="body">
+<div id="menu">
+ <ul>
+   <li>Estações</li>
+   <ul>
+     <li><a href="<c:url value="/estacoes/formulario"/>">Nova</a></li>
+     <li><a href="<c:url value="/estacoes/lista"/>">Lista</a></li>
+     <li><a href="<c:url value="/estacoes/busca"/>">Busca</a></li>
+   </ul>
+   <li>Bicicletas</li>
+   <ul>
+     <li><a href="<c:url value="/bicicletas/formulario"/>">Nova</a></li>
+     <li><a href="<c:url value="/bicicletas/lista"/>">Lista</a></li>
+     <li><a href="<c:url value="/bicicletas/busca"/>">Busca</a></li>
+   </ul>
+   <li>Usuários</li>
+   <ul>
+     <li><a href="<c:url value="/usuarios/formulario"/>">Nova</a></li>
+     <li><a href="<c:url value="/usuarios/lista"/>">Lista</a></li>
+     <li><a href="<c:url value="/usuarios/busca"/>">Busca</a></li>
+   </ul>
+ </ul>
+
+</div>
+<div id="content">
