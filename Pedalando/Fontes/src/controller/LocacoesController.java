@@ -74,17 +74,19 @@ public class LocacoesController {
 			diaAntes = 1;
 		}
 		if (mesAntes == 0) {
-			mesAntes = 1;
+			mesAntes = 0;
 		}
 		if (anoAntes == 0) {
 			anoAntes = 2010;
 		}
+		mesAntes--;
 		
 		calendar.set(anoAntes, mesAntes, diaAntes);
 		before.setTime(calendar.getTimeInMillis());
 		if (diaDepois == 0 && mesDepois == 0 && anoDepois == 0) {
 			after.setTime(System.currentTimeMillis());
 		} else {
+			mesDepois--;
 			calendar.set(anoDepois, mesDepois, diaDepois);
 			after.setTime(calendar.getTimeInMillis());
 		}

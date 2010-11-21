@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 import java.util.Map;
 
 import model.base.Bicicleta;
@@ -216,13 +217,21 @@ public class LocacoesControllerTest {
 		
 		locacoesController.adiciona(estacao.getId(), usuario.getCpf(), bicicleta2.getPlaca());
 		
-		assertEquals("O método adiciona não funciona.", tamanho + 1, locacaoDAO.lista(".*", ".*", ".*").size());
-		
-		locacaoDAO.remove(locacao);
+		assertEquals("O método adiciona não funciona.", tamanho + 1, locacaoDAO.lista(".*", ".*", ".*").size());	
 	}
 	
 	@Test
 	public void testLista() {
+		List<Locacao> lista = locacaoDAO.lista(".*", ".*", ".*");
+		List<Locacao> lista2 = locacoesController.lista("", "", "", 0, 0, 0, 0, 0, 0);
+		
+		for (Locacao locacao : lista) {
+			System.out.println(locacao.getId() + " " + locacao.getBicicleta().getPlaca() + " " + locacao.getDestino().getNome() + " " + locacao.getData());
+		}
+		
+		for (Locacao locacao : lista2) {
+			System.out.println(locacao.getId() + " " + locacao.getBicicleta().getPlaca() + " " + locacao.getDestino().getNome() + " " + locacao.getData());
+		}
 		
 		assertEquals("O método lista não funciona.", 
 				locacaoDAO.lista(".*", ".*", ".*").size(), locacoesController.lista("", "", "", 0, 0, 0, 0, 0, 0).size());
