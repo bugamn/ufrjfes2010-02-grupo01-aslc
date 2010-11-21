@@ -25,7 +25,7 @@ public class BicicletasController {
 	public void adiciona(Bicicleta bicicleta, int id) {
 		bicicleta.setEstacao(estacaoDAO.encontra(id));
 		bicicletaDAO.salva(bicicleta);
-		result.redirectTo(this).lista("", "", "");
+		result.redirectTo(this).lista(".*", ".*", ".*");
 	}
 	
 	public List<Estacao> formulario() {
@@ -68,12 +68,12 @@ public class BicicletasController {
 	public void altera(Bicicleta bicicleta, int id) {
 		bicicleta.setEstacao(estacaoDAO.encontra(id));
 		bicicletaDAO.atualiza(bicicleta);
-		result.redirectTo(BicicletasController.class).lista(bicicleta.getPlaca(), "", "");
+		result.redirectTo(BicicletasController.class).lista(bicicleta.getPlaca(), ".*", ".*");
 	}
 	
 	public void remove(String placa) {
 		Bicicleta bicicleta = bicicletaDAO.encontra(placa);
 		bicicletaDAO.remove(bicicleta);
-		result.redirectTo(BicicletasController.class).lista("", "", "");
+		result.redirectTo(BicicletasController.class).lista(".*", ".*", ".*");
 	}
 }
