@@ -87,4 +87,21 @@ public class UsuariosController {
 		
 		return usuarioDAO.lista(cpfBusca, nomeBusca, enderecoBusca, p);
 	}
+	
+	public Usuario edita(String cpf) {
+		return usuarioDAO.encontra(cpf);
+	}
+	
+	public void altera(Usuario usuario, int permissao) {
+		Enum<Permissao> p = conversao(permissao);
+		usuario.setPermissao(p);
+		usuarioDAO.atualiza(usuario);
+		result.redirectTo(UsuariosController.class).lista(usuario.getCpf(), ".*", ".*", -1);
+	}
+	
+	public void remove(String cpf) {
+		Usuario usuario = usuarioDAO.encontra(cpf);
+		usuarioDAO.remove(usuario);
+		result.redirectTo(UsuariosController.class).lista(".*", ".*", ".*", -1);
+	}
 }
