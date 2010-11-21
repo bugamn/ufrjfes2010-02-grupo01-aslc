@@ -24,6 +24,9 @@
       
       <label for="placa">Placa:</label>
       <input id="placa" type="text" name="placa"/>
+      
+      <label for="antes">Data mínima:</label>
+      <input id="antes" type="text" name="diaAntes"/>/<input type="text" name="mesAntes"/>/<input type="text" name="anoAntes"/>
             
       <button type="submit">Buscar</button>
     </fieldset>
