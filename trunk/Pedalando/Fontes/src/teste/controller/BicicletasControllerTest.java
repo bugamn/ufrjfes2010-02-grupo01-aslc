@@ -8,7 +8,6 @@ import model.base.Bicicleta;
 import model.base.Estacao;
 import model.dao.BicicletaDAO;
 import model.dao.EstacaoDAO;
-
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -16,7 +15,6 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.View;
 
 import controller.BicicletasController;
-import controller.EstacoesController;
 
 public class BicicletasControllerTest {
 	private static String nomeEstacao = "CCMN";
@@ -36,6 +34,7 @@ public class BicicletasControllerTest {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		
 		estacao.setCapacidade(capacidadeEstacao);
 		estacao.setNome(nomeEstacao);
 		estacaoDAO.salva(estacao);
@@ -179,6 +178,8 @@ public class BicicletasControllerTest {
 		bicicletasController.adiciona(bicicletaNova, estacao.getId());
 		
 		assertEquals("O método adiciona não funciona.", tamanho + 1, bicicletaDAO.lista(".*", ".*", ".*").size());
+		
+		bicicletaDAO.remove(bicicletaNova);
 	}
 
 	@Test

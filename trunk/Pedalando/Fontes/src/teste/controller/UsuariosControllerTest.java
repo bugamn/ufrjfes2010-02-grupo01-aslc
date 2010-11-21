@@ -170,6 +170,8 @@ public class UsuariosControllerTest {
 		usuariosController.adiciona(novo, 3);
 		
 		assertEquals("O método adiciona não funciona.", tamanho + 1, usuarioDAO.lista(".*", ".*", ".*").size());
+		
+		usuarioDAO.remove(novo);
 	}
 
 	@Test
@@ -183,7 +185,7 @@ public class UsuariosControllerTest {
 		assertEquals("O método lista não funciona.", 
 				usuarioDAO.lista(".*", ".*", endereco).size(), usuariosController.lista(".*", ".*", endereco, 0).size());
 		assertEquals("O método lista não funciona.", 
-				usuarioDAO.lista(".*", ".*", ".*", Permissao.ADMIN).size(), usuariosController.lista(".*", ".*", ".*", 3).size());
+				usuarioDAO.lista(".*", ".*", ".*", Permissao.ADMIN).size(), usuariosController.lista(".*", ".*", ".*", 1).size());
 	}
 
 }
