@@ -8,12 +8,12 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${ usuarioList }" var="usuario">
+			<c:forEach items="${ reservaList }" var="reserva">
 				<tr>
-					<td>${ usuario.nome }</td>
-					<td>${ usuario.cpf }</td>
-					<td>${ usuario.endereco }</td>
-					<td>${ usuario.permissao }</td>
+					<td>${ reserva.nome }</td>
+					<td>${ reserva.cpf }</td>
+					<td>${ reserva.endereco }</td>
+					<td>${ reserva.permissao }</td>
 					<!-- <td><a href="<c:url value="/produtos/${ produto.id }"/>">Editar</a></td>
 					<td>
 						<form action="<c:url value="/produtos/${ produto.id }"/>" method="POST">
