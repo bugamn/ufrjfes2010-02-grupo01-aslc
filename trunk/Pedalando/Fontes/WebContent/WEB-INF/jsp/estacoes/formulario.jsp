@@ -9,6 +9,6 @@
       <label for="capacidade">Capacidade</label>
       <input id="capacidade" type="text" name="estacao.capacidade"/>
       
-      <button type="submit">Enviar</button>
+      <button type="submit">Salvar</button>
     </fieldset>
   </form>

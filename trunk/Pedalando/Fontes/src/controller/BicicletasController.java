@@ -2,12 +2,13 @@ package controller;
 
 import java.util.List;
 
-import br.com.caelum.vraptor.Resource;
-import br.com.caelum.vraptor.Result;
 import model.base.Bicicleta;
 import model.base.Estacao;
 import model.dao.BicicletaDAO;
 import model.dao.EstacaoDAO;
+import model.vo.BicicletaVO;
+import br.com.caelum.vraptor.Resource;
+import br.com.caelum.vraptor.Result;
 
 @Resource
 public class BicicletasController {
@@ -24,7 +25,7 @@ public class BicicletasController {
 	public void adiciona(Bicicleta bicicleta, int id) {
 		bicicleta.setEstacao(estacaoDAO.encontra(id));
 		bicicletaDAO.salva(bicicleta);
-		result.redirectTo(this).lista(".*", ".*", ".*");
+		result.redirectTo(this).lista("", "", "");
 	}
 	
 	public List<Estacao> formulario() {
@@ -42,6 +43,7 @@ public class BicicletasController {
 		if (tipoBusca == null) {
 			tipoBusca = "";
 		}
+		
 		if (estacaoBusca == null) {
 			estacaoBusca = "";
 		}
@@ -49,5 +51,29 @@ public class BicicletasController {
 		tipoBusca = ".*" + tipoBusca + ".*";
 		estacaoBusca = ".*" + estacaoBusca + ".*";
 		return bicicletaDAO.lista(placaBusca, tipoBusca, estacaoBusca);		
+	}
+	
+	public BicicletaVO edita(String placa) {
+		BicicletaVO bicicletaVO = new BicicletaVO();
+		Bicicleta bicicleta = bicicletaDAO.encontra(placa);
+		
+		bicicletaVO.setPlaca(bicicleta.getPlaca());
+		bicicletaVO.setTipo(bicicleta.getTipo());
+		bicicletaVO.setEstacao(bicicleta.getEstacao());
+		bicicletaVO.setEstacoes(estacaoDAO.lista(".*"));
+		
+		return bicicletaVO;
+	}
+	
+	public void altera(Bicicleta bicicleta, int id) {
+		bicicleta.setEstacao(estacaoDAO.encontra(id));
+		bicicletaDAO.atualiza(bicicleta);
+		result.redirectTo(BicicletasController.class).lista(bicicleta.getPlaca(), "", "");
+	}
+	
+	public void remove(String placa) {
+		Bicicleta bicicleta = bicicletaDAO.encontra(placa);
+		bicicletaDAO.remove(bicicleta);
+		result.redirectTo(BicicletasController.class).lista("", "", "");
 	}
 }
