@@ -46,7 +46,8 @@ public class BicicletasController {
 			estacaoBusca = "";
 		}
 		placaBusca = ".*" + placaBusca + ".*";
-		tipoBusca = ".*" + estacaoBusca + ".*";
+		tipoBusca = ".*" + tipoBusca + ".*";
+		estacaoBusca = ".*" + estacaoBusca + ".*";
 		return bicicletaDAO.lista(placaBusca, tipoBusca, estacaoBusca);		
 	}
 }
