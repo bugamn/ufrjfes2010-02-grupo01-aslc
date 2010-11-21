@@ -23,6 +23,6 @@
       <label for="placa">Placa:</label>
       <input id="placa" type="text" name="placa"/>
             
-      <button type="submit">Enviar</button>
+      <button type="submit">Salvar</button>
     </fieldset>
   </form>

@@ -20,6 +20,6 @@
       <option value=3>Usuário</option>
       </select>
             
-      <button type="submit">Enviar</button>
+      <button type="submit">Buscar</button>
     </fieldset>
   </form>

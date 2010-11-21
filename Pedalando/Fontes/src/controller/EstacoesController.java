@@ -15,6 +15,13 @@ public class EstacoesController {
 	private final BicicletaDAO bicicletaDAO;
 	private final Result result;
 	
+	
+	public EstacoesController(EstacaoDAO estacaoDAO, BicicletaDAO bicicletaDAO, Result result) {
+		this.estacaoDAO = estacaoDAO;
+		this.bicicletaDAO = bicicletaDAO;
+		this.result = result;
+	}
+	
 	public class Consulta {
 		private Estacao estacao;
 		private List<Dados> lista;
@@ -49,12 +56,6 @@ public class EstacoesController {
 		}
 	}
 	
-	public EstacoesController(EstacaoDAO estacaoDAO, BicicletaDAO bicicletaDAO, Result result) {
-		this.estacaoDAO = estacaoDAO;
-		this.bicicletaDAO = bicicletaDAO;
-		this.result = result;
-	}
-	
 	public void adiciona(final Estacao estacao) {
 		
 		estacaoDAO.salva(estacao);
@@ -85,5 +86,20 @@ public class EstacoesController {
 		for (Estacao estacao : lista) {
 			
 		}
+	}
+	
+	public Estacao edita(int id) {
+		return estacaoDAO.encontra(id);
+	}
+	
+	public void altera(Estacao estacao) {
+		estacaoDAO.atualiza(estacao);
+		result.redirectTo(EstacoesController.class).lista(estacao.getNome());
+	}
+	
+	public void remove(int id) {
+		Estacao estacao = estacaoDAO.encontra(id);
+		estacaoDAO.remove(estacao);
+		result.redirectTo(EstacoesController.class).lista("");
 	}
 }

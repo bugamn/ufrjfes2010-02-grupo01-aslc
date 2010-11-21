@@ -12,12 +12,8 @@
 					<td>${ bicicleta.placa }</td>
 					<td>${ bicicleta.tipo }</td>
 					<td>${ bicicleta.estacao.nome }</td>
-					<!-- <td><a href="<c:url value="/produtos/${ produto.id }"/>">Editar</a></td>
-					<td>
-						<form action="<c:url value="/produtos/${ produto.id }"/>" method="POST">
-							<button class="link" name="_method" value="DELETE">Remover</button>
-						</form>
-					</td> -->
+					<td><a href="edita?placa=${bicicleta.placa}">Editar</a></td>
+					<td><a href="remove?placa=${bicicleta.placa}">Remover</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
