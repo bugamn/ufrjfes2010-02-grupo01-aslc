@@ -1,2 +1,0 @@
-
-Usuário adicionado com sucesso.
