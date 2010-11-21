@@ -11,7 +11,7 @@ import model.base.Reserva;
 
 @Component
 public class ReservaDAO {
-	private final ArrayList<Reserva> arrayList = new ArrayList<Reserva>();
+	private static ArrayList<Reserva> arrayList = new ArrayList<Reserva>();
 
 	public void salva(Reserva reserva) {
 		reserva.setId(arrayList.size());
