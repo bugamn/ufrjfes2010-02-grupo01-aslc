@@ -87,6 +87,19 @@ public class LocacaoTest {
 		locacao.setDestino(novoDestino);
 		assertEquals("setDestino não funciona.", novoDestino, locacao.getDestino());
 	}
+
+	@Test
+	public void testGetEstacao() {
+		assertEquals("getEstacao não funciona.", estacao, locacao.getEstacao());
+	}
+
+	@Test
+	public void testSetEstacao() {
+		Estacao novoEstacao = new Estacao();
+		novoEstacao.setId(10);
+		locacao.setDestino(novoEstacao);
+		assertEquals("setEstaca não funciona.", novoEstacao, locacao.getEstacao());
+	}
 	
 	@Test
 	public void testGetBicicleta() {
