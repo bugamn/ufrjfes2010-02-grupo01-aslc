@@ -33,6 +33,18 @@
      <li><a href="<c:url value="/usuarios/lista"/>">Lista</a></li>
      <li><a href="<c:url value="/usuarios/busca"/>">Busca</a></li>
    </ul>
+   <li>Locações</li>
+   <ul>
+     <li><a href="<c:url value="/locacoes/formulario"/>">Nova</a></li>
+     <li><a href="<c:url value="/locacoes/lista"/>">Lista</a></li>
+     <li><a href="<c:url value="/locacoes/busca"/>">Busca</a></li>
+   </ul>
+   <li>Reservas</li>
+   <ul>
+     <li><a href="<c:url value="/reservas/formulario"/>">Nova</a></li>
+     <li><a href="<c:url value="/reservas/lista"/>">Lista</a></li>
+     <li><a href="<c:url value="/reservas/busca"/>">Busca</a></li>
+   </ul>
  </ul>
 
 </div>
