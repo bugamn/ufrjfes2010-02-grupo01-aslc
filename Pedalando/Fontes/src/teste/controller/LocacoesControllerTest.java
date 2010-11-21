@@ -88,12 +88,14 @@ public class LocacoesControllerTest {
 		bicicletaDAO.salva(bicicleta2);
 		
 		locacao.setBicicleta(bicicleta);
+		locacao.setEstacao(bicicleta.getEstacao());
 		locacao.setData(data);
 		locacao.setDestino(estacao2);
 		locacao.setUsuario(usuario);
 		locacaoDAO.salva(locacao);
 		
 		locacao2.setBicicleta(bicicleta2);
+		locacao2.setEstacao(bicicleta2.getEstacao());
 		locacao2.setData(data2);
 		locacao2.setDestino(estacao);
 		locacao2.setUsuario(usuario2);
