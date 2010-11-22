@@ -1,15 +1,23 @@
 package model.base;
 
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
 
 public class Bicicleta {
 	// TODO adicionar tags do hibernate
 	
-	@Id
+	@Id @NotNull
+	@Length(min=3)
 	private String placa;
 	
+	@NotNull
+	@Length(min=3)
 	private String tipo;
 	
+	@NotNull
 	private Estacao estacao;
 
 	public String getPlaca() {

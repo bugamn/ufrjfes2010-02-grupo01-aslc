@@ -1,18 +1,32 @@
 package model.base;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
+
 public class Usuario {
-	// TODO adicionar tags do hibernate
+	
+	@Id @NotNull
+	@Length(min=11,max=11)
 	private String cpf;
+	
+	@NotNull
+	@Length(min=3)
 	private String nome;
+	
+	@NotNull
+	@Length(min=5)
 	private String endereco;
+	
+	@NotNull
 	private Enum<Permissao> permissao;
 	public enum Permissao {ADMIN, OPERATOR, USER};
 	
 	public String getCpf() {
 		return cpf;
 	}
-	//seria bom adicionar algo aqui para verificar se cpf é válido
-	//ou adicionar no DAO
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}

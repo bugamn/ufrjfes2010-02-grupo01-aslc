@@ -2,6 +2,7 @@ package teste.controller;
 
 import static org.junit.Assert.*;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -21,7 +22,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.View;
+import br.com.caelum.vraptor.validator.Message;
+import br.com.caelum.vraptor.validator.Validations;
 
 import controller.LocacoesController;
 
@@ -210,22 +214,109 @@ public class LocacoesControllerTest {
 				// TODO Auto-generated method stub
 				
 			}
+		}, new Validator() {
+			
+			@Override
+			public void validate(Object arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public <T> T onErrorUsePageOf(T arg0) {
+				// TODO Auto-generated method stub
+				return arg0;
+			}
+			
+			@Override
+			public <T> T onErrorUsePageOf(Class<T> arg0) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public <T extends View> T onErrorUse(Class<T> arg0) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public void onErrorSendBadRequest() {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public <T> T onErrorRedirectTo(T arg0) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public <T> T onErrorRedirectTo(Class<T> arg0) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public <T> T onErrorForwardTo(T arg0) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public <T> T onErrorForwardTo(Class<T> arg0) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public boolean hasErrors() {
+				// TODO Auto-generated method stub
+				return false;
+			}
+			
+			@Override
+			public void checking(Validations arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void addAll(Collection<? extends Message> arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void add(Message arg0) {
+				// TODO Auto-generated method stub
+				
+			}
 		});
 	}
 
 	@Test
 	public void testAdiciona() {
-		int tamanho = locacaoDAO.lista(".*", ".*", ".*").size();
+		int tamanho = locacaoDAO.lista(".*", ".*", ".*", ".*").size();
 		
 		locacoesController.adiciona(estacao.getId(), usuario.getCpf(), bicicleta2.getPlaca());
 		
-		assertEquals("O método adiciona não funciona.", tamanho + 1, locacaoDAO.lista(".*", ".*", ".*").size());	
+		assertEquals("O método adiciona não funciona.", tamanho + 1, locacaoDAO.lista(".*", ".*", ".*", ".*").size());	
 	}
 	
 	@Test
-	public void testLista() {		
+	public void testLista() {
 		assertEquals("O método lista não funciona.", 
-				locacaoDAO.lista(".*", ".*", ".*").size(), locacoesController.lista("", "", "", "", 0, 0, 0, 0, 0, 0).size());
+				locacaoDAO.lista(".*", ".*", ".*", ".*").size(), locacoesController.lista("", "", "", "", 0, 0, 0, 0, 0, 0).size());
+		assertEquals("O método lista não funciona no filtro de origem.", 
+				locacaoDAO.lista(estacao.getNome(), ".*", ".*", ".*").size(), locacoesController.lista(estacao.getNome(), "", "", "", 0, 0, 0, 0, 0, 0).size());
+		assertEquals("O método lista não funciona no filtro de placa.", 
+				locacaoDAO.lista(".*", bicicleta.getPlaca(), ".*", ".*").size(), locacoesController.lista("", bicicleta.getPlaca(), "", "", 0, 0, 0, 0, 0, 0).size());
+		assertEquals("O método lista não funciona no filtro de cpf.", 
+				locacaoDAO.lista(".*", ".*", usuario.getCpf(), ".*").size(), locacoesController.lista("", "", usuario.getCpf(), "", 0, 0, 0, 0, 0, 0).size());
+		assertEquals("O método lista não funciona no filtro de destino.", 
+				locacaoDAO.lista(".*", ".*", ".*", estacao2.getNome()).size(), locacoesController.lista("", "", "", estacao2.getNome(), 0, 0, 0, 0, 0, 0).size());
 		
 	}
 	

@@ -6,6 +6,8 @@ import java.util.List;
 
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.Validator;
+import model.base.Bicicleta;
 import model.base.Estacao;
 import model.base.Locacao;
 import model.dao.BicicletaDAO;
@@ -20,23 +22,32 @@ public class LocacoesController {
 	private final BicicletaDAO bicicletaDAO;
 	private final UsuarioDAO usuarioDAO;
 	private final Result result;
+	private final Validator validator;
 	
-	public LocacoesController(LocacaoDAO locacaoDAO, EstacaoDAO estacaoDAO, BicicletaDAO bicicletaDAO, UsuarioDAO usuarioDAO, Result result) {
+	public LocacoesController(LocacaoDAO locacaoDAO, EstacaoDAO estacaoDAO, BicicletaDAO bicicletaDAO, UsuarioDAO usuarioDAO, 
+			Result result, Validator validator) {
 		this.locacaoDAO = locacaoDAO;
 		this.estacaoDAO = estacaoDAO;
 		this.bicicletaDAO = bicicletaDAO;
 		this.usuarioDAO = usuarioDAO;
 		this.result = result;
+		this.validator = validator;
 	}
 
 	public void adiciona(int destino, String cpf, String placa) {
 		Locacao locacao = new Locacao();
+		Bicicleta bicicleta = bicicletaDAO.encontra(placa);
 
+		if(bicicleta != null) {
+			locacao.setBicicleta(bicicleta);
+			locacao.setEstacao(bicicleta.getEstacao());
+		}
 		locacao.setDestino(estacaoDAO.encontra(destino));
-		locacao.setBicicleta(bicicletaDAO.encontra(placa));
-		locacao.setEstacao(locacao.getBicicleta().getEstacao());
 		locacao.setUsuario(usuarioDAO.encontra(cpf));
 		locacao.setData(new Date(System.currentTimeMillis()));
+		
+		validator.validate(locacao);
+		validator.onErrorUsePageOf(LocacoesController.class).formulario();
 		
 		locacaoDAO.salva(locacao);
 		result.redirectTo(this).lista("", "", "", "", 0, 0, 0, 0, 0, 0);
@@ -52,11 +63,11 @@ public class LocacoesController {
 	
 	public List<Locacao> lista(String estacaoBusca, String placaBusca, String cpfBusca, String destinoBusca,
 			int diaAntes, int mesAntes, int anoAntes, int diaDepois, int mesDepois, int anoDepois) {
-		Date before, after;
+		Date antes, depois;
 		GregorianCalendar calendar = new GregorianCalendar();
 		
-		before = new Date();
-		after = new Date();
+		antes = new Date();
+		depois = new Date();
 		if (placaBusca == null) {
 			placaBusca = "";
 		}
@@ -87,14 +98,14 @@ public class LocacoesController {
 		mesAntes--;
 		
 		calendar.set(anoAntes, mesAntes, diaAntes);
-		before.setTime(calendar.getTimeInMillis());
+		antes.setTime(calendar.getTimeInMillis());
 		if (diaDepois == 0 && mesDepois == 0 && anoDepois == 0) {
-			after.setTime(System.currentTimeMillis());
+			depois.setTime(System.currentTimeMillis());
 		} else {
 			mesDepois--;
 			calendar.set(anoDepois, mesDepois, diaDepois);
-			after.setTime(calendar.getTimeInMillis());
+			depois.setTime(calendar.getTimeInMillis());
 		}
-		return locacaoDAO.lista(estacaoBusca, placaBusca, cpfBusca, destinoBusca, before, after);
+		return locacaoDAO.lista(estacaoBusca, placaBusca, cpfBusca, destinoBusca, antes, depois);
 	}
 }

@@ -2,13 +2,28 @@ package model.base;
 
 import java.util.Date;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
 public class Reserva {
 	// TODO adicionar tags do hibernate
+	
+	@Id @GeneratedValue
 	private long id;
+	
+	@NotNull
 	private Estacao estacao;
+	
+	@NotNull
 	private Usuario usuario;
+	
+	@NotNull
 	private Estacao destino;
+	
+	@NotNull
 	private Date data;
+	
 	public long getId() {
 		return id;
 	}

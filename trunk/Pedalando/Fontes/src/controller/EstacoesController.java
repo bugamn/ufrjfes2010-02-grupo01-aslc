@@ -7,18 +7,21 @@ import model.dao.BicicletaDAO;
 import model.dao.EstacaoDAO;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.Validator;
 
 @Resource
 public class EstacoesController {
 	private final EstacaoDAO estacaoDAO;
 	private final BicicletaDAO bicicletaDAO;
+	private final Validator validator;
 	private final Result result;
 	
 	
-	public EstacoesController(EstacaoDAO estacaoDAO, BicicletaDAO bicicletaDAO, Result result) {
+	public EstacoesController(EstacaoDAO estacaoDAO, BicicletaDAO bicicletaDAO, Result result, Validator validator) {
 		this.estacaoDAO = estacaoDAO;
 		this.bicicletaDAO = bicicletaDAO;
 		this.result = result;
+		this.validator = validator;
 	}
 	
 	public class Consulta {
@@ -56,6 +59,9 @@ public class EstacoesController {
 	}
 	
 	public void adiciona(final Estacao estacao) {
+		
+		validator.validate(estacao);
+		validator.onErrorUsePageOf(EstacoesController.this).formulario();
 		
 		estacaoDAO.salva(estacao);
 		result.redirectTo(this).lista(".*");
