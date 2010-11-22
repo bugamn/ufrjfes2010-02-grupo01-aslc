@@ -2,15 +2,17 @@
 		<thead>
 			<tr>
 				<th>Bicicleta</th>
+				<th>Origem</th>
 				<th>Destino</th>
 				<th>Usuário</th>
 				<th>Partida</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${ locacaoList }" var="usuario">
+			<c:forEach items="${ locacaoList }" var="locacao">
 				<tr>
 					<td>${ locacao.bicicleta.placa }</td>
+					<td>${ locacao.estacao.nome }</td>
 					<td>${ locacao.destino.nome }</td>
 					<td>${ locacao.usuario.nome }</td>
 					<td>${ locacao.data }</td>

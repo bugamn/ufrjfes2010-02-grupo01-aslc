@@ -1,3 +1,4 @@
+<!-- Consertamos a validação, não é mais necessário -->
 <script type="text/javascript">
 function validaCampos() {
 	var placa = document.getElementById("placa");
@@ -23,6 +24,7 @@ function validaCampos() {
 	
 }
 </script>
+
 
 <form id="estacoesForm" action="adiciona" onSubmit="javascript:return validaCampos();">
   <fieldset>

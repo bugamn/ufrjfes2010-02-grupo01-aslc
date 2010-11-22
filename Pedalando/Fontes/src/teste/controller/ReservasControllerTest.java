@@ -2,6 +2,7 @@ package teste.controller;
 
 import static org.junit.Assert.*;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Map;
@@ -22,7 +23,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.View;
+import br.com.caelum.vraptor.validator.Message;
+import br.com.caelum.vraptor.validator.Validations;
 
 import controller.LocacoesController;
 import controller.ReservasController;
@@ -193,6 +197,85 @@ public class ReservasControllerTest {
 				// TODO Auto-generated method stub
 				
 			}
+		}, new Validator() {
+			
+			@Override
+			public void validate(Object arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public <T> T onErrorUsePageOf(T arg0) {
+				// TODO Auto-generated method stub
+				return arg0;
+			}
+			
+			@Override
+			public <T> T onErrorUsePageOf(Class<T> arg0) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public <T extends View> T onErrorUse(Class<T> arg0) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public void onErrorSendBadRequest() {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public <T> T onErrorRedirectTo(T arg0) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public <T> T onErrorRedirectTo(Class<T> arg0) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public <T> T onErrorForwardTo(T arg0) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public <T> T onErrorForwardTo(Class<T> arg0) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public boolean hasErrors() {
+				// TODO Auto-generated method stub
+				return false;
+			}
+			
+			@Override
+			public void checking(Validations arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void addAll(Collection<? extends Message> arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void add(Message arg0) {
+				// TODO Auto-generated method stub
+				
+			}
 		});
 	}
 
@@ -210,6 +293,23 @@ public class ReservasControllerTest {
 		
 		assertEquals("O método lista não funciona.", 
 				reservaDAO.lista(".*", ".*", ".*").size(), reservasController.lista("", "", "", 0, 0, 0, 0, 0, 0).size());
+		assertEquals("O método lista não funciona.", 
+				reservaDAO.lista(estacao.getNome(), ".*", ".*").size(), reservasController.lista(estacao.getNome(), "", "", 0, 0, 0, 0, 0, 0).size());
+		assertEquals("O método lista não funciona.", 
+				reservaDAO.lista(".*", usuario.getCpf(), ".*").size(), reservasController.lista("", usuario.getCpf(), "", 0, 0, 0, 0, 0, 0).size());
+		assertEquals("O método lista não funciona.", 
+				reservaDAO.lista(".*", ".*", estacao.getNome()).size(), reservasController.lista("", "", estacao.getNome(), 0, 0, 0, 0, 0, 0).size());
+	}
+	
+	@Test
+	public void testFormulario() {
+		assertEquals("O método formulário não funciona", estacaoDAO.lista(".*"), reservasController.formulario());
+	}
+	
+	@Test
+	public void testBusca() {
+		assertEquals("O método busca não funciona", estacaoDAO.lista(".*"), reservasController.busca());
+
 	}
 
 }

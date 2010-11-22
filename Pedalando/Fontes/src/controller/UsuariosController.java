@@ -4,6 +4,7 @@ import java.util.List;
 
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.Validator;
 import model.base.Usuario;
 import model.base.Usuario.Permissao;
 import model.dao.UsuarioDAO;
@@ -12,10 +13,12 @@ import model.dao.UsuarioDAO;
 public class UsuariosController {
 	private final UsuarioDAO usuarioDAO;
 	private final Result result;
+	private final Validator validator;
 	
-	public UsuariosController(UsuarioDAO usuarioDAO, Result result) {
+	public UsuariosController(UsuarioDAO usuarioDAO, Result result, Validator validator) {
 		this.usuarioDAO = usuarioDAO;
 		this.result = result;
+		this.validator = validator;
 	}
 	
 	private Usuario.Permissao conversao(int permissao) {
@@ -45,6 +48,9 @@ public class UsuariosController {
 		
 		p = conversao(permissao);
 		usuario.setPermissao(p);
+		
+		validator.validate(usuario);
+		validator.onErrorUsePageOf(UsuariosController.class).formulario();
 		
 		usuarioDAO.salva(usuario);
 		result.redirectTo(this).lista(".*", ".*", ".*", 0);

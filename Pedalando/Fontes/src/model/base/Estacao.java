@@ -1,15 +1,20 @@
 package model.base;
 
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 public class Estacao {
 	// TODO adicionar tags do hibernate
 	
-	@Id
+	@Id @GeneratedValue
 	private int id;
 	
+	@NotNull
 	private String nome;
 	
+	@Min(1)
 	private int capacidade;
 
 	public int getId() {

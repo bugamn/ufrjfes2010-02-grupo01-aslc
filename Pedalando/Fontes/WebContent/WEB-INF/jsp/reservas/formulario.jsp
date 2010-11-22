@@ -1,7 +1,7 @@
 
   <form id="usuariosForm" action="adiciona">
     <fieldset>
-      <legend>Adicionar Locação</legend>
+      <legend>Adicionar Reserva</legend>
       
       <label for="origem">Origem:</label>
       <select id="origem" name="origem">
@@ -11,7 +11,7 @@
       </select>
       
       <label for="destino">Destino:</label>
-      <select id="destino" name="origem">
+      <select id="destino" name="destino">
       <c:forEach items="${ estacaoList }" var="estacao">
       <option value="${ estacao.id }">${ estacao.nome }</option>
       </c:forEach>
@@ -20,9 +20,13 @@
       <label for="cpf">CPF:</label>
       <input id="cpf" type="text" name="cpf"/>
       
-      <label for="placa">Placa:</label>
-      <input id="placa" type="text" name="placa"/>
-            
+      <label for="depois">Data:</label>
+      <input id="depois" type="text" name="dia" maxlength="2" size="2"/>
+      /<input type="text" name="mes" maxlength="2" size="2"/>
+      /<input type="text" name="ano" maxlength="4" size="4"/>
+      -<input type="text" name="hora" maxlength="2" size="2"/>
+      :<input type="text" name="minuto" maxlength="2" size="2"/>
+                  
       <button type="submit">Salvar</button>
     </fieldset>
   </form>

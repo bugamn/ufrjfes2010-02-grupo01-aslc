@@ -48,14 +48,16 @@ public class LocacaoDAO {
 	 * @param enderecoBusca
 	 * Expressão regular para identificar o endereco do Locacao;
 	 */
-	public List<Locacao> lista(String placaBusca, String cpfBusca, String destinoBusca) {
+	public List<Locacao> lista(String estacaoBusca, String placaBusca, String cpfBusca, String destinoBusca) {
 		ArrayList<Locacao> list = new ArrayList<Locacao>();
 		Pattern cpfPattern = Pattern.compile(cpfBusca);
 		Pattern placaPattern = Pattern.compile(placaBusca);
 		Pattern destinoPattern = Pattern.compile(destinoBusca);
+		Pattern estacaoPattern = Pattern.compile(estacaoBusca);
 		
 		for (Locacao locacao : arrayList) {
-			if (cpfPattern.matcher(locacao.getUsuario().getCpf()).matches() &&
+			if (estacaoPattern.matcher(locacao.getEstacao().getNome()).matches() &&
+					cpfPattern.matcher(locacao.getUsuario().getCpf()).matches() &&
 					destinoPattern.matcher(locacao.getDestino().getNome()).matches() &&
 					placaPattern.matcher(locacao.getBicicleta().getPlaca()).matches()) {
 				list.add(locacao);

@@ -2,6 +2,7 @@ package teste.controller;
 
 import static org.junit.Assert.*;
 
+import java.util.Collection;
 import java.util.Map;
 
 import model.base.Usuario;
@@ -12,7 +13,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.View;
+import br.com.caelum.vraptor.validator.Message;
+import br.com.caelum.vraptor.validator.Validations;
 
 import controller.UsuariosController;
 
@@ -148,6 +152,85 @@ public class UsuariosControllerTest {
 			
 			@Override
 			public void forwardTo(String arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		}, new Validator() {
+			
+			@Override
+			public void validate(Object arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public <T> T onErrorUsePageOf(T arg0) {
+				// TODO Auto-generated method stub
+				return arg0;
+			}
+			
+			@Override
+			public <T> T onErrorUsePageOf(Class<T> arg0) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public <T extends View> T onErrorUse(Class<T> arg0) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public void onErrorSendBadRequest() {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public <T> T onErrorRedirectTo(T arg0) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public <T> T onErrorRedirectTo(Class<T> arg0) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public <T> T onErrorForwardTo(T arg0) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public <T> T onErrorForwardTo(Class<T> arg0) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public boolean hasErrors() {
+				// TODO Auto-generated method stub
+				return false;
+			}
+			
+			@Override
+			public void checking(Validations arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void addAll(Collection<? extends Message> arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void add(Message arg0) {
 				// TODO Auto-generated method stub
 				
 			}
