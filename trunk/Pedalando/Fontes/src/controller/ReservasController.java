@@ -41,10 +41,10 @@ public class ReservasController {
 		}
 		
 		validator.validate(reserva);
-		validator.onErrorUsePageOf(ReservasController.this).formulario();		
+		validator.onErrorUsePageOf(ReservasController.class).formulario();		
 		
 		reservaDAO.salva(reserva);
-		//result.redirectTo(this).lista(".*", ".*", ".*", null, null);
+		result.redirectTo(this).lista("", "", "", 0, 0, 0, 0, 0, 0);
 	}
 	
 	
@@ -70,6 +70,10 @@ public class ReservasController {
 		cpfBusca = ".*" + cpfBusca + ".*";
 		destinoBusca = ".*" + destinoBusca + ".*";
 		
+		if (diaAntes == 0 && mesAntes == 0 && anoAntes == 0 && diaDepois == 0 && mesDepois == 0 && anoDepois == 0) {
+			return reservaDAO.lista(estacaoBusca, cpfBusca, destinoBusca);
+		}
+		
 		if (diaAntes == 0) {
 			diaAntes = 1;
 		}
@@ -84,11 +88,12 @@ public class ReservasController {
 		calendar.set(anoAntes, mesAntes, diaAntes);
 		antes.setTime(calendar.getTimeInMillis());
 		if (diaDepois == 0 && mesDepois == 0 && anoDepois == 0) {
-			depois.setTime(System.currentTimeMillis());
+			depois.setTime(System.currentTimeMillis() + 1000 * 60 * 60 * 24 * 365);
 		} else {
 			mesDepois--;
 			calendar.set(anoDepois, mesDepois, diaDepois);
 			depois.setTime(calendar.getTimeInMillis());
+			
 		}
 		
 		return reservaDAO.lista(estacaoBusca, cpfBusca, destinoBusca, antes, depois);

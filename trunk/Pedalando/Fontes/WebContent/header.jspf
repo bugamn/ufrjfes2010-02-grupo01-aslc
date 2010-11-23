@@ -32,7 +32,7 @@
    </ul>
    <li>Usuários</li>
    <ul>
-     <li><a href="<c:url value="/usuarios/formulario"/>">Nova</a></li>
+     <li><a href="<c:url value="/usuarios/formulario"/>">Novo</a></li>
      <li><a href="<c:url value="/usuarios/lista"/>">Lista</a></li>
      <li><a href="<c:url value="/usuarios/busca"/>">Busca</a></li>
    </ul>
@@ -47,6 +47,11 @@
      <li><a href="<c:url value="/reservas/formulario"/>">Nova</a></li>
      <li><a href="<c:url value="/reservas/lista"/>">Lista</a></li>
      <li><a href="<c:url value="/reservas/busca"/>">Busca</a></li>
+   </ul>
+   <li>Devoluções</li>
+   <ul>
+     <li><a href="<c:url value="/devolucoes/lista"/>">Lista</a></li>
+     <li><a href="<c:url value="/devolucoes/busca"/>">Busca</a></li>
    </ul>
  </ul>
 

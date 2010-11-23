@@ -51,7 +51,7 @@ public class ReservasControllerTest {
 	private static Reserva reserva2 = new Reserva();
 	private static ReservaDAO reservaDAO = new ReservaDAO();
 	private static Date data = new Date(System.currentTimeMillis());
-	private static Date data2 = new Date(new GregorianCalendar(2010, 1, 1, 1, 1).getTimeInMillis());
+	private static Date data2 = new Date(new GregorianCalendar(2011, 12, 1, 1, 1).getTimeInMillis());
 	private static ReservasController reservasController;
 
 	@BeforeClass
@@ -290,6 +290,8 @@ public class ReservasControllerTest {
 
 	@Test
 	public void testLista() {
+		assertEquals("O método lista não funciona.", reservaDAO.lista(".*", ".*", ".*").size(), reservasController.lista("", "", "", 0, 0, 0, 0, 0, 0).size());
+		assertEquals("O método lista não funciona.", 3, reservasController.lista("", "", "", 0, 0, 0, 0, 0, 0).size());
 		
 		assertEquals("O método lista não funciona.", 
 				reservaDAO.lista(".*", ".*", ".*").size(), reservasController.lista("", "", "", 0, 0, 0, 0, 0, 0).size());
