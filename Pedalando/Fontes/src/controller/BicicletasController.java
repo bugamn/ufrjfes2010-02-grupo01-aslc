@@ -29,7 +29,7 @@ public class BicicletasController {
 		bicicleta.setEstacao(estacaoDAO.encontra(id));
 		
 		validator.validate(bicicleta);
-		validator.onErrorUsePageOf(BicicletasController.this).formulario();
+		validator.onErrorUsePageOf(BicicletasController.class).formulario();
 		
 		bicicletaDAO.salva(bicicleta);
 		result.redirectTo(this).lista(".*", ".*", ".*");

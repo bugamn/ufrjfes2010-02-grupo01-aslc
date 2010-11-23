@@ -4,7 +4,7 @@
       <legend>Adicionar Locação</legend>
       
       <label for="destino">Destino:</label>
-      <select id="destino" name="origem">
+      <select id="destino" name="destino">
       <c:forEach items="${ estacaoList }" var="estacao">
       <option value="${ estacao.id }">${ estacao.nome }</option>
       </c:forEach>

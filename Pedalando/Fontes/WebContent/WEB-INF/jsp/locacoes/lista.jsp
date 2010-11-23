@@ -16,12 +16,9 @@
 					<td>${ locacao.destino.nome }</td>
 					<td>${ locacao.usuario.nome }</td>
 					<td>${ locacao.data }</td>
-					<!-- <td><a href="<c:url value="/produtos/${ produto.id }"/>">Editar</a></td>
-					<td>
-						<form action="<c:url value="/produtos/${ produto.id }"/>" method="POST">
-							<button class="link" name="_method" value="DELETE">Remover</button>
-						</form>
-					</td> -->
+					<td><a href="/Pedalando/devolucoes/formulario?id=${ locacao.id }">Devolução</a>
+					<!-- <td><a href="edita?id=${locacao.id}">Editar</a></td> -->
+					<!-- <td><a href="remove?id=${locacao.id}">Remover</a></td> -->
 				</tr>
 			</c:forEach>
 		</tbody>

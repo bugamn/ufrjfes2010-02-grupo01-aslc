@@ -5,6 +5,8 @@ import javax.persistence.Id;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.Length;
+
 public class Estacao {
 	// TODO adicionar tags do hibernate
 	
@@ -12,6 +14,7 @@ public class Estacao {
 	private int id;
 	
 	@NotNull
+	@Length(min=3)
 	private String nome;
 	
 	@Min(1)
