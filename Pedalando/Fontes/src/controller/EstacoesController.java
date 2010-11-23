@@ -1,10 +1,12 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import model.base.Estacao;
 import model.dao.BicicletaDAO;
 import model.dao.EstacaoDAO;
+import model.vo.EstacaoVO;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
@@ -22,40 +24,6 @@ public class EstacoesController {
 		this.bicicletaDAO = bicicletaDAO;
 		this.result = result;
 		this.validator = validator;
-	}
-	
-	public class Consulta {
-		private Estacao estacao;
-		private List<Dados> lista;
-		public Estacao getEstacao() {
-			return estacao;
-		}
-		public void setEstacao(Estacao estacao) {
-			this.estacao = estacao;
-		}
-		public List<Dados> getLista() {
-			return lista;
-		}
-		public void setLista(List<Dados> lista) {
-			this.lista = lista;
-		}
-	}
-	
-	public class Dados {
-		private String tipo;
-		private int quantidade;
-		public String getTipo() {
-			return tipo;
-		}
-		public void setTipo(String tipo) {
-			this.tipo = tipo;
-		}
-		public int getQuantidade() {
-			return quantidade;
-		}
-		public void setQuantidade(int quantidade) {
-			this.quantidade = quantidade;
-		}
 	}
 	
 	public void adiciona(final Estacao estacao) {
@@ -80,8 +48,11 @@ public class EstacoesController {
 	}
 	
 	//Em desenvolvimento deverá retornar uma lista de Consulta
-	public void consulta(String nomeBusca) {
+	public List<EstacaoVO> consulta(String nomeBusca) {
 		List<Estacao> lista;
+		ArrayList<EstacaoVO> estacaoVOs = new ArrayList<EstacaoVO>();
+		EstacaoVO vo;
+		
 		if (nomeBusca == null) {
 			nomeBusca = "";
 		}
@@ -89,8 +60,13 @@ public class EstacoesController {
 		lista = estacaoDAO.lista(nomeBusca);
 		
 		for (Estacao estacao : lista) {
-			
+			vo = new EstacaoVO();
+			vo.setEstacao(estacao);
+			vo.setBicicletas(bicicletaDAO.lista(".*", ".*", estacao.getNome()));
+			estacaoVOs.add(vo);
 		}
+		
+		return estacaoVOs;
 	}
 	
 	public Estacao edita(int id) {

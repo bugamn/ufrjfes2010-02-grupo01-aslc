@@ -23,6 +23,7 @@
      <li><a href="<c:url value="/estacoes/formulario"/>">Nova</a></li>
      <li><a href="<c:url value="/estacoes/lista"/>">Lista</a></li>
      <li><a href="<c:url value="/estacoes/busca"/>">Busca</a></li>
+     <li><a href="<c:url value="/estacoes/consulta"/>">Consulta</a></li>
    </ul>
    <li>Bicicletas</li>
    <ul>
