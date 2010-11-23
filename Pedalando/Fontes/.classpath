@@ -13,11 +13,11 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="/home/bruno/Web/hibernate-distribution-3.6.0.Final/hibernate3.jar"/>
-	<classpathentry kind="lib" path="/home/bruno/Web/apache-log4j-1.2.16/log4j-1.2.16.jar"/>
-	<classpathentry kind="lib" path="/home/bruno/Web/hibernate-distribution-3.6.0.Final/lib/jpa/hibernate-jpa-2.0-api-1.0.0.Final.jar"/>
-	<classpathentry kind="lib" path="/home/bruno/Web/hibernate-distribution-3.6.0.Final/lib/required/commons-collections-3.1.jar"/>
-	<classpathentry kind="lib" path="/home/bruno/Web/hibernate-distribution-3.6.0.Final/lib/required/javassist-3.12.0.GA.jar"/>
+	<classpathentry kind="lib" path="/home/diegofps/hibernate-distribution-3.6.0.Final/hibernate3.jar"/>
+	<classpathentry kind="lib" path="/home/diegofps/svn/trunk/Pedalando/Fontes/WebContent/WEB-INF/lib/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="/home/diegofps/svn/trunk/Pedalando/Fontes/WebContent/WEB-INF/lib/hibernate-jpa-2.0-api-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="/home/diegofps/svn/trunk/Pedalando/Fontes/WebContent/WEB-INF/lib/commons-collections-3.1.jar"/>
+	<classpathentry kind="lib" path="/home/diegofps/hibernate-distribution-3.6.0.Final/lib/required/javassist-3.12.0.GA.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/antlr-2.7.6.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/aopalliance.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/aspectjrt.jar"/>
