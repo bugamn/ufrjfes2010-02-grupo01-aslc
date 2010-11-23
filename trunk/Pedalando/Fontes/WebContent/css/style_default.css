@@ -20,35 +20,35 @@ body {
 }
 
 #titulo{
-        margin: 50px;
-        font-size: 60px;
-        font-style: italic;
-        font-family: "Comic Sans MS", cursive, sans-serif;
+	margin: 50px;
+	font-size: 60px;
+	font-style: italic;
+	font-family: "Comic Sans MS", cursive, sans-serif;
 }
 #header{
-        margin: 100px auto 0;
-        margin-top: 0;
+    margin: 100px auto 0;
+    margin-top: 0;
 	width: 900px;
-        height: 200px;
+    height: 200px;
 	background: #707070;
 	border: 1px solid;
 }
 #body{
 	margin: 100px auto 0;
-        margin-top: 0;
+    margin-top: 0;
 	width: 900px;
 	background: #f0f0f0;
 	border: 1px solid white;
 }
 
 #footer{
-        margin: 100px auto 0;
-        margin-top: 1px;
+    margin: 100px auto 0;
+    margin-top: 1px;
 	width: 900px;
-        height: 100px;
+    height: 100px;
 	background: #707070;
 	border: 1px solid;
-        text-aling: center;
+    text-aling: center;
 }
 
 h1,h2,h3,h4,h5 {
@@ -93,6 +93,7 @@ form a:hover{
 #erros {
 	color: #393939;
 	font-size: 15px;
+	background: #d6b6b6;
 }
 
 fieldset {
