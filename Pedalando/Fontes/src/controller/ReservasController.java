@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -9,6 +10,7 @@ import model.base.Reserva;
 import model.dao.EstacaoDAO;
 import model.dao.ReservaDAO;
 import model.dao.UsuarioDAO;
+import model.vo.ReservaVO;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
@@ -48,7 +50,6 @@ public class ReservasController {
 	}
 	
 	
-	//� necess�rio melhorar isso!
 	public List<Reserva> lista(String estacaoBusca, String cpfBusca, String destinoBusca, 
 			int diaAntes, int mesAntes, int anoAntes, int diaDepois, int mesDepois, int anoDepois) {
 		Date antes, depois;
@@ -99,13 +100,42 @@ public class ReservasController {
 		return reservaDAO.lista(estacaoBusca, cpfBusca, destinoBusca, antes, depois);
 	}
 	
-	public Reserva edita(int id) {
-		return reservaDAO.encontra(id);
+	@SuppressWarnings("deprecation")
+	public ReservaVO edita(int id) {
+		ReservaVO reservaVO = new ReservaVO();
+		Reserva reserva = reservaDAO.encontra(id);
+		Calendar data = Calendar.getInstance();
+		data.setTime(reserva.getData());
+		
+		reservaVO.setUsuario(reserva.getUsuario());
+		reservaVO.setDestino(reserva.getDestino());
+		reservaVO.setEstacao(reserva.getEstacao());
+		reservaVO.setEstacoes(estacaoDAO.lista(".*"));
+		reservaVO.setDia(data.get(Calendar.DAY_OF_MONTH));
+		reservaVO.setMes(data.get(Calendar.MONTH)+1);
+		reservaVO.setAno(data.get(Calendar.YEAR));
+		reservaVO.setHora(data.get(Calendar.HOUR_OF_DAY));
+		reservaVO.setMinuto(data.get(Calendar.MINUTE));
+		
+		return reservaVO;
 	}
 	
-	public void altera(Reserva reserva) {
+	public void altera(int origem, int destino, String cpf, int dia, int mes, int ano, int hora, int minuto) {
+Reserva reserva = new Reserva();
+		
+		reserva.setEstacao(estacaoDAO.encontra(origem));
+		reserva.setDestino(estacaoDAO.encontra(destino));
+		reserva.setUsuario(usuarioDAO.encontra(cpf));
+		if (dia != 0 && mes != 0 && ano != 0) {
+			mes--;
+			reserva.setData(new Date(new GregorianCalendar(ano, mes, dia, hora, minuto).getTimeInMillis()));
+		}
+		
+		validator.validate(reserva);
+		validator.onErrorUsePageOf(ReservasController.class).formulario();		
+		
 		reservaDAO.atualiza(reserva);
-		result.redirectTo(this).lista(reserva.getEstacao().getNome(), reserva.getUsuario().getCpf(), ".*", 0, 0, 0, 0, 0, 0);
+		result.redirectTo(this).lista("", "", "", 0, 0, 0, 0, 0, 0);
 	}
 	
 	public void remove(int id) {
