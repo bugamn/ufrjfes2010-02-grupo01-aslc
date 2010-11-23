@@ -15,12 +15,7 @@
 					<td>${ reserva.usuario.cpf }</td>
 					<td>${ reserva.data }</td>
 					<td><a href="remove?id=${reserva.id}">Remover</a></td>
-					<!-- <td><a href="<c:url value="/produtos/${ produto.id }"/>">Editar</a></td>
-					<td>
-						<form action="<c:url value="/produtos/${ produto.id }"/>" method="POST">
-							<button class="link" name="_method" value="DELETE">Remover</button>
-						</form>
-					</td> -->
+					<td><a href="edita?id=${reserva.id}">Editar</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
