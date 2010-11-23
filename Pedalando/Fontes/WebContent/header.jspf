@@ -2,12 +2,12 @@
 <html>
 <head>
 <title>Pedalando</title>
-
+<link rel="stylesheet" href="css/style_default.css" type="text/css" media="screen" />
 
 </head>
 
 <body>
-<div id="header"></div>
+<div id="header"><h1 id="titulo">Pedalando</h1></div>
 <div id="erros">
 <ul>
 <c:forEach items="${ errors }" var="error">
