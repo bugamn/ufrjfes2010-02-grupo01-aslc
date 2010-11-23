@@ -10,13 +10,27 @@
 <div id="header"><h1 id="titulo">Pedalando</h1></div>
 <div id="erros">
 <ul>
-<c:forEach items="${ errors }" var="error">
-  <li>${ error.category } - ${ error.message }</li>
-</c:forEach>
+
+<c:if test="${not errors.isEmpty() }" >
+	<div id="erros">
+		<c:forEach items="${ errors }" var="error">
+		  <li>${ error.category } - ${ error.message }</li>
+		</c:forEach>
+	</div>
+</c:if>
+
 </ul>
 </div>
 <div id="body">
 <div id="menu">
+
+<c:if test="${not errors.isEmpty() }" >
+	<div id="erros">
+		<c:forEach items="${ errors }" var="error">
+		  <li>${ error.category } - ${ error.message }</li>
+		</c:forEach>
+	</div>
+</c:if>
  <ul>
    <li>Estações</li>
    <ul>
