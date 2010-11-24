@@ -14,8 +14,9 @@
 					<td>${ reserva.destino.nome }</td>
 					<td>${ reserva.usuario.cpf }</td>
 					<td>${ reserva.data }</td>
-					<td><a href="remove?id=${reserva.id}">Remover</a></td>
 					<td><a href="edita?id=${reserva.id}">Editar</a></td>
+					<td><a href="remove?id=${reserva.id}">Remover</a></td>
+					<td><a href="realizarLocacao?id=${reserva.id}">Locar</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
