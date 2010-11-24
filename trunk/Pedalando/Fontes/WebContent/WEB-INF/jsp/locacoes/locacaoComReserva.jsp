@@ -1,4 +1,17 @@
-<form id="locacaoComReservaForm" action="salvaLocacaoComReserva">
+<script type="text/javascript">
+	function validaCampos() {
+		var bicicletas = document.getElementById("placa");
+		
+		if(bicicletas.length == 0) {
+			alert("Não existem bicicletas disponíveis!");
+			return false;
+		}
+		
+		return true;
+	}
+</script>
+
+<form id="locacaoComReservaForm" action="salvaLocacaoComReserva" onSubmit="javascript:return validaCampos();">
 	<fieldset>
 		<legend>Selecione a Bicicleta:</legend>
 		<input type="hidden" name="id" value="${bicicletaVO.reserva}"/>
