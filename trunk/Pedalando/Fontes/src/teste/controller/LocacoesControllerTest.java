@@ -1,11 +1,10 @@
 package teste.controller;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Collection;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.List;
 import java.util.Map;
 
 import model.base.Bicicleta;
@@ -26,7 +25,6 @@ import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.View;
 import br.com.caelum.vraptor.validator.Message;
 import br.com.caelum.vraptor.validator.Validations;
-
 import controller.LocacoesController;
 
 public class LocacoesControllerTest {

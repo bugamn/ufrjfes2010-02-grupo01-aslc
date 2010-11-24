@@ -74,6 +74,10 @@ public class BicicletasController {
 	
 	public void altera(Bicicleta bicicleta, int id) {
 		bicicleta.setEstacao(estacaoDAO.encontra(id));
+		
+		validator.validate(bicicleta);
+		validator.onErrorUsePageOf(BicicletasController.class).edita(bicicleta.getPlaca());
+		
 		bicicletaDAO.atualiza(bicicleta);
 		result.redirectTo(BicicletasController.class).lista(bicicleta.getPlaca(), ".*", ".*");
 	}

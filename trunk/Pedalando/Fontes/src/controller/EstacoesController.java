@@ -74,6 +74,9 @@ public class EstacoesController {
 	}
 	
 	public void altera(Estacao estacao) {
+		validator.validate(estacao);
+		validator.onErrorUsePageOf(EstacoesController.class).edita(estacao.getId());
+		
 		estacaoDAO.atualiza(estacao);
 		result.redirectTo(EstacoesController.class).lista(estacao.getNome());
 	}
