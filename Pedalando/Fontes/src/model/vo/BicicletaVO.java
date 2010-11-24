@@ -1,6 +1,8 @@
 package model.vo;
 
 import java.util.List;
+
+import model.base.Bicicleta;
 import model.base.Estacao;
 
 public class BicicletaVO {
@@ -8,6 +10,8 @@ public class BicicletaVO {
 	private String tipo;
 	private Estacao estacao;
 	private List<Estacao> estacoes;
+	private List<Bicicleta> bicicletas;
+	private int reserva;
 	
 	public List<Estacao> getEstacoes() {
 		return estacoes;
@@ -32,6 +36,18 @@ public class BicicletaVO {
 	}
 	public void setEstacao(Estacao estacao) {
 		this.estacao = estacao;
+	}
+	public List<Bicicleta> getBicicletas() {
+		return bicicletas;
+	}
+	public void setBicicletas(List<Bicicleta> bicicletas) {
+		this.bicicletas = bicicletas;
+	}
+	public int getReserva() {
+		return reserva;
+	}
+	public void setReserva(int reserva) {
+		this.reserva = reserva;
 	}
 	
 }

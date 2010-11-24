@@ -4,16 +4,19 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-import br.com.caelum.vraptor.Resource;
-import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.Validator;
 import model.base.Bicicleta;
 import model.base.Estacao;
 import model.base.Locacao;
+import model.base.Reserva;
 import model.dao.BicicletaDAO;
 import model.dao.EstacaoDAO;
 import model.dao.LocacaoDAO;
+import model.dao.ReservaDAO;
 import model.dao.UsuarioDAO;
+import model.vo.BicicletaVO;
+import br.com.caelum.vraptor.Resource;
+import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.Validator;
 
 @Resource
 public class LocacoesController {
@@ -21,15 +24,17 @@ public class LocacoesController {
 	private final EstacaoDAO estacaoDAO;
 	private final BicicletaDAO bicicletaDAO;
 	private final UsuarioDAO usuarioDAO;
+	private final ReservaDAO reservaDAO;
 	private final Result result;
 	private final Validator validator;
 	
 	public LocacoesController(LocacaoDAO locacaoDAO, EstacaoDAO estacaoDAO, BicicletaDAO bicicletaDAO, UsuarioDAO usuarioDAO, 
-			Result result, Validator validator) {
+			ReservaDAO reservaDAO, Result result, Validator validator) {
 		this.locacaoDAO = locacaoDAO;
 		this.estacaoDAO = estacaoDAO;
 		this.bicicletaDAO = bicicletaDAO;
 		this.usuarioDAO = usuarioDAO;
+		this.reservaDAO = reservaDAO;
 		this.result = result;
 		this.validator = validator;
 	}
@@ -107,5 +112,34 @@ public class LocacoesController {
 			depois.setTime(calendar.getTimeInMillis());
 		}
 		return locacaoDAO.lista(estacaoBusca, placaBusca, cpfBusca, destinoBusca, antes, depois);
+	}
+	
+	public BicicletaVO locacaoComReserva(int id) {
+		BicicletaVO bicicletaVO = new BicicletaVO();
+		Reserva reserva = reservaDAO.encontra(id);
+		bicicletaVO.setReserva(id);
+		bicicletaVO.setBicicletas(bicicletaDAO.lista(".*", ".*", reserva.getEstacao().getNome()));
+		
+		return bicicletaVO;
+	}
+	
+	public void salvaLocacaoComReserva(int id, String placa) {
+		Locacao locacao = new Locacao();
+		Date data = new Date(System.currentTimeMillis());
+		Bicicleta bicicleta = bicicletaDAO.encontra(placa);
+		Reserva reserva = reservaDAO.encontra(id);
+		
+		locacao.setBicicleta(bicicleta);
+		locacao.setEstacao(reserva.getEstacao());
+		locacao.setDestino(reserva.getDestino());
+		locacao.setUsuario(reserva.getUsuario());
+		locacao.setData(data);
+		
+		validator.validate(locacao);
+		validator.onErrorUsePageOf(LocacoesController.class).locacaoComReserva(id);
+		
+		locacaoDAO.salva(locacao);
+		reservaDAO.remove(reserva);
+		result.redirectTo(LocacoesController.class).lista(locacao.getEstacao().getNome(), locacao.getBicicleta().getPlaca(), locacao.getUsuario().getCpf(), locacao.getDestino().getNome(), 0, 0, 0, 0, 0, 0);
 	}
 }

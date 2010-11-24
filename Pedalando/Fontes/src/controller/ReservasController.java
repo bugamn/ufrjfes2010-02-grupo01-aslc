@@ -150,5 +150,8 @@ Reserva reserva = new Reserva();
 	public List<Estacao> busca() {
 		return estacaoDAO.lista(".*");
 	}
-
+	
+	public void realizarLocacao(int id) {
+		result.redirectTo(LocacoesController.class).locacaoComReserva(id);
+	}
 }
