@@ -4,7 +4,7 @@
 
 @CHARSET "UTF-8";
 body {
-	background: #b6b6b6;
+	background: #7297dc;
 	margin: 0;
 	padding: 0;
 	font-family: arial;
@@ -30,7 +30,7 @@ body {
     margin-top: 5px;
 	width: 900px;
     height: 200px;
-	background: #707070;
+	background: #cdded2;
 	border: 1px solid;
 }
 #body{
@@ -38,16 +38,16 @@ body {
     margin-top: 20px;
 	width: 900px;
 	background: #f0f0f0;
-	border: 1px solid white;
+	border: 1px solid gray;
 }
 
 #footer{
     margin: 100px auto 0;
     margin-top: 20px;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
 	width: 900px;
     height: 100px;
-	background: #707070;
+	background: #cdded2;
 	border: 1px solid;
     text-aling: center;
 }
