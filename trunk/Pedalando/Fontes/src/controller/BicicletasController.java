@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import model.base.Bicicleta;
@@ -10,6 +11,7 @@ import model.vo.BicicletaVO;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
+import br.com.caelum.vraptor.validator.ValidationMessage;
 
 @Resource
 public class BicicletasController {
@@ -30,6 +32,14 @@ public class BicicletasController {
 		
 		validator.validate(bicicleta);
 		validator.onErrorUsePageOf(BicicletasController.class).formulario();
+		
+		ArrayList<Bicicleta> bicicletas = 
+			bicicletaDAO.encontraBicicletasEmEstacao(
+					bicicleta.getEstacao());
+		if ( bicicletas.size() >= bicicleta.getEstacao().getCapacidade()) {
+	        validator.add(new ValidationMessage("Capacidade da estação está esgotada", "Estação"));
+	    }
+	    validator.onErrorUsePageOf(this).formulario();
 		
 		bicicletaDAO.salva(bicicleta);
 		result.redirectTo(this).lista(".*", ".*", ".*");

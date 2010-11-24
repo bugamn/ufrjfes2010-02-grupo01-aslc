@@ -1,12 +1,22 @@
 package model.base;
 
+import java.io.Serializable;
+
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.persistence.Entity;
 
 import org.hibernate.validator.constraints.Length;
 
-public class Usuario {
+@Entity
+public class Usuario implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6199724727460681733L;
+
 	@Id @NotNull
 	@Length(min=11,max=11)
 	private String cpf;

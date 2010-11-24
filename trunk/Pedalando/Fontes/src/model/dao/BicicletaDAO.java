@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 import br.com.caelum.vraptor.ioc.Component;
 
 import model.base.Bicicleta;
+import model.base.Estacao;
 
 @Component
 public class BicicletaDAO {
@@ -40,6 +41,17 @@ public class BicicletaDAO {
 			}
 		}
 		return null;
+	}
+	
+	public ArrayList<Bicicleta> encontraBicicletasEmEstacao(Estacao estacao) {
+		ArrayList<Bicicleta> bicicletas = new ArrayList<Bicicleta>();
+		
+		for (Bicicleta bicicleta : arrayList) {
+			if (bicicleta.getEstacao().equals(estacao)) {
+				bicicletas.add(bicicleta);
+			}
+		}
+		return bicicletas;
 	}
 	
 	// TODO ajustar documento, retirei busca por capacidade: não faz muito sentido
