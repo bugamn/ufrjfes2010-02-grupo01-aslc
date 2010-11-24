@@ -6,14 +6,17 @@
 
 <hibernate-configuration>
 	<session-factory>
-		<property name="hibernate.connection.username">root</property>
-		<property name="hibernate.connection.password">teste;123</property>
-		<property name="hibernate.connection.url">jdbc:mysql://localhost/pedalando</property>
-		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
-		<property name="hibernate.hbm2ddl.auto">update</property>
+		<property name="hibernate.dialect">Resources.dialect.SQLiteDialect</property>
+		<property name="hibernate.connection.driver_class">org.sqlite.JDBC</property>
+		<property name="hibernate.connection.url">jdbc:sqlite:1.db</property>
+		<property name="hibernate.connection.username"></property>
+		<property name="hibernate.connection.password"></property>
+		<property name="hibernate.hbm2ddl.auto">create</property>
 		<property name="show_sql">true</property>
 		<property name="format_sql">true</property>
+		
 		<!--entities-->
-		<mapping class="teste.Produto" />
+		
+		<mapping class="model.base.Usuario" />
 	</session-factory>
 </hibernate-configuration>
