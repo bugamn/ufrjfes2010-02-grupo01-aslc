@@ -15,6 +15,7 @@ import model.base.Usuario.Permissao;
 import model.dao.BicicletaDAO;
 import model.dao.EstacaoDAO;
 import model.dao.LocacaoDAO;
+import model.dao.ReservaDAO;
 import model.dao.UsuarioDAO;
 
 import org.junit.BeforeClass;
@@ -53,6 +54,7 @@ public class LocacoesControllerTest {
 	private static Locacao locacao = new Locacao();
 	private static Locacao locacao2 = new Locacao();
 	private static LocacaoDAO locacaoDAO = new LocacaoDAO();
+	private static ReservaDAO reservaDAO = new ReservaDAO();
 	private static LocacoesController locacoesController;
 	private static Date data = new Date(System.currentTimeMillis());
 	private static Date data2 = new Date(new GregorianCalendar(2010, 1, 1, 1, 1).getTimeInMillis());
@@ -103,7 +105,7 @@ public class LocacoesControllerTest {
 		locacao2.setUsuario(usuario2);
 		locacaoDAO.salva(locacao2);
 		
-		locacoesController = new LocacoesController(locacaoDAO, estacaoDAO, bicicletaDAO, usuarioDAO, new Result() {
+		locacoesController = new LocacoesController(locacaoDAO, estacaoDAO, bicicletaDAO, usuarioDAO, reservaDAO, new Result() {
 			
 			@Override
 			public boolean used() {
