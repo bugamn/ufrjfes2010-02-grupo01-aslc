@@ -101,6 +101,10 @@ public class UsuariosController {
 	public void altera(Usuario usuario, int permissao) {
 		Enum<Permissao> p = conversao(permissao);
 		usuario.setPermissao(p);
+		
+		validator.validate(usuario);
+		validator.onErrorUsePageOf(UsuariosController.class).edita(usuario.getCpf());
+		
 		usuarioDAO.atualiza(usuario);
 		result.redirectTo(UsuariosController.class).lista(usuario.getCpf(), ".*", ".*", -1);
 	}

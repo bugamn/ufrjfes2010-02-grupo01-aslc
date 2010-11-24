@@ -1,4 +1,25 @@
-<form action="altera">
+<script type="text/javascript">
+	function validaCampos() {
+		var nome = document.getElementById("nome");
+		var endereco = document.getElementById("endereco");
+		var msg = "";
+		
+		if(nome.value == null || nome.value == "")
+			msg += "O campo NOME é obrigatório.\n";
+		
+		if(endereco.value == null || endereco.value == "")
+			msg += "O campo ENDEREÇO é obrigatório.";
+		
+		if(msg != "") {
+			alert(msg);
+			return false;
+		}
+		
+		return true;
+	}
+</script>
+
+<form action="altera" onSubmit="javascript:return validaCampos();">
 	<fieldset>
 		<legend>Editar Usuário</legend>
 		<input type="hidden" name="usuario.cpf" value="${usuario.cpf}" />

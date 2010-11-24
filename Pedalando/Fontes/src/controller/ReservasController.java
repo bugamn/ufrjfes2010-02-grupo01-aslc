@@ -100,7 +100,6 @@ public class ReservasController {
 		return reservaDAO.lista(estacaoBusca, cpfBusca, destinoBusca, antes, depois);
 	}
 	
-	@SuppressWarnings("deprecation")
 	public ReservaVO edita(int id) {
 		ReservaVO reservaVO = new ReservaVO();
 		Reserva reserva = reservaDAO.encontra(id);

@@ -1,6 +1,5 @@
 package model.base;
 
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
