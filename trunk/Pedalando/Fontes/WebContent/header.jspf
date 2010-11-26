@@ -2,62 +2,72 @@
 <html>
 <head>
 <title>Pedalando</title>
-<link rel="stylesheet" href="/Pedalando/css/style_default.css" type="text/css" media="screen" />
-
+<link rel="stylesheet" href="/Pedalando/css/style_default.css"
+	type="text/css" media="screen" />
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"
+	type="text/javascript"></script>
+<script src="/Pedalando/js/menu_dropdown.js" type="text/javascript"></script>
 </head>
 
 <body>
-<div id="header"><h1 id="titulo">Pedalando</h1></div>
+<div id="header">
+<h1 id="titulo">Pedalando</h1>
+</div>
 
 <c:if test="${not empty errors}">
-	<div id="erros">
-		<c:forEach items="${ errors }" var="error">
-		  <li>${ error.category } - ${ error.message }</li>
-		</c:forEach>
-	</div>
+	<div id="erros"><c:forEach items="${ errors }" var="error">
+		<li>${ error.category } - ${ error.message }</li>
+	</c:forEach></div>
 </c:if>
 
 <div id="body">
 <div id="menu">
 
- <ul>
-   <li>Estações</li>
-   <ul>
-     <li><a href="<c:url value="/estacoes/formulario"/>">Nova</a></li>
-     <li><a href="<c:url value="/estacoes/lista"/>">Lista</a></li>
-     <li><a href="<c:url value="/estacoes/busca"/>">Busca</a></li>
-     <li><a href="<c:url value="/estacoes/consulta"/>">Consulta</a></li>
-   </ul>
-   <li>Bicicletas</li>
-   <ul>
-     <li><a href="<c:url value="/bicicletas/formulario"/>">Nova</a></li>
-     <li><a href="<c:url value="/bicicletas/lista"/>">Lista</a></li>
-     <li><a href="<c:url value="/bicicletas/busca"/>">Busca</a></li>
-   </ul>
-   <li>Usuários</li>
-   <ul>
-     <li><a href="<c:url value="/usuarios/formulario"/>">Novo</a></li>
-     <li><a href="<c:url value="/usuarios/lista"/>">Lista</a></li>
-     <li><a href="<c:url value="/usuarios/busca"/>">Busca</a></li>
-   </ul>
-   <li>Locações</li>
-   <ul>
-     <li><a href="<c:url value="/locacoes/formulario"/>">Nova</a></li>
-     <li><a href="<c:url value="/locacoes/lista"/>">Lista</a></li>
-     <li><a href="<c:url value="/locacoes/busca"/>">Busca</a></li>
-   </ul>
-   <li>Reservas</li>
-   <ul>
-     <li><a href="<c:url value="/reservas/formulario"/>">Nova</a></li>
-     <li><a href="<c:url value="/reservas/lista"/>">Lista</a></li>
-     <li><a href="<c:url value="/reservas/busca"/>">Busca</a></li>
-   </ul>
-   <li>Devoluções</li>
-   <ul>
-     <li><a href="<c:url value="/devolucoes/lista"/>">Lista</a></li>
-     <li><a href="<c:url value="/devolucoes/busca"/>">Busca</a></li>
-   </ul>
- </ul>
+<ul id="menu_dropdown">
+	<li class="cabeca_menu">Estações
+	<ul class="corpo_menu">
+		<li><a href="<c:url value="/estacoes/formulario"/>">Nova</a></li>
+		<li><a href="<c:url value="/estacoes/lista"/>">Lista</a></li>
+		<li><a href="<c:url value="/estacoes/busca"/>">Busca</a></li>
+		<li><a href="<c:url value="/estacoes/consulta"/>">Consulta</a></li>
+	</ul>
+	</li>
+	<li class="cabeca_menu">Bicicletas
+	<ul class="corpo_menu">
+		<li><a href="<c:url value="/bicicletas/formulario"/>">Nova</a></li>
+		<li><a href="<c:url value="/bicicletas/lista"/>">Lista</a></li>
+		<li><a href="<c:url value="/bicicletas/busca"/>">Busca</a></li>
+	</ul class="corpo_menu">
+	</li>
+	<li class="cabeca_menu">Usuários
+	<ul class="corpo_menu">
+		<li><a href="<c:url value="/usuarios/formulario"/>">Novo</a></li>
+		<li><a href="<c:url value="/usuarios/lista"/>">Lista</a></li>
+		<li><a href="<c:url value="/usuarios/busca"/>">Busca</a></li>
+	</ul>
+	</li>
+	<li class="cabeca_menu">Locações
+	<ul class="corpo_menu">
+		<li><a href="<c:url value="/locacoes/formulario"/>">Nova</a></li>
+		<li><a href="<c:url value="/locacoes/lista"/>">Lista</a></li>
+		<li><a href="<c:url value="/locacoes/busca"/>">Busca</a></li>
+	</ul>
+	</li>
+	<li class="cabeca_menu">Reservas
+	<ul class="corpo_menu">
+		<li><a href="<c:url value="/reservas/formulario"/>">Nova</a></li>
+		<li><a href="<c:url value="/reservas/lista"/>">Lista</a></li>
+		<li><a href="<c:url value="/reservas/busca"/>">Busca</a></li>
+	</ul>
+	</li>
+	<li class="cabeca_menu">Devoluções
+	<ul class="corpo_menu">
+		<li><a href="<c:url value="/devolucoes/lista"/>">Lista</a></li>
+		<li><a href="<c:url value="/devolucoes/busca"/>">Busca</a></li>
+	</ul>
+	</li>
+</ul>
 
 </div>
 <div id="content">
