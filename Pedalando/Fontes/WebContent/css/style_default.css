@@ -10,15 +10,6 @@ body {
 	font-family: arial;
 }
 
-#tip{
-	position: absolute;
-	display: inline;
-	padding: 5px 0;
-	width: 50px;
-	text-align: center;
-	font: bold 11px Verdana;
-}
-
 #titulo{
 	margin: 50px;
 	font-size: 60px;
@@ -37,6 +28,7 @@ body {
 	margin: 100px auto 0;
     margin-top: 20px;
 	width: 900px;
+	height: 400px;
 	background: #f0f0f0;
 	border: 1px solid gray;
 }
@@ -52,8 +44,42 @@ body {
     text-aling: center;
 }
 
+#menu{
+	margin-left:100px;
+	margin-right:100px;
+	text-aling:center;	
+}
+
+li.cabeca_menu{
+	position:relative;
+	top:0;
+	left:7%;
+	 display:inline; 
+	 padding: 4px 8px; 
+	 border: 1px solid #333;
+	 color: #111;
+	 float:left;
+}
+
+li.cabeca_menu ul{
+	position:relative;
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+
+a{
+	text-decoration: none;
+}
+ 
+#content{
+	position:relative;
+	top:50px;
+	margin:20px;
+	padding:20px;
+ }
+
 h1,h2,h3,h4,h5 {
-	margin-top: 0;
 	font-family: arial black, arial;
 	text-align: center;
 }
