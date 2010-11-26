@@ -3,30 +3,45 @@
 /**** LINK-tag style sheet style_default.css ****/
 
 @CHARSET "UTF-8";
-body {
-	background: #4B7399;
-	margin: 0;
-	padding: 0;
-	font-family: arial;
+
+h1,h2,h3,h4,h5 {
+	font-family: arial black, arial;
+	text-align: center;
+}
+
+#fundo {
+	background: #f0f0f0 url(/Pedalando/img/catraca.png) repeat;
+	opacity: 0.9;
 }
 
 #titulo{
-	margin: 50px;
+	position: relative;
+	margin-top: 50px;
 	font-size: 60px;
 	font-style: italic;
 	font-family: "Comic Sans MS", cursive, sans-serif;
+	text-aling: left;
+	color: blue;
 }
 #header{
     margin: 100px auto 0;
-    margin-top: 5px;
+    margin-top: 0px;
 	width: 900px;
     height: 200px;
-	background: #cdded2;
+	background: black;
 	border: 1px solid;
 }
+
+#logotipo{
+	position: relative;
+	float: left;
+	width: 200px;
+	height:200px;
+}
+
 #body{
 	margin: 100px auto 0;
-    margin-top: 20px;
+    margin-top: 0px;
 	width: 900px;
 	height: 400px;
 	background: #f0f0f0;
@@ -35,11 +50,11 @@ body {
 
 #footer{
     margin: 100px auto 0;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 	width: 900px;
-    height: 100px;
-	background: #cdded2;
+    height: 50px;
+	background: black;
 	border: 1px solid;
     text-aling: center;
 }
@@ -66,6 +81,30 @@ li.cabeca_menu ul{
 	list-style-type:none;
 	margin:0;
 	padding:0;
+	z-index: 2;
+}
+
+ul.corpo_menu li{
+	border-bottom: 1px solid #333;
+}
+
+li.cabeca_menu:hover{
+	background:black;
+	color: white;
+}
+
+ul.corpo_menu li:hover{
+	background: white;
+	color: black;
+}
+
+ul.corpo_menu li a{
+	color: white;
+	display: block;
+}
+
+ul.corpo_menu li a:hover{
+	color:black;
 }
 
 a{
@@ -73,16 +112,14 @@ a{
 }
  
 #content{
+	
+	display: block;
 	position:relative;
 	top:50px;
 	margin:20px;
 	padding:20px;
+	z-index: 1;
  }
-
-h1,h2,h3,h4,h5 {
-	font-family: arial black, arial;
-	text-align: center;
-}
 
 input[type=text], input[type=password] {
 	display: block;
@@ -110,10 +147,6 @@ input[type=submit]{
 
 input[type=submit]:hover{
 	background: #287368;
-	cursor: pointer;
-}
-form a:hover{
-	background: #778899;
 	cursor: pointer;
 }
 

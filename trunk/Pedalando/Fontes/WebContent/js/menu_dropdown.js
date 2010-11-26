@@ -9,4 +9,15 @@ $(document).ready(function() {
 	}, function() {
 		$('ul', this).css('display', 'none');
 	});
+
+	$('#erros').dialog({
+		title : "ERROS",
+		drabbable : true,
+		resizable : true,
+		buttons : {
+			"OK" : function() {
+				$(this).dialog('close');
+			}
+		}
+	});
 });
