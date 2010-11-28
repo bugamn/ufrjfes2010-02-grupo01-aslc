@@ -19,7 +19,7 @@
 
 <body id="fundo">
 <div id="header">
-<h1 id="titulo">Pedalando</h1>
+<h1 id="titulo"><a href="<c:url value="/"/>">Pedalando</a></h1>
 </div>
 
 <c:if test="${not empty errors}">

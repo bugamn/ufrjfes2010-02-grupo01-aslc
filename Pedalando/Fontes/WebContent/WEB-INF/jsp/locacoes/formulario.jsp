@@ -8,7 +8,7 @@
       <c:forEach items="${ estacaoList }" var="estacao">
       <option value="${ estacao.id }">${ estacao.nome }</option>
       </c:forEach>
-      </select>
+      </select><br>
       
       <label for="cpf">CPF:</label>
       <input id="cpf" type="text" name="cpf"/>

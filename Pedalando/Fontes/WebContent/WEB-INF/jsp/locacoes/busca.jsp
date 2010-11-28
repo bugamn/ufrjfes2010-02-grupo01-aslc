@@ -32,14 +32,14 @@
       <input id="placa" type="text" name="placaBusca"/>
       
       <label for="antes">Data mínima:</label>
-      <input id="antes" type="text" name="diaAntes" maxlength="2" size="2"/>
-      /<input type="text" name="mesAntes" maxlength="2" size="2"/>
-      /<input type="text" name="anoAntes" maxlength="4" size="4"/>
+      <input type="text" id="antes" name="diaAntes" maxlength="2" size="2"/>
+      / <input type="text" id="mesAntes" name="mesAntes" maxlength="2" size="2"/>
+      / <input type="text" id="anoAntes" name="anoAntes" maxlength="4" size="4"/><br>
       
       <label for="depois">Data máxima:</label>
-      <input id="depois" type="text" name="diaDepois" maxlength="2" size="2"/>
-      /<input type="text" name="mesDepois" maxlength="2" size="2"/>
-      /<input type="text" name="anoDepois" maxlength="4" size="4"/>
+      <input type="text" id="depois" name="diaDepois" maxlength="2" size="2"/>
+      / <input type="text" id="mesDepois" name="mesDepois" maxlength="2" size="2"/>
+      / <input type="text" id="anoDepois" name="anoDepois" maxlength="4" size="4"/>
             
       <button type="submit">Buscar</button>
     </fieldset>
