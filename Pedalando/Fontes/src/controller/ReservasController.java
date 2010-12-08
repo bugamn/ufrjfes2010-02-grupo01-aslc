@@ -43,7 +43,8 @@ public class ReservasController {
 		}
 		
 		validator.validate(reserva);
-		validator.onErrorUsePageOf(ReservasController.class).formulario();		
+		if(validator.onErrorUsePageOf(ReservasController.class) != null)
+			validator.onErrorUsePageOf(ReservasController.class).formulario();		
 		
 		reservaDAO.salva(reserva);
 		result.redirectTo(this).lista("", "", "", 0, 0, 0, 0, 0, 0);
