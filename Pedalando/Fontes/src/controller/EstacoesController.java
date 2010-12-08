@@ -18,7 +18,17 @@ public class EstacoesController {
 	private final Validator validator;
 	private final Result result;
 	
-	
+	/**
+	 * Construtor do controlador de estacoes
+	 * @param estacaoDAO
+	 * DAO da classe Estacao
+	 * @param bicicletaDAO
+	 * DAO da classe Bicicleta
+	 * @param result
+	 * Utilizado pelo vRaptor para redirecionamento
+	 * @param validator
+	 * Utilizado pelo vRaptor para fazer validacao
+	 */
 	public EstacoesController(EstacaoDAO estacaoDAO, BicicletaDAO bicicletaDAO, Result result, Validator validator) {
 		this.estacaoDAO = estacaoDAO;
 		this.bicicletaDAO = bicicletaDAO;
@@ -26,6 +36,11 @@ public class EstacoesController {
 		this.validator = validator;
 	}
 	
+	/**
+	 * Adiciona uma nova estacao
+	 * @param estacao
+	 * A estacao a ser adicionada
+	 */
 	public void adiciona(final Estacao estacao) {
 		
 		validator.validate(estacao);
@@ -36,10 +51,25 @@ public class EstacoesController {
 		result.redirectTo(this).lista(".*");
 	}
 	
+	/**
+	 * Metodo chamado pelo vRaptor para criar
+	 * a jsp de insercao de estacao  
+	 */
 	public void formulario() {}
 	
+	/**
+	 * Metodo chamado pelo vRaptor para criar
+	 * a jsp de busca de estacao
+	 */
 	public void busca() {}
 	
+	/**
+	 * Metodo utilizado para listar
+	 * @param nomeBusca
+	 * Expressao regular para o nome
+	 * @return
+	 * Lista de estacoes encontradas pelo listar
+	 */
 	public List<Estacao> lista(String nomeBusca) {
 		if (nomeBusca == null) {
 			nomeBusca = "";
@@ -48,7 +78,15 @@ public class EstacoesController {
 		return estacaoDAO.lista(nomeBusca);
 	}
 	
-	//Em desenvolvimento deverá retornar uma lista de Consulta
+	/**
+	 * Metodo que consulta estacoes e suas bicicletas
+	 * @param nomeBusca
+	 * Expressao regular para o nome da estacao a 
+	 * ser buscado
+	 * @return
+	 * Retorna um array de estacaoVO, que contém
+	 * uma estacao e bicicletas associadas
+	 */
 	public List<EstacaoVO> consulta(String nomeBusca) {
 		List<Estacao> lista;
 		ArrayList<EstacaoVO> estacaoVOs = new ArrayList<EstacaoVO>();
@@ -70,10 +108,25 @@ public class EstacoesController {
 		return estacaoVOs;
 	}
 	
+	/**
+	 * Metodo chamado pelo vRaptor para criar a jsp 
+	 * de edicao de uma estacao
+	 * @param id
+	 * id da estacao a ser alterada
+	 * @return
+	 * retorna a estacao para que seja possivel exibir
+	 * as informacoes na tela
+	 */
 	public Estacao edita(int id) {
 		return estacaoDAO.encontra(id);
 	}
 	
+	/**
+	 * Metodo utilizado para alterar as infomacoes de 
+	 * uma estacao
+	 * @param estacao
+	 * Estacao com os novos dados a serem alterados 
+	 */
 	public void altera(Estacao estacao) {
 		validator.validate(estacao);
 		validator.onErrorUsePageOf(EstacoesController.class).edita(estacao.getId());
@@ -82,6 +135,11 @@ public class EstacoesController {
 		result.redirectTo(EstacoesController.class).lista(estacao.getNome());
 	}
 	
+	/**
+	 * Metodo que remove uma estacao
+	 * @param id
+	 * id da estacao a ser removida
+	 */
 	public void remove(int id) {
 		Estacao estacao = estacaoDAO.encontra(id);
 		estacaoDAO.remove(estacao);
