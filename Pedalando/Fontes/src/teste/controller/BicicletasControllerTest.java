@@ -251,7 +251,7 @@ public class BicicletasControllerTest {
 	@Test
 	public void testAdiciona() {
 		String placa = "ABCD";
-		int tamanho = bicicletaDAO.lista(".*", ".*", ".*").size();
+		int tamanho = bicicletaDAO.lista(".*", ".*", ".*", false).size();
 		Bicicleta bicicletaNova = new Bicicleta();
 		
 		bicicletaNova.setEstacao(estacao);
@@ -260,7 +260,7 @@ public class BicicletasControllerTest {
 		
 		bicicletasController.adiciona(bicicletaNova, estacao.getId());
 		
-		assertEquals("O método adiciona não funciona.", tamanho + 1, bicicletaDAO.lista(".*", ".*", ".*").size());
+		assertEquals("O método adiciona não funciona.", tamanho + 1, bicicletaDAO.lista(".*", ".*", ".*",false).size());
 		
 		bicicletaDAO.remove(bicicletaNova);
 	}
@@ -278,11 +278,11 @@ public class BicicletasControllerTest {
 	@Test
 	public void testLista() {
 		assertEquals("O método lista não funciona.",
-				bicicletaDAO.lista(placaBicicleta, ".*", ".*").size(), bicicletasController.lista(placaBicicleta, null, null).size());
+				bicicletaDAO.lista(placaBicicleta, ".*", ".*",false).size(), bicicletasController.lista(placaBicicleta, null, null).size());
 		assertEquals("O método lista não funciona.",
-				bicicletaDAO.lista(".*", tipoBicicleta, ".*").size(), bicicletasController.lista(null, tipoBicicleta, null).size());
+				bicicletaDAO.lista(".*", tipoBicicleta, ".*",false).size(), bicicletasController.lista(null, tipoBicicleta, null).size());
 		assertEquals("O método lista não funciona.",
-				bicicletaDAO.lista(".*", ".*", nomeEstacao).size(), bicicletasController.lista(null, null, nomeEstacao).size());
+				bicicletaDAO.lista(".*", ".*", nomeEstacao,false).size(), bicicletasController.lista(null, null, nomeEstacao).size());
 	}
 
 }

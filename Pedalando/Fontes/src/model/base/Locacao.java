@@ -27,6 +27,14 @@ public class Locacao {
 	@NotNull
 	private Date data;
 	
+	private boolean isWorking;
+	
+	public boolean isWorking() {
+		return isWorking;
+	}
+	public void setWorking(boolean isWorking) {
+		this.isWorking = isWorking;
+	}
 	public long getId() {
 		return id;
 	}

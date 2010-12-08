@@ -48,22 +48,25 @@ public class DevolucoesController {
 		
 		Bicicleta bicicleta = locacao.getBicicleta();
 		bicicleta.setEstacao(estacao);
+		bicicleta.setAlugada(false);
 		
 		devolucaoDAO.salva(devolucao);
+		locacao.setWorking(false);
+		locacaoDAO.atualiza(locacao);
 		result.redirectTo(this).lista("", "", 0, 0, 0, 0, 0, 0);
 	}
 	
 	public DevolucaoVO formulario(int id) {
-		DevolucaoVO vo = new DevolucaoVO();
+		DevolucaoVO devolucaoVO = new DevolucaoVO();
 		
-		vo.setLocacao(locacaoDAO.encontra(id));
-		vo.setEstacaos(estacaoDAO.lista(".*"));
+		devolucaoVO.setLocacao(locacaoDAO.encontra(id));
+		devolucaoVO.setEstacaos(estacaoDAO.lista(".*"));
 		
-		if (vo.getLocacao() == null) {
+		if (devolucaoVO.getLocacao() == null) {
 			result.redirectTo(this).lista("", "", 0, 0, 0, 0, 0, 0);
 		}
 		
-		return vo;
+		return devolucaoVO;
 	}
 	
 	public void busca() {}
