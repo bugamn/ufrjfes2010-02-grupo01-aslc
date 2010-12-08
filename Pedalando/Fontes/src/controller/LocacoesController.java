@@ -51,7 +51,7 @@ public class LocacoesController {
 			for (Iterator iterator = locacoes.iterator(); iterator.hasNext();) {
 				Locacao locacao2 = (Locacao) iterator.next();
 				if(locacao2.isWorking()) {
-					validator.add(new ValidationMessage("A Bicicleta já está alugada!", "Erro"));
+					validator.add(new ValidationMessage("A Bicicleta ja esta alugada!", "Erro"));
 					validator.onErrorUsePageOf(LocacoesController.class).formulario();
 				}
 			}
