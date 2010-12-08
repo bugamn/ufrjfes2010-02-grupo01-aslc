@@ -19,7 +19,15 @@ public class BicicletasController {
 	private final EstacaoDAO estacaoDAO;
 	private final Result result;
 	private final Validator validator;
-
+	
+	/**
+	 * Construtor do Controlador de jsp das Bicicletas
+	 * 
+	 * @param bicicletaDAO	Objeto para armazenar as bicicletas
+	 * @param estacaoDAO
+	 * @param result
+	 * @param validator
+	 */
 	public BicicletasController(BicicletaDAO bicicletaDAO, EstacaoDAO estacaoDAO, Result result, Validator validator) {
 		this.bicicletaDAO = bicicletaDAO;
 		this.estacaoDAO = estacaoDAO;

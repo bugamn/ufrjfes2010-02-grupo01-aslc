@@ -57,6 +57,13 @@ public class UsuariosController {
 		result.redirectTo(this).lista(".*", ".*", ".*", 0);
 	}
 	
+	/**
+	 * Método executado quando a 
+	 * 
+	 * 
+	 * 
+	 * 
+	 */
 	public void formulario() {}
 	
 	public void busca() {}
