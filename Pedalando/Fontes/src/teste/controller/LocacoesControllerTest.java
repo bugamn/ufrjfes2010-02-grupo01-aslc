@@ -106,7 +106,7 @@ public class LocacoesControllerTest {
 		locacaoDAO.salva(locacao2);
 		
 		locacoesController = new LocacoesController(locacaoDAO, estacaoDAO, bicicletaDAO, usuarioDAO, reservaDAO, new Result() {
-			
+		
 			@Override
 			public boolean used() {
 				// TODO Auto-generated method stub
@@ -295,15 +295,6 @@ public class LocacoesControllerTest {
 			}
 		});
 	}
-
-	@Test
-	public void testAdiciona() {
-		int tamanho = locacaoDAO.lista(".*", ".*", ".*", ".*").size();
-		
-		locacoesController.adiciona(estacao.getId(), usuario.getCpf(), bicicleta2.getPlaca());
-		
-		assertEquals("O método adiciona não funciona.", tamanho + 1, locacaoDAO.lista(".*", ".*", ".*", ".*").size());	
-	}
 	
 	@Test
 	public void testLista() {
@@ -318,6 +309,13 @@ public class LocacoesControllerTest {
 		assertEquals("O método lista não funciona no filtro de destino.", 
 				locacaoDAO.lista(".*", ".*", ".*", estacao2.getNome()).size(), locacoesController.lista("", "", "", estacao2.getNome(), 0, 0, 0, 0, 0, 0).size());
 		
+	}
+	
+	@Test
+	public void testAdiciona() {
+		int tamanho = locacaoDAO.lista(".*", ".*", ".*", ".*").size();
+		locacoesController.adiciona(estacao.getId(), usuario.getCpf(), bicicleta2.getPlaca());
+		assertEquals("O método adiciona não funciona.", tamanho + 1, locacaoDAO.lista(".*", ".*", ".*", ".*").size());	
 	}
 	
 	@Test
