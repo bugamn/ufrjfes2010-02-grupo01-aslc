@@ -18,6 +18,16 @@ public class Bicicleta {
 	
 	@NotNull
 	private Estacao estacao;
+	
+	private boolean alugada;
+
+	public boolean isAlugada() {
+		return alugada;
+	}
+
+	public void setAlugada(boolean alugada) {
+		this.alugada = alugada;
+	}
 
 	public String getPlaca() {
 		return placa;

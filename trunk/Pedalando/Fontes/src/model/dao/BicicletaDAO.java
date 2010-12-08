@@ -64,7 +64,7 @@ public class BicicletaDAO {
 	 * @param estacaoBusca
 	 * Expressão regular para identificar o nome da estação da bicicleta;
 	 */
-	public List<Bicicleta> lista(String placaBusca, String tipoBusca, String estacaoBusca) {
+	public List<Bicicleta> lista(String placaBusca, String tipoBusca, String estacaoBusca, boolean alugada) {
 		ArrayList<Bicicleta> list = new ArrayList<Bicicleta>();
 		Pattern placaPattern = Pattern.compile(placaBusca);
 		Pattern tipoPattern = Pattern.compile(tipoBusca);
@@ -74,7 +74,10 @@ public class BicicletaDAO {
 			if (placaPattern.matcher(bicicleta.getPlaca()).matches() && 
 					tipoPattern.matcher(bicicleta.getTipo()).matches() &&
 					estacaoPattern.matcher(bicicleta.getEstacao().getNome()).matches()) {
-				list.add(bicicleta);
+				if(alugada == true && bicicleta.isAlugada() == alugada)
+					list.add(bicicleta);
+				else if(alugada == false)
+					list.add(bicicleta);
 			}
 		}
 		
@@ -90,7 +93,7 @@ public class BicicletaDAO {
 	 * @param estacaoBusca
 	 * Id da estacao que hospeda a bicicleta;
 	 */
-	public List<Bicicleta> lista(String placaBusca, String tipoBusca, int estacaoBusca) {
+	public List<Bicicleta> lista(String placaBusca, String tipoBusca, int estacaoBusca, boolean alugada) {
 		ArrayList<Bicicleta> list = new ArrayList<Bicicleta>();
 		Pattern placaPattern = Pattern.compile(placaBusca);
 		Pattern tipoPattern = Pattern.compile(tipoBusca);
@@ -99,7 +102,10 @@ public class BicicletaDAO {
 			if (placaPattern.matcher(bicicleta.getPlaca()).matches() && 
 					tipoPattern.matcher(bicicleta.getTipo()).matches() &&
 					estacaoBusca == bicicleta.getEstacao().getId()) {
-				list.add(bicicleta);
+				if(alugada == true && bicicleta.isAlugada() == alugada)
+					list.add(bicicleta);
+				else if(alugada == false)
+					list.add(bicicleta);
 			}
 		}
 		

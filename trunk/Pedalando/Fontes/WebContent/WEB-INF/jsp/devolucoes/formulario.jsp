@@ -3,7 +3,7 @@
   <fieldset>
     <legend>Devolver Bicicleta</legend>
     
-    <input id="idLocacao" type="hidden" value="${ devolucaoVO.locacao.id }"> 
+    <input name="idLocacao" type="hidden" value="${ devolucaoVO.locacao.id }"> 
     
     <label for="placa">Placa:</label>
     <input id="placa" type="text" disabled="disabled" value="${ devolucaoVO.locacao.bicicleta.placa }"/>

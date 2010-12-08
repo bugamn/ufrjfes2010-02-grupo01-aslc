@@ -62,7 +62,7 @@ public class EstacoesController {
 		for (Estacao estacao : lista) {
 			vo = new EstacaoVO();
 			vo.setEstacao(estacao);
-			vo.setBicicletas(bicicletaDAO.lista(".*", ".*", estacao.getNome()));
+			vo.setBicicletas(bicicletaDAO.lista(".*", ".*", estacao.getNome(),false));
 			estacaoVOs.add(vo);
 		}
 		

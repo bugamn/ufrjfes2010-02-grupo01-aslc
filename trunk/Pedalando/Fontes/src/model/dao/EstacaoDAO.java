@@ -72,7 +72,7 @@ public class EstacaoDAO {
 	public List<Bicicleta> listaBicicletas(String placaBusca, String tipoBusca, int estacaoBusca) {
 		BicicletaDAO bicicletaDAO = new BicicletaDAO();
 		
-		return bicicletaDAO.lista(placaBusca, tipoBusca, estacaoBusca);
+		return bicicletaDAO.lista(placaBusca, tipoBusca, estacaoBusca, false);
 	}
 	
 	/**
@@ -87,7 +87,7 @@ public class EstacaoDAO {
 	public List<Bicicleta> listaBicicletas(String placaBusca, String tipoBusca, String estacaoBusca) {
 		BicicletaDAO bicicletaDAO = new BicicletaDAO();
 		
-		return bicicletaDAO.lista(placaBusca, tipoBusca, estacaoBusca);
+		return bicicletaDAO.lista(placaBusca, tipoBusca, estacaoBusca, false);
 		
 	}
 }

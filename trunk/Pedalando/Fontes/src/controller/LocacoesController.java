@@ -2,6 +2,7 @@ package controller;
 
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Iterator;
 import java.util.List;
 
 import model.base.Bicicleta;
@@ -17,6 +18,8 @@ import model.vo.BicicletaVO;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
+import br.com.caelum.vraptor.validator.ValidationMessage;
+import br.com.caelum.vraptor.validator.Validations;
 
 @Resource
 public class LocacoesController {
@@ -44,16 +47,27 @@ public class LocacoesController {
 		Bicicleta bicicleta = bicicletaDAO.encontra(placa);
 
 		if(bicicleta != null) {
+			List<Locacao> locacoes = locacaoDAO.lista(".*", placa, ".*", ".*");
+			for (Iterator iterator = locacoes.iterator(); iterator.hasNext();) {
+				Locacao locacao2 = (Locacao) iterator.next();
+				if(locacao2.isWorking()) {
+					validator.add(new ValidationMessage("A Bicicleta já está alugada!", "Erro"));
+					validator.onErrorUsePageOf(LocacoesController.class).formulario();
+				}
+			}
 			locacao.setBicicleta(bicicleta);
 			locacao.setEstacao(bicicleta.getEstacao());
+			bicicleta.setAlugada(true);
 		}
 		locacao.setDestino(estacaoDAO.encontra(destino));
 		locacao.setUsuario(usuarioDAO.encontra(cpf));
 		locacao.setData(new Date(System.currentTimeMillis()));
+		locacao.setWorking(true);
 		
 		validator.validate(locacao);
 		validator.onErrorUsePageOf(LocacoesController.class).formulario();
 		
+		bicicletaDAO.atualiza(bicicleta);
 		locacaoDAO.salva(locacao);
 		result.redirectTo(this).lista("", "", "", "", 0, 0, 0, 0, 0, 0);
 	}
@@ -118,7 +132,9 @@ public class LocacoesController {
 		BicicletaVO bicicletaVO = new BicicletaVO();
 		Reserva reserva = reservaDAO.encontra(id);
 		bicicletaVO.setReserva(id);
-		bicicletaVO.setBicicletas(bicicletaDAO.lista(".*", ".*", reserva.getEstacao().getNome()));
+		List<Bicicleta> bicicletasTotais = bicicletaDAO.lista(".*", ".*", reserva.getEstacao().getNome(),false);
+		bicicletasTotais.removeAll(bicicletaDAO.lista(".*", ".*", reserva.getEstacao().getNome(),true));
+		bicicletaVO.setBicicletas(bicicletasTotais);
 		
 		return bicicletaVO;
 	}
@@ -129,11 +145,13 @@ public class LocacoesController {
 		Bicicleta bicicleta = bicicletaDAO.encontra(placa);
 		Reserva reserva = reservaDAO.encontra(id);
 		
+		bicicleta.setAlugada(true);
 		locacao.setBicicleta(bicicleta);
 		locacao.setEstacao(reserva.getEstacao());
 		locacao.setDestino(reserva.getDestino());
 		locacao.setUsuario(reserva.getUsuario());
 		locacao.setData(data);
+		locacao.setWorking(true);
 		
 		validator.validate(locacao);
 		validator.onErrorUsePageOf(LocacoesController.class).locacaoComReserva(id);

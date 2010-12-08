@@ -29,7 +29,7 @@ public class BicicletasController {
 	
 	public void adiciona(Bicicleta bicicleta, int id) {
 		bicicleta.setEstacao(estacaoDAO.encontra(id));
-		
+		bicicleta.setAlugada(false);
 		validator.validate(bicicleta);
 		validator.onErrorUsePageOf(BicicletasController.class).formulario();
 		
@@ -67,7 +67,7 @@ public class BicicletasController {
 		placaBusca = ".*" + placaBusca + ".*";
 		tipoBusca = ".*" + tipoBusca + ".*";
 		estacaoBusca = ".*" + estacaoBusca + ".*";
-		return bicicletaDAO.lista(placaBusca, tipoBusca, estacaoBusca);		
+		return bicicletaDAO.lista(placaBusca, tipoBusca, estacaoBusca, false);		
 	}
 	
 	public BicicletaVO edita(String placa) {
@@ -84,6 +84,8 @@ public class BicicletasController {
 	
 	public void altera(Bicicleta bicicleta, int id) {
 		bicicleta.setEstacao(estacaoDAO.encontra(id));
+		Bicicleta bic = bicicletaDAO.encontra(bicicleta.getPlaca());
+		bicicleta.setAlugada(bic.isAlugada());
 		
 		validator.validate(bicicleta);
 		validator.onErrorUsePageOf(BicicletasController.class).edita(bicicleta.getPlaca());
