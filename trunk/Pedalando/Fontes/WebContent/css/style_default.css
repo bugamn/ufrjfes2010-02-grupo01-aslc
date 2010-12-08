@@ -73,7 +73,9 @@ li.cabeca_menu{
 }
 
 li.cabeca_menu ul{
-	position:relative;
+	position:absolute;
+	top:28px;
+	left:-2px;
 	list-style-type:none;
 	margin:0;
 	padding:0;
@@ -81,7 +83,10 @@ li.cabeca_menu ul{
 }
 
 ul.corpo_menu li{
+	background:black;
 	border-bottom: 1px solid #333;
+	padding:3px;
+	width:80px;
 }
 
 li.cabeca_menu:hover{
@@ -97,6 +102,7 @@ ul.corpo_menu li:hover{
 ul.corpo_menu li a{
 	color: white;
 	display: block;
+	text-aling:center;
 }
 
 ul.corpo_menu li a:hover{
