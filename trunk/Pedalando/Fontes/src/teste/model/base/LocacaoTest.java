@@ -48,6 +48,7 @@ public class LocacaoTest {
 		locacao.setUsuario(usuario);
 		locacao.setBicicleta(bicicleta);
 		locacao.setData(data);
+		locacao.setEstacao(estacao);
 	}
 
 	@Test
@@ -97,7 +98,7 @@ public class LocacaoTest {
 	public void testSetEstacao() {
 		Estacao novoEstacao = new Estacao();
 		novoEstacao.setId(10);
-		locacao.setDestino(novoEstacao);
+		locacao.setEstacao(novoEstacao);
 		assertEquals("setEstaca não funciona.", novoEstacao, locacao.getEstacao());
 	}
 	
