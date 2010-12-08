@@ -23,10 +23,10 @@ public class BicicletasController {
 	/**
 	 * Construtor do Controlador de jsp das Bicicletas
 	 * 
-	 * @param bicicletaDAO	Objeto para armazenar as bicicletas
-	 * @param estacaoDAO
-	 * @param result
-	 * @param validator
+	 * @param bicicletaDAO	Objeto DAO para armazenar e acessar as bicicletas
+	 * @param estacaoDAO	Objeto DAO para armazenar e acessar as estacoes
+	 * @param result		Usado pelo vraptor para fazer redirecionamentos
+	 * @param validator		Objeto do vraptor para validar os modelos do dominio
 	 */
 	public BicicletasController(BicicletaDAO bicicletaDAO, EstacaoDAO estacaoDAO, Result result, Validator validator) {
 		this.bicicletaDAO = bicicletaDAO;
@@ -35,6 +35,13 @@ public class BicicletasController {
 		this.validator = validator;
 	}
 	
+	/**
+	 * Metodo correspondente a pagina adiciona.jsp que adiciona a bicicleta recebida
+	 * na estacao referenciada por id
+	 * 
+	 * @param bicicleta		Bicicleta a ser inserida
+	 * @param id			Id da estacao que a bicicleta sera inserida
+	 */
 	public void adiciona(Bicicleta bicicleta, int id) {
 		bicicleta.setEstacao(estacaoDAO.encontra(id));
 		bicicleta.setAlugada(false);
@@ -57,14 +64,33 @@ public class BicicletasController {
 		result.redirectTo(this).lista(".*", ".*", ".*");
 	}
 	
+	/**
+	 * Metodo que retorna a lista de estacoes existentes no dominio para ser usada pelo formulario.jsp
+	 * 
+	 * @return		Lista de estacoes
+	 */
 	public List<Estacao> formulario() {
 		return estacaoDAO.lista(".*");
 	}
 	
+	/**
+	 * Metodo que retorna a lista de estacoes existentes no dominio para ser usada pelo busca
+	 * 
+	 * @return		Lista de estacoes
+	 */
 	public List<Estacao> busca() {
 		return estacaoDAO.lista(".*");
 	}
 
+	/**
+	 * Metodo que retorna uma lista de bicicletas que passam pelas expressoes 
+	 * regulares recebidas
+	 * 
+	 * @param placaBusca		Expressao regular para filtrar os resultados correspondente por placa 
+	 * @param tipoBusca			Expressao regular para filtrar os resultados correspondente por tipo
+	 * @param estacaoBusca		Expressao regular para filtrar os resultados correspondente por estacao
+	 * @return					Lista de bicicletas cujos atributos atendem as expressoes regulares recebidas
+	 */
 	public List<Bicicleta> lista(String placaBusca, String tipoBusca, String estacaoBusca) {
 		if (placaBusca == null) {
 			placaBusca = "";
@@ -82,6 +108,13 @@ public class BicicletasController {
 		return bicicletaDAO.lista(placaBusca, tipoBusca, estacaoBusca, false);		
 	}
 	
+	/**
+	 * Prepara os dados da bicicleta que sera editada para serem utilizados na edita.jsp e os retorna
+	 * como um bicicletaVO que pode ser lido na edita.jsp para preencher o formulario de edicao  
+	 * 
+	 * @param placa		Placa da bicicleta que sera editada
+	 * @return			bicicletaVO com os dados da bicicleta que deve ser editada
+	 */
 	public BicicletaVO edita(String placa) {
 		BicicletaVO bicicletaVO = new BicicletaVO();
 		Bicicleta bicicleta = bicicletaDAO.encontra(placa);
@@ -94,6 +127,13 @@ public class BicicletasController {
 		return bicicletaVO;
 	}
 	
+	/**
+	 * Atualiza os atributos da bicicleta com id = id e os atualiza com os atributos atualizados 
+	 * recebidos em bicicleta
+	 * 
+	 * @param bicicleta		Instancia de bicicleta com os atributos atualizados
+	 * @param id			Id da biciceta que deve ser atualizada no bicicletasDAO
+	 */
 	public void altera(Bicicleta bicicleta, int id) {
 		bicicleta.setEstacao(estacaoDAO.encontra(id));
 		Bicicleta bic = bicicletaDAO.encontra(bicicleta.getPlaca());
@@ -106,6 +146,11 @@ public class BicicletasController {
 		result.redirectTo(BicicletasController.class).lista(bicicleta.getPlaca(), ".*", ".*");
 	}
 	
+	/**
+	 * Remove a bicicleta com a placa recebida
+	 * 
+	 * @param placa		Placa da bicicleta a ser removida
+	 */
 	public void remove(String placa) {
 		Bicicleta bicicleta = bicicletaDAO.encontra(placa);
 		bicicletaDAO.remove(bicicleta);
