@@ -44,7 +44,8 @@ public class DevolucoesController {
 		devolucao.setData(new Date(System.currentTimeMillis()));
 		
 		validator.validate(devolucao);
-		validator.onErrorUsePageOf(this).formulario(idLocacao);
+		if(validator.onErrorUsePageOf(this) != null)
+			validator.onErrorUsePageOf(this).formulario(idLocacao);
 		
 		Bicicleta bicicleta = locacao.getBicicleta();
 		bicicleta.setEstacao(estacao);

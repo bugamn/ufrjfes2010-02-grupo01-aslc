@@ -31,7 +31,9 @@ public class BicicletasController {
 		bicicleta.setEstacao(estacaoDAO.encontra(id));
 		bicicleta.setAlugada(false);
 		validator.validate(bicicleta);
-		validator.onErrorUsePageOf(BicicletasController.class).formulario();
+		
+		if(validator.onErrorUsePageOf(BicicletasController.class) != null)
+			validator.onErrorUsePageOf(BicicletasController.class).formulario();
 		
 		ArrayList<Bicicleta> bicicletas = 
 			bicicletaDAO.encontraBicicletasEmEstacao(
@@ -39,7 +41,9 @@ public class BicicletasController {
 		if ( bicicletas.size() >= bicicleta.getEstacao().getCapacidade()) {
 	        validator.add(new ValidationMessage("Capacidade da estação está esgotada", "Estação"));
 	    }
-	    validator.onErrorUsePageOf(this).formulario();
+		
+		if(validator.onErrorUsePageOf(this) != null)
+			validator.onErrorUsePageOf(this).formulario();
 		
 		bicicletaDAO.salva(bicicleta);
 		result.redirectTo(this).lista(".*", ".*", ".*");

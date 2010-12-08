@@ -29,7 +29,8 @@ public class EstacoesController {
 	public void adiciona(final Estacao estacao) {
 		
 		validator.validate(estacao);
-		validator.onErrorUsePageOf(EstacoesController.class).formulario();
+		if(validator.onErrorUsePageOf(EstacoesController.class) != null)
+			validator.onErrorUsePageOf(EstacoesController.class).formulario();
 		
 		estacaoDAO.salva(estacao);
 		result.redirectTo(this).lista(".*");

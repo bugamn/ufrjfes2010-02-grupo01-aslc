@@ -65,7 +65,8 @@ public class LocacoesController {
 		locacao.setWorking(true);
 		
 		validator.validate(locacao);
-		validator.onErrorUsePageOf(LocacoesController.class).formulario();
+		if(validator.onErrorUsePageOf(LocacoesController.class) != null)
+			validator.onErrorUsePageOf(LocacoesController.class).formulario();
 		
 		bicicletaDAO.atualiza(bicicleta);
 		locacaoDAO.salva(locacao);

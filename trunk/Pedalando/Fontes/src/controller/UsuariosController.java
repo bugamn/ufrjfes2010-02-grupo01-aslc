@@ -50,7 +50,8 @@ public class UsuariosController {
 		usuario.setPermissao(p);
 		
 		validator.validate(usuario);
-		validator.onErrorUsePageOf(UsuariosController.class).formulario();
+		if(validator.onErrorUsePageOf(UsuariosController.class) != null)
+			validator.onErrorUsePageOf(UsuariosController.class).formulario();
 		
 		usuarioDAO.salva(usuario);
 		result.redirectTo(this).lista(".*", ".*", ".*", 0);
